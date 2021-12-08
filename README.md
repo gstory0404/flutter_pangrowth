@@ -108,7 +108,7 @@ NovelEntity novel = await FlutterPangrowth.getNovelRecommendFeed(
         )
 ```
 
-#### 7、小说显示
+#### 7、小说显示上报
 ```dart
 await FlutterPangrowth.reportRecentNovelShow(
          type: result.type,//NovelEntity 中type字段
@@ -116,7 +116,7 @@ await FlutterPangrowth.reportRecentNovelShow(
 );
 ```
 
-#### 8、打开小说
+#### 8、打开小说页面
 ```dart
 await FlutterPangrowth.openNovelPageWithConfig(
   type: result.type,//NovelEntity 中type字段
