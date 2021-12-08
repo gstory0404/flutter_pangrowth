@@ -12,9 +12,9 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 
 ## 接入文档
 
-* [Android](https://github.com/gstory0404/flutter_unionad)
+* [Android](https://github.com/gstory0404/flutter_pangrowth/blob/master/Android.md)
 
-* [ios](https://github.com/gstory0404/flutter_tencentad)
+* [ios](https://github.com/gstory0404/flutter_pangrowth/blob/master/IOS.md)
 
 ## 本地环境
 ```
