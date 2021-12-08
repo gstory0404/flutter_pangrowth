@@ -69,6 +69,7 @@ class FlutterPangrowth {
     dynamic data = await _channel.invokeMethod("getNovelHistory", {
       "size": 1,
     });
+    print("结果 =》$data");
     return NovelEntity.fromJson(Map<String,dynamic>.from(data));
   }
 
@@ -95,6 +96,7 @@ class FlutterPangrowth {
     dynamic data = await _channel.invokeMethod("getNovelRecommendFeed", {
       "size": size,
     });
+    print("结果 =》$data");
     return NovelEntity.fromJson(Map<String, dynamic>.from(data));
   }
 

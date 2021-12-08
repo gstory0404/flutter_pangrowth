@@ -167,7 +167,6 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                         novelDetail = JSON.toJSONString(it),
                         type = 1)
                 novelList.add(novel)
-
             }
             var entity = NovelEntity(code = true, msg = "", data = novelList)
             val jsonObject: JSONObject = JSONObject.parseObject(JSON.toJSONString(entity))

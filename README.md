@@ -4,7 +4,8 @@
 </p>
 
 ## 简介
-flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作的插件。[体验demo](https://www.pgyer.com/j7YB)
+flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作的插件。[体验demo](https://www.pgyer.com/sUQU)
+目前仅支持小说。
 
 ## 说明
 
