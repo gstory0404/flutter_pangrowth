@@ -1,0 +1,59 @@
+group 'com.example.flutter_pangrowth'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext.kotlin_version = '1.3.50'
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 30
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation ('com.pangle.cn:pangrowth-sdk:1.6.1.0'){
+        exclude group: 'com.pangle.cn', module: 'pangrowth-dpsdk-live'
+        exclude group: 'com.pangle.cn', module: 'pangrowth-dpsdk'
+        exclude group: 'com.pangle.cn', module: 'pangrowth-game-sdk'
+        exclude group: 'com.pangle.cn', module: 'pangrowth-luckycat-sdk'
+    }
+//    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.alibaba:fastjson:1.2.32'
+}

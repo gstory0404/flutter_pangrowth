@@ -1,0 +1,123 @@
+PODS:
+  - Ads-CN-Beta (4.1.0.1):
+    - Ads-CN-Beta/BUAdSDK (= 4.1.0.1)
+  - Ads-CN-Beta/BUAdSDK (4.1.0.1):
+    - Ads-CN-Beta/BUFoundation
+    - Ads-CN-Beta/Domestic
+  - Ads-CN-Beta/BUFoundation (4.1.0.1)
+  - Ads-CN-Beta/Domestic (4.1.0.1)
+  - BDNovelOpenSDK (3.5.0):
+    - FMDB/standard
+    - MMKV
+    - OneKit/ByteDanceKit
+    - RangersAPM/Core (~> 2.0.0)
+    - RangersAPM/Crash (~> 2.0.0)
+    - RangersAPM/HMD (~> 2.0.0)
+    - RangersAPM/Public (~> 2.0.0)
+    - RangersAppLog/Core (~> 5.6.3)
+    - RangersAppLog/Host/CN (~> 5.6.3)
+    - YYCache
+    - YYText
+  - Flutter (1.0.0)
+  - flutter_pangrowth (0.0.1):
+    - Flutter
+    - MJExtension (~> 3.4.0)
+  - flutter_unionad (0.0.1):
+    - Ads-CN-Beta (~> 4.1.0.1)
+    - Flutter
+  - FMDB/standard (2.7.5)
+  - MJExtension (3.4.1)
+  - MMKV (1.2.11):
+    - MMKVCore (~> 1.2.11)
+  - MMKVCore (1.2.11)
+  - OneKit/BaseKit (1.1.37)
+  - OneKit/ByteDanceKit (1.1.37):
+    - OneKit/ByteDanceKit/Foundation (= 1.1.37)
+    - OneKit/ByteDanceKit/UIKit (= 1.1.37)
+  - OneKit/ByteDanceKit/Foundation (1.1.37)
+  - OneKit/ByteDanceKit/UIKit (1.1.37):
+    - OneKit/ByteDanceKit/Foundation
+  - OneKit/Database (1.1.37):
+    - OneKit/Service
+  - OneKit/Service (1.1.37)
+  - Pangrowth/novel (1.6.1.0):
+    - BDNovelOpenSDK (= 3.5.0)
+    - RangersAPM/Core (= 2.0.5)
+    - RangersAPM/Crash (= 2.0.5)
+    - RangersAPM/EventMonitor (= 2.0.5)
+    - RangersAPM/HMD (= 2.0.5)
+    - RangersAPM/Public (= 2.0.5)
+    - RangersAppLog/Core (= 5.6.6)
+    - RangersAppLog/Host/CN (= 5.6.6)
+  - RangersAPM/Core (2.0.5):
+    - OneKit/BaseKit
+  - RangersAPM/Crash (2.0.5):
+    - RangersAPM/Core
+    - RangersAPM/HMD
+    - RangersAPM/Public
+  - RangersAPM/EventMonitor (2.0.5):
+    - RangersAPM/Core
+    - RangersAPM/HMD
+    - RangersAPM/Public
+  - RangersAPM/HMD (2.0.5):
+    - OneKit/Database
+    - RangersAPM/Core
+  - RangersAPM/Public (2.0.5):
+    - RangersAPM/Core
+  - RangersAppLog/Core (5.6.6)
+  - RangersAppLog/Host/CN (5.6.6):
+    - RangersAppLog/Core
+  - YYCache (1.0.4)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - flutter_pangrowth (from `.symlinks/plugins/flutter_pangrowth/ios`)
+  - flutter_unionad (from `.symlinks/plugins/flutter_unionad/ios`)
+  - Pangrowth/novel (= 1.6.1.0)
+
+SPEC REPOS:
+  https://github.com/bytedance/cocoapods_sdk_source_repo.git:
+    - RangersAppLog
+  https://github.com/CocoaPods/Specs.git:
+    - Ads-CN-Beta
+    - FMDB
+    - MJExtension
+    - MMKV
+    - MMKVCore
+    - YYCache
+    - YYText
+  https://github.com/volcengine/volcengine-specs.git:
+    - BDNovelOpenSDK
+    - OneKit
+    - Pangrowth
+    - RangersAPM
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  flutter_pangrowth:
+    :path: ".symlinks/plugins/flutter_pangrowth/ios"
+  flutter_unionad:
+    :path: ".symlinks/plugins/flutter_unionad/ios"
+
+SPEC CHECKSUMS:
+  Ads-CN-Beta: ebf133f5812a8e618c68302580d6e39186d5287c
+  BDNovelOpenSDK: 9368ca8450a2673a0a570c82e0182953000f0e4a
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_pangrowth: 07b51cd2f97e059cac4bdb058c833ae683cea2f5
+  flutter_unionad: 140720b3a24cbf9fd3aadbcc9e411ec24bd6fd7f
+  FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
+  MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
+  MMKV: 217b643c181c3d2f71983206ca1972d0a6e99881
+  MMKVCore: f9e4f56742fdebbd042f7a273e278927f182cee7
+  OneKit: 59064685cf22e0260f2ff9c8f8115883b9b19957
+  Pangrowth: 63a6d734647df5c1f45d2866e4b8c450c3446942
+  RangersAPM: 450fa350fdbcbda3f271207a971b897b8f959f6d
+  RangersAppLog: d2c0f4ca6035823008531a76e2e2c8601fe58a46
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: f6d1f57b128e3ceab19c4e4a6561cb1c9eda24a4
+
+COCOAPODS: 1.11.2
