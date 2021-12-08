@@ -12,3 +12,5 @@ target 'Runner' do
     pod 'Pangrowth', '1.6.1.0', :subspecs => [ 'novel' ]
 end
 ```
+
+2、把下载的json文件改名pangrowthconfig.json导入项目ios目录下
