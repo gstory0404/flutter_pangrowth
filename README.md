@@ -108,13 +108,29 @@ NovelEntity novel = await FlutterPangrowth.getNovelRecommendFeed(
         )
 ```
 
-#### 7、获取当日阅读时长
+#### 7、小说显示
+```dart
+await FlutterPangrowth.reportRecentNovelShow(
+         type: result.type,//NovelEntity 中type字段
+         book: result.novelDetail,//NovelEntity 中novelDetail字段
+);
+```
+
+#### 8、打开小说
+```dart
+await FlutterPangrowth.openNovelPageWithConfig(
+  type: result.type,//NovelEntity 中type字段
+  book: result.novelDetail,//NovelEntity 中novelDetail字段
+);
+```
+
+#### 9、获取当日阅读时长
 单位：毫秒
 ```dart
 int _duration = await FlutterPangrowth.getReadDuration();
 ```
 
-#### 8、获取搜索Suggestion
+#### 10、获取搜索Suggestion
 ```dart
 NovelEntity novel = await FlutterPangrowth.searchNovelSuggestions(
           queryContent: query,//搜索关键字
@@ -123,7 +139,7 @@ NovelEntity novel = await FlutterPangrowth.searchNovelSuggestions(
 )
 ```
 
-#### 9、获取搜索Results
+#### 11、获取搜索Results
 ```dart
 NovelEntity novel = await FlutterPangrowth.searchNovelResults(
           queryContent: query,//搜索关键字
