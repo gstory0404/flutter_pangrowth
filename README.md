@@ -81,7 +81,7 @@ await FlutterPangrowth.openNovelPage();
             "bookName": "",//小说名字
             "readUrl": "",//阅读地址
             "thumbUrl": "",//小说封面
-            "novelDetail": ""//小说具体信息json（由于android、ios数据格式、后续跳转参数等都不相同所有不做处理直接返回json数据，开发者可根据需求在项目中自行解析）
+            "novelDetail": ""//小说具体信息json（由于android、ios数据格式、后续跳转所需参数等都不相同，所以不做处理直接返回json数据，开发者可根据需求在项目中自行解析）
         }
     ]
 }
