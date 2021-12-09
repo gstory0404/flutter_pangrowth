@@ -7,6 +7,9 @@
 flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作的插件。[体验demo](https://www.pgyer.com/sUQU)
 目前仅支持小说。
 
+<img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%">
+
+
 ## 说明
 
 使用flutter_pangrowth插件，必须先接入穿山甲广告插件[flutter_unionad](https://github.com/gstory0404/flutter_unionad),不然无法显示广告
