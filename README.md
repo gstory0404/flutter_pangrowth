@@ -77,7 +77,7 @@ await FlutterPangrowth.openNovelPage();
 #### 3、NovelEntity说明
 ```dart
 {
-    "code": 0,//1成功 0失败
+    "code": true,//true获取成功 false获取失败
     "msg": "",//错误提示
     "data": [//返回小说数组
         {
