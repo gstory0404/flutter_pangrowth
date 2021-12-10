@@ -65,31 +65,36 @@ class SearchNovelDelegate extends SearchDelegate<String> {
                         : snapshot.data?.data!.length,
                     itemBuilder: (context, index) {
                       NovelEntityData result = snapshot.data!.data![index];
-                      return Container(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-                        child: Row(
-                          children: [
-                            Image.network(
-                              result.thumbUrl,
-                              width: 90,
-                              height: 120,
-                              fit: BoxFit.fill,
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(
-                                    left: 16, top: 4, bottom: 4),
+                      return InkWell(
+                        onTap: () async{
+                          FlutterPangrowth.openNovelPageWithUrl(url: result.readUrl);
+                        },
+                        child: Container(
+                          padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                          child: Row(
+                            children: [
+                              Image.network(
+                                result.thumbUrl,
+                                width: 90,
                                 height: 120,
-                                child: Text(
-                                  result.bookName,
-                                  style: const TextStyle(
-                                    fontSize: 18,
+                                fit: BoxFit.fill,
+                              ),
+                              Expanded(
+                                child: Container(
+                                  margin: EdgeInsets.only(
+                                      left: 16, top: 4, bottom: 4),
+                                  height: 120,
+                                  child: Text(
+                                    result.bookName,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       );
                     });
@@ -128,7 +133,9 @@ class SearchNovelDelegate extends SearchDelegate<String> {
                     NovelEntityData result = snapshot.data!.data![index];
                     return ListTile(
                       title: Text(result.bookName,style: const TextStyle(fontSize: 14),),
-                      onTap: () {},
+                      onTap: () {
+                        FlutterPangrowth.openNovelPageWithUrl(url: result.readUrl);
+                      },
                     );
                   }
                 );

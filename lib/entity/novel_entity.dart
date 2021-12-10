@@ -54,7 +54,7 @@ class NovelEntity {
 
 class NovelEntityData {
   NovelEntityData({
-    required this.bookId,
+    required this.readUrl,
     required this.bookName,
     required this.type,
     required this.thumbUrl,
@@ -62,14 +62,14 @@ class NovelEntityData {
   });
 
   factory NovelEntityData.fromJson(Map<String, dynamic> jsonRes) => NovelEntityData(
-    bookId: jsonRes['bookId']!,
+    readUrl: jsonRes['readUrl']!,
     bookName: jsonRes['bookName']!,
     type: jsonRes['type']!,
     thumbUrl: jsonRes['thumbUrl']!,
     novelDetail: jsonRes['novelDetail']!,
   );
 
-  String bookId;
+  String readUrl;
   String bookName;
   int type;
   String thumbUrl;
@@ -81,7 +81,7 @@ class NovelEntityData {
   }
 
   Map<String, dynamic> toJson() => <String, dynamic>{
-    'bookId': bookId,
+    'readUrl': readUrl,
     'bookName': bookName,
     'type': type,
     'thumbUrl': thumbUrl,
@@ -90,7 +90,7 @@ class NovelEntityData {
 
   NovelEntityData copy() {
     return NovelEntityData(
-      bookId: bookId,
+      readUrl: readUrl,
       bookName: bookName,
       type: type,
       thumbUrl: thumbUrl,

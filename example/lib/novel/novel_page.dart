@@ -72,6 +72,14 @@ class _NovelPageState extends State<NovelPage> {
       iosAppId: "299886",
       //是否显示日志
       debug: true,
+      //是否个性化推送广告
+      personalRecommendAd: true,
+      //是否个性化推送小说内容
+      personalRecommendContent: true,
+      //全局字号大小
+      normalFontType: NormalFontSize.normal,
+      //阅读字号大小
+      readFontType: ReadFontSize.one,
     );
     setState(() {});
   }

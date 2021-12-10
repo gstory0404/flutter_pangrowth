@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NovelData : NSObject
 
-@property(nonatomic, strong) NSString *bookId;
+@property(nonatomic, strong) NSString *readUrl;
 
 @property(nonatomic, strong) NSString *bookName;
 

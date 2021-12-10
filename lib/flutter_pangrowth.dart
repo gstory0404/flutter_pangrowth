@@ -32,7 +32,13 @@ class FlutterPangrowth {
   ///
   /// [debug] 是否实现日志
   ///
-  /// [personalRecommend] 是否个性化推送
+  /// [personalRecommendAd] 是否个性化推送广告
+  ///
+  ///  [personalRecommendContent] 是否个性化推送小说内容
+  ///
+  ///  [normalFontType] 全局字号大小
+  ///
+  ///   [readFontType] 阅读字号大小
   ///
   static Future<bool> registerNovel({
     required String appName,
@@ -42,7 +48,10 @@ class FlutterPangrowth {
     required String andoridAppId,
     required String iosAppId,
     bool? debug,
-    bool? personalRecommend,
+    bool? personalRecommendAd,
+    bool? personalRecommendContent,
+    String? normalFontType,
+    String? readFontType,
   }) async {
     return await _channel.invokeMethod("registerNovel", {
       "appName": appName,
@@ -52,7 +61,10 @@ class FlutterPangrowth {
       "andoridAppId": andoridAppId,
       "iosAppId": iosAppId,
       "debug": debug ?? false,
-      " ": personalRecommend ?? true,
+      "personalRecommendAd": personalRecommendAd ?? true,
+      "personalRecommendContent": personalRecommendContent ?? true,
+      "normalFontType": normalFontType ?? NormalFontSize.normal,
+      "readFontType": readFontType ?? ReadFontSize.two,
     });
   }
 
@@ -69,7 +81,6 @@ class FlutterPangrowth {
     dynamic data = await _channel.invokeMethod("getNovelHistory", {
       "size": 1,
     });
-    print("结果 =》$data");
     return NovelEntity.fromJson(Map<String,dynamic>.from(data));
   }
 
@@ -172,6 +183,18 @@ class FlutterPangrowth {
     return NovelEntity.fromJson(Map<String, dynamic>.from(data));
   }
 
+  ///# 打开书籍
+  ///
+  /// [url] 小说跳转地址
+  ///
+  static Future<bool> openNovelPageWithUrl({
+    required String url,
+  }) async {
+    return await _channel.invokeMethod("openNovelPageWithUrl", {
+      "url": url,
+    });
+  }
+
   ///小说入口view
   ///
   /// [viewWidth] 宽
@@ -180,14 +203,18 @@ class FlutterPangrowth {
   ///
   /// [type] 类型
   ///
+  /// [style] 样式
+  ///
   static Widget novelEntranceView(
       {required double viewWidth,
       required double viewHeight,
-      required int type}) {
+      required String type,
+      required String style}) {
     return NovelEntranceView(
       viewWidth: viewWidth,
       viewHeight: viewHeight,
       type: type,
+      style: style,
     );
   }
 }

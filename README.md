@@ -1,6 +1,6 @@
 # 字节跳动内容合作 Flutter版本
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v0.0.1-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v0.0.2-success></a>
 </p>
 
 ## 简介
@@ -22,21 +22,19 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 
 ## 本地环境
 ```
-[✓] Flutter (Channel stable, 2.5.0, on macOS 11.6 20G165 darwin-x64, locale zh-Hans-CN)
+[✓] Flutter (Channel stable, 2.8.0, on macOS 12.0.1 21A559 darwin-x64, locale zh-Hans-CN)
 [✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
-[✓] Xcode - develop for iOS and macOS
+[✓] Xcode - develop for iOS and macOS (Xcode 13.1)
 [✓] Chrome - develop for the web
 [✓] Android Studio (version 2020.3)
-[✓] VS Code (version 1.60.1)
+[✓] VS Code (version 1.63.0)
 [✓] Connected device (4 available)
 ```
 
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^0.0.1
-//或者
-
+flutter_pangrowth: ^0.0.2
 ```
 
 #### 2、引入
@@ -65,6 +63,14 @@ await FlutterPangrowth.registerNovel(
       iosAppId: "299886",
       //是否显示日志
       debug: true,
+        //是否个性化推送广告
+        personalRecommendAd: true,
+        //是否个性化推送小说内容
+        personalRecommendContent: true,
+        //全局字号大小
+        normalFontType: NormalFontSize.normal,
+        //阅读字号大小
+        readFontType: ReadFontSize.two,
     );
 ```
 
@@ -149,6 +155,38 @@ NovelEntity novel = await FlutterPangrowth.searchNovelResults(
           offset: 1,//页码
           limit: 20,//单次数量
 )
+```
+#### 12、根据url跳转小说页面
+```dart
+await FlutterPangrowth.openNovelPageWithUrl(url: result.readUrl,//NovelEntity中readUrl
+  );
+```
+
+#### 14、小说导流入口控件
+```dart
+FlutterPangrowth.novelEntranceView(
+                viewWidth: 50,//宽
+                viewHeight: 50,//高
+                type: FlutterNovelEntranceType.icon,//类型
+                style: FlutterNovelIconSytle.circle,//类型下对应样式
+              ),
+```
+```dart
+///小说导流控件类型
+class FlutterNovelEntranceType{
+  ///金刚位
+  static const String icon = "icon";
+  ///FloatBall悬浮球
+  static const String floatBall = "floatBall";
+  ///Banner
+  static const String banner = "banner";
+  ///Window
+  static const String window = "window";
+  ///Feed流小图
+  static const String feedSingle = "feedSingle";
+  ///Feed流列表
+  static const String feedList = "feedList";
+}
 ```
 
 ## 插件链接

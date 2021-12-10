@@ -10,13 +10,15 @@ import 'package:flutter/services.dart';
 class NovelEntranceView extends StatefulWidget {
   final double viewWidth;
   final double viewHeight;
-  final int type;
+  final String type;
+  final String style;
 
   const NovelEntranceView(
       {Key? key,
       required this.viewWidth,
       required this.viewHeight,
-      required this.type})
+      required this.type,
+        required this.style})
       : super(key: key);
 
   @override
@@ -35,10 +37,10 @@ class _NovelEntranceViewState extends State<NovelEntranceView> {
   @override
   void initState() {
     super.initState();
-    _isShow = true;
-    setState(() {
-
-    });
+    // _isShow = true;
+    // setState(() {
+    //
+    // });
   }
 
   @override
@@ -53,9 +55,10 @@ class _NovelEntranceViewState extends State<NovelEntranceView> {
         child: AndroidView(
           viewType: _viewType,
           creationParams: {
-            "type": widget.type,
             "viewWidth": widget.viewWidth,
             "viewHeight": widget.viewHeight,
+            "type": widget.type,
+            "style": widget.style,
           },
           onPlatformViewCreated: _registerChannel,
           creationParamsCodec: const StandardMessageCodec(),
@@ -68,9 +71,10 @@ class _NovelEntranceViewState extends State<NovelEntranceView> {
         child: UiKitView(
           viewType: _viewType,
           creationParams: {
-            "type": widget.type,
             "viewWidth": widget.viewWidth,
             "viewHeight": widget.viewHeight,
+            "type": widget.type,
+            "style": widget.style,
           },
           onPlatformViewCreated: _registerChannel,
           creationParamsCodec: const StandardMessageCodec(),

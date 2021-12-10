@@ -48,9 +48,8 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation ('com.pangle.cn:pangrowth-sdk:1.6.1.0'){
+    implementation ('com.pangle.cn:pangrowth-sdk:1.7.0.0'){
         exclude group: 'com.pangle.cn', module: 'pangrowth-dpsdk-live'
-        exclude group: 'com.pangle.cn', module: 'pangrowth-dpsdk'
         exclude group: 'com.pangle.cn', module: 'pangrowth-game-sdk'
         exclude group: 'com.pangle.cn', module: 'pangrowth-luckycat-sdk'
     }

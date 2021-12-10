@@ -11,7 +11,7 @@ package com.example.flutter_pangrowth.entity
 "msg": "",
 "data": [
 {
-"bookId": "6806002909138914318",
+"readUrl": "",
 "bookName": "",
 "readUrl": "",
 "thumbUrl": "http: //p3-novel.byteimg.com/origin/novel-images/471a2521ed5a8a35559df077a8486c10",
@@ -27,7 +27,7 @@ data class NovelEntity(
 )
 
 data class NovelBean(
-        val bookId: String,
+        val readUrl: String,
         val bookName: String,
         val thumbUrl: String,
         val type: Int,

@@ -19,8 +19,10 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONObject
+import com.bytedance.novel.pangolin.data.NormalFontType
 import com.bytedance.novel.pangolin.data.NovelInfo
 import com.bytedance.novel.pangolin.data.NovelRecordInfo
+import com.bytedance.novel.pangolin.data.ReaderFontType
 
 
 /** FlutterPangrowthPlugin */
@@ -28,11 +30,12 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private var applicationContext: Context? = null
     private var mActivity: Activity? = null
     private lateinit var channel: MethodChannel
+    private var mFlutterPluginBinding: FlutterPlugin.FlutterPluginBinding?  = null
 
     override fun onAttachedToActivity(binding: ActivityPluginBinding) {
         mActivity = binding.activity
 //        Log.e("FlutterUnionadPlugin->","onAttachedToActivity")
-//    FlutterTencentAdViewPlugin.registerWith(mFlutterPluginBinding!!,mActivity!!)
+    FlutterPangrowthViewPlugin.registerWith(mFlutterPluginBinding!!,mActivity!!)
     }
 
     override fun onReattachedToActivityForConfigChanges(binding: ActivityPluginBinding) {
@@ -54,6 +57,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter_pangrowth")
         channel.setMethodCallHandler(this)
         applicationContext = flutterPluginBinding.applicationContext
+        mFlutterPluginBinding = flutterPluginBinding
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
@@ -82,6 +86,8 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             ////打开一个书籍的阅读页面或者详情页面（如果是阅读历史就会打开阅读页面，推荐书籍会打开详情页面）
         } else if (call.method == "openNovelPageWithConfig") {
             openNovelPageWithConfig(call, result)
+        } else if (call.method == "openNovelPageWithUrl") {
+            openNovelPageWithUrl(call, result)
             //获取小说阅读时长
         } else if (call.method == "getReadDuration") {
             result.success(NovelSDK.getNovelReadingDuration())
@@ -111,6 +117,10 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         val appVersionCode = call.argument<Int>("appVersionCode")
         val channel = call.argument<String>("channel")
         val appId = call.argument<String>("andoridAppId")
+        val personalRecommendAd = call.argument<Boolean>("personalRecommendAd")
+        val personalRecommendContent = call.argument<Boolean>("personalRecommendContent")
+        val normalFontType = call.argument<String>("normalFontType")
+        val readFontType = call.argument<String>("readFontType")
         val config = NovelConfig.Builder()
                 .appName(appName)
                 .appVersionName(appVersionName)
@@ -121,7 +131,24 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                 .appId(appId)
                 .jsonFileName("pangrowthconfig.json")
                 .build()
+        // 全局字号大小，可选
+        if(normalFontType == "large"){
+            config.normalFontSize =NormalFontType.NORMAL
+        }else{
+            config.normalFontSize =NormalFontType.LARGE
+        }
+        // 阅读器字号大小，可选
+        when (readFontType){
+            "one" -> config.readerFontSize = ReaderFontType.ONE
+            "there" -> config.readerFontSize = ReaderFontType.THREE
+            "four" -> config.readerFontSize = ReaderFontType.FOUR
+            "five" -> config.readerFontSize = ReaderFontType.FIVE
+            "six" -> config.readerFontSize = ReaderFontType.SIX
+            else -> config.readerFontSize = ReaderFontType.TWO
+        }
         NovelSDK.attach(PangolinDocker(config), applicationContext!!)
+        NovelSDK.updatePersonalRecommendationAd(personalRecommendAd!!)
+        NovelSDK.updatePersonalRecommendationAd(personalRecommendContent!!)
         result.success(true)
     }
 
@@ -138,7 +165,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
                     result.success(map)
                 }
             } else {
-                var novel = NovelBean(bookId = novelRecordInfo!!.novelInfo!!.id,
+                var novel = NovelBean(readUrl = novelRecordInfo!!.novelInfo!!.readerUrl,
                         bookName = novelRecordInfo.novelInfo!!.name,
                         thumbUrl = novelRecordInfo.novelInfo!!.imageUrl,
                         novelDetail = JSON.toJSONString(novelRecordInfo),
@@ -161,7 +188,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         NovelSDK.getRecommendFeedNovel(size) { list ->
             var novelList :MutableList<NovelBean> = ArrayList()
             list?.forEach {
-                var novel = NovelBean(bookId = it!!.id,
+                var novel = NovelBean(readUrl = it!!.readerUrl,
                         bookName = it.name,
                         thumbUrl = it.imageUrl,
                         novelDetail = JSON.toJSONString(it),
@@ -244,6 +271,15 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         }
     }
 
+    /**
+     * 打开小说url
+     */
+    private fun openNovelPageWithUrl(call: MethodCall, result: Result) {
+        val url = call.argument<String>("url")
+        NovelSDK.openNovelReaderByUrl(mActivity!!, url!!)
+        result.success(true)
+    }
+
 
     /**
      * 搜索Sug页
@@ -253,7 +289,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         NovelSDK.getSearchSug(queryContent) { list ->
             var novelList: MutableList<NovelBean> = ArrayList()
             list?.forEach {
-                var novel = NovelBean(bookId = "",
+                var novel = NovelBean(readUrl = it.itemSchemaUrl,
                         bookName = it.bookName,
                         thumbUrl = it.thumbUrl,
                         novelDetail = JSON.toJSONString(it),
@@ -276,7 +312,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         NovelSDK.getSearchResultPage(queryContent) { list ->
             var novelList: MutableList<NovelBean> = ArrayList()
             list?.forEach {
-                var novel = NovelBean(bookId = "",
+                var novel = NovelBean(readUrl = it.itemSchemaUrl,
                         bookName = it.bookName,
                         thumbUrl = it.thumbUrl,
                         novelDetail = JSON.toJSONString(it),
