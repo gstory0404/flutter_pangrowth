@@ -126,6 +126,7 @@ await FlutterPangrowth.reportRecentNovelShow(
 ```
 
 #### 8、打开小说页面
+主要getNovelHistory、getNovelRecommendV1、getNovelRecommendFeed返回NovelEntity跳转
 ```dart
 await FlutterPangrowth.openNovelPageWithConfig(
   type: result.type,//NovelEntity 中type字段
@@ -157,6 +158,7 @@ NovelEntity novel = await FlutterPangrowth.searchNovelResults(
 )
 ```
 #### 12、根据url跳转小说页面
+主要searchNovelSuggestions、searchNovelResults返回NovelEntity跳转
 ```dart
 await FlutterPangrowth.openNovelPageWithUrl(url: result.readUrl,//NovelEntity中readUrl
   );
