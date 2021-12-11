@@ -87,9 +87,9 @@ await FlutterPangrowth.openNovelPage();
     "msg": "",//错误提示
     "data": [//返回小说数组
         {
-            "bookId": "6806002909138914318",//小说id
-            "bookName": "",//小说名字
+            "type":1,//来源类型，小说跳转时使用
             "readUrl": "",//阅读地址
+            "bookName": "",//小说名字
             "thumbUrl": "",//小说封面
             "novelDetail": ""//小说具体信息json（由于android、ios数据格式、后续跳转所需参数等都不相同，所以不做处理直接返回json数据，开发者可根据需求在项目中自行解析）
         }
