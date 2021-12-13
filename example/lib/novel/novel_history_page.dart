@@ -58,6 +58,9 @@ class _NovelHistoryState extends State<NovelHistoryPage> {
                           //书籍曝光
                           await FlutterPangrowth.reportRecentNovelShow(
                               type: result.type, book: result.novelDetail);
+                          //书籍点击
+                          await FlutterPangrowth.reportRecentNovelClick(
+                              type: result.type, book: result.novelDetail);
                           //书籍跳转
                           await FlutterPangrowth.openNovelPageWithConfig(
                               type: result.type, book: result.novelDetail);

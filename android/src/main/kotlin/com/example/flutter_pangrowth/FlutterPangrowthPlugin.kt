@@ -83,7 +83,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             //上报阅读点击，当用户点击了阅读历史信息，务必上报
         } else if (call.method == "reportRecentNovelClick") {
             reportRecentNovelClick(call, result)
-            ////打开一个书籍的阅读页面或者详情页面（如果是阅读历史就会打开阅读页面，推荐书籍会打开详情页面）
+            //打开一个书籍的阅读页面或者详情页面（如果是阅读历史就会打开阅读页面，推荐书籍会打开详情页面）
         } else if (call.method == "openNovelPageWithConfig") {
             openNovelPageWithConfig(call, result)
         } else if (call.method == "openNovelPageWithUrl") {

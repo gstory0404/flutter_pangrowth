@@ -4,7 +4,7 @@
 </p>
 
 ## 简介
-flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作的插件。[体验demo](https://www.pgyer.com/sUQU)
+flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作，为自己app无侵入引入小说、视频内容的插件。[体验demo](https://www.pgyer.com/sUQU)
 目前仅支持小说。
 
 <img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%">
@@ -118,6 +118,8 @@ NovelEntity novel = await FlutterPangrowth.getNovelRecommendFeed(
 ```
 
 #### 7、小说显示上报
+当获取了用户的阅读历史信息，展示的时候务必上报
+当用户点击了阅读历史信息，务必上报
 ```dart
 await FlutterPangrowth.reportRecentNovelShow(
          type: result.type,//NovelEntity 中type字段

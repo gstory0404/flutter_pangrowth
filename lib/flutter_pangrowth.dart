@@ -127,9 +127,9 @@ class FlutterPangrowth {
     });
   }
 
-  ///# 为了更精准推荐书籍，当显示getReadConfigWithParam获得的书时，调用此接口,上报埋点增强推荐能力
+  ///# 为了更精准推荐书籍，当显示历史、feed推荐书时，调用此接口,上报埋点增强推荐能力
   ///
-  /// [size] 类型 0历史记录 1启动后推荐书 2Feed推荐书
+  /// [type] 类型 0历史记录 1启动后推荐书 2Feed推荐书
   ///
   /// [book] 书籍json
   ///
@@ -138,6 +138,22 @@ class FlutterPangrowth {
     required String book,
   }) async {
     return await _channel.invokeMethod("reportRecentNovelShow", {
+      "type": type,
+      "book": book,
+    });
+  }
+
+  ///#当点击历史、feed推荐书时，调用此接口
+  ///
+  /// [type] 类型 0历史记录 1启动后推荐书 2Feed推荐书
+  ///
+  /// [book] 书籍json
+  ///
+  static Future<bool> reportRecentNovelClick({
+    required int type,
+    required String book,
+  }) async {
+    return await _channel.invokeMethod("reportRecentNovelClick", {
       "type": type,
       "book": book,
     });
