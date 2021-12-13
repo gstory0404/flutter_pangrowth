@@ -27,72 +27,72 @@ class _NovelEntrancePageState extends State<NovelEntrancePage> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const Text("金刚位"),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 50,//宽
                 viewHeight: 50,//高
                 type: FlutterNovelEntranceType.icon,//类型
                 style: FlutterNovelIconSytle.circle,//类型下对应样式
               ),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 50,
                 viewHeight: 50,
                 type: FlutterNovelEntranceType.icon,
                 style: FlutterNovelIconSytle.rect,
               ),
               const Text("悬浮球"),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 50,
                 viewHeight: 120,
                 type: FlutterNovelEntranceType.floatBall,
                 style: FlutterNovelFloatBallSytle.withClose,
               ),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 50,
                 viewHeight: 120,
                 type: FlutterNovelEntranceType.floatBall,
                 style: FlutterNovelFloatBallSytle.withoutClose,
               ),
               const Text("Banner"),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 300,
                 viewHeight: 100,
                 type: FlutterNovelEntranceType.banner,
                 style: FlutterNovelBannerSytle.small,
               ),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 300,
                 viewHeight: 150,
                 type: FlutterNovelEntranceType.banner,
                 style: FlutterNovelBannerSytle.medium,
               ),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 300,
                 viewHeight: 200,
                 type: FlutterNovelEntranceType.banner,
                 style: FlutterNovelBannerSytle.large,
               ),
               const Text("Window"),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 300,
                 viewHeight: 100,
                 type: FlutterNovelEntranceType.window,
                 style: FlutterNovelWindowSytle.color1,
               ),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 300,
                 viewHeight: 100,
                 type: FlutterNovelEntranceType.window,
                 style: FlutterNovelWindowSytle.color2,
               ),
               const Text("Feed单本"),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 400,
                 viewHeight: 200,
                 type: FlutterNovelEntranceType.feedSingle,
                 style: FlutterNovelFeedSytle.normal,
               ),
               const Text("Feed多本"),
-              FlutterPangrowth.novelEntranceView(
+              PangrowthNovel.novelEntranceView(
                 viewWidth: 400,
                 viewHeight: 500,
                 type: FlutterNovelEntranceType.feedList,

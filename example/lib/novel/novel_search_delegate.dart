@@ -33,7 +33,7 @@ class SearchNovelDelegate extends SearchDelegate<String> {
   @override
   Widget buildResults(BuildContext context) {
     return FutureBuilder<NovelEntity>(
-      future: FlutterPangrowth.searchNovelResults(
+      future: PangrowthNovel.searchNovelResults(
           queryContent: query, offset: 1, limit: 20),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
@@ -67,7 +67,7 @@ class SearchNovelDelegate extends SearchDelegate<String> {
                       NovelEntityData result = snapshot.data!.data![index];
                       return InkWell(
                         onTap: () async{
-                          FlutterPangrowth.openNovelPageWithUrl(url: result.readUrl);
+                          PangrowthNovel.openNovelPageWithUrl(url: result.readUrl);
                         },
                         child: Container(
                           padding:
@@ -109,7 +109,7 @@ class SearchNovelDelegate extends SearchDelegate<String> {
   @override
   Widget buildSuggestions(BuildContext context) {
     return FutureBuilder<NovelEntity>(
-      future: FlutterPangrowth.searchNovelSuggestions(queryContent: query),
+      future: PangrowthNovel.searchNovelSuggestions(queryContent: query),
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.none:
@@ -134,7 +134,7 @@ class SearchNovelDelegate extends SearchDelegate<String> {
                     return ListTile(
                       title: Text(result.bookName,style: const TextStyle(fontSize: 14),),
                       onTap: () {
-                        FlutterPangrowth.openNovelPageWithUrl(url: result.readUrl);
+                        PangrowthNovel.openNovelPageWithUrl(url: result.readUrl);
                       },
                     );
                   }

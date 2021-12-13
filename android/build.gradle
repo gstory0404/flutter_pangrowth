@@ -53,6 +53,5 @@ dependencies {
         exclude group: 'com.pangle.cn', module: 'pangrowth-game-sdk'
         exclude group: 'com.pangle.cn', module: 'pangrowth-luckycat-sdk'
     }
-//    implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'com.alibaba:fastjson:1.2.32'
 }

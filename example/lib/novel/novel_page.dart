@@ -3,11 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 import 'package:flutter_pangrowth_example/novel/novel_entrance_page.dart';
+import 'package:flutter_pangrowth_example/novel/novel_recommend_page.dart';
 import 'package:flutter_unionad/flutter_unionad.dart';
 
-import 'novel_history_page.dart';
-import 'novel_recommend_feed_page.dart';
-import 'novel_recommend_v1_page.dart';
 import 'novel_search_delegate.dart';
 
 /// @Author: gstory
@@ -58,7 +56,7 @@ class _NovelPageState extends State<NovelPage> {
           FlutterUnionadNetCode.NETWORK_STATE_4G,
           FlutterUnionadNetCode.NETWORK_STATE_WIFI
         ]); //允许直接下载的网络状态集合 选填
-    _isRegister = await FlutterPangrowth.registerNovel(
+    _isRegister = await PangrowthNovel.registerNovel(
       //接入小说SDK的App的英文名 必填
       appName: "appName",
       ////接入小说SDKApp的版本名称 必填
@@ -107,7 +105,7 @@ class _NovelPageState extends State<NovelPage> {
               textColor: Colors.white,
               child: const Text('打开小说页面'),
               onPressed: () async {
-                await FlutterPangrowth.openNovelPage();
+                await PangrowthNovel.openNovelPage();
               },
             ),
             //获取阅读历史，单本
@@ -117,7 +115,7 @@ class _NovelPageState extends State<NovelPage> {
               child: const Text('阅读历史'),
               onPressed: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return const NovelHistoryPage();
+                  return NovelRecommendPage(type: "hisotry");
                 }));
               },
             ),
@@ -128,7 +126,7 @@ class _NovelPageState extends State<NovelPage> {
               child: const Text('启动后推荐书列表'),
               onPressed: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return const NovelRecommendV1Page();
+                  return NovelRecommendPage(type: "feedV1");
                 }));
               },
             ),
@@ -139,7 +137,7 @@ class _NovelPageState extends State<NovelPage> {
               child: const Text('Feed推荐书列表'),
               onPressed: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return const NovelRecommendFeedPage();
+                  return NovelRecommendPage(type: "feed");
                 }));
               },
             ),
@@ -149,7 +147,7 @@ class _NovelPageState extends State<NovelPage> {
               textColor: Colors.white,
               child: const Text('获取阅读时常'),
               onPressed: () async {
-                _duration = await FlutterPangrowth.getReadDuration();
+                _duration = await PangrowthNovel.getReadDuration();
                 setState(() {});
               },
             ),

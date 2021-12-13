@@ -6,14 +6,29 @@ import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 /// @Email gstory0404@gmail.com
 /// @Description: 阅读历史
 
-class NovelRecommendV1Page extends StatefulWidget {
-  const NovelRecommendV1Page({Key? key}) : super(key: key);
+class NovelRecommendPage extends StatefulWidget {
+
+  String type;
+
+  NovelRecommendPage({Key? key,required this.type}) : super(key: key);
 
   @override
   _NovelRecommendV1State createState() => _NovelRecommendV1State();
 }
 
-class _NovelRecommendV1State extends State<NovelRecommendV1Page> {
+class _NovelRecommendV1State extends State<NovelRecommendPage> {
+
+  Future<NovelEntity> getNovel() async{
+    switch(widget.type){
+      case "history":
+        return PangrowthNovel.getNovelHistory();
+      case "feedV1":
+        return PangrowthNovel.getNovelRecommendV1(size: 10);
+    }
+    return PangrowthNovel.getNovelRecommendFeed(size: 10);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +37,7 @@ class _NovelRecommendV1State extends State<NovelRecommendV1Page> {
         centerTitle: true,
       ),
       body: FutureBuilder<NovelEntity>(
-        future: FlutterPangrowth.getNovelRecommendV1(
+        future: PangrowthNovel.getNovelRecommendV1(
           size: 10,
         ),
         builder: (context, snapshot) {
@@ -59,10 +74,10 @@ class _NovelRecommendV1State extends State<NovelRecommendV1Page> {
                       return InkWell(
                         onTap: () async {
                           //书籍曝光
-                          await FlutterPangrowth.reportRecentNovelShow(
+                          await PangrowthNovel.reportRecentNovelShow(
                               type: result.type, book: result.novelDetail);
                           //书籍跳转
-                          await FlutterPangrowth.openNovelPageWithConfig(
+                          await PangrowthNovel.openNovelPageWithConfig(
                               type: result.type, book: result.novelDetail);
                         },
                         child: Container(
