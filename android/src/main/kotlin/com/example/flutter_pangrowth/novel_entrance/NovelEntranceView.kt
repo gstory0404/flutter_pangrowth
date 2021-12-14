@@ -1,16 +1,12 @@
 package com.example.flutter_pangrowth.novel_entrance
 
 import android.app.Activity
-import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.LinearLayout
 import com.bytedance.novel.pangolin.NovelSDK
-import com.bytedance.novel.pangolin.data.NovelInfo
 import com.bytedance.novel.pangolin.novelenterence.NovelEntranceConstants
 import com.bytedance.novel.pangolin.novelenterence.view.BaseEntranceView
-import com.gstory.flutter_tencentad.UIUtils
+import com.example.flutter_pangrowth.utils.UIUtils
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.platform.PlatformView
 

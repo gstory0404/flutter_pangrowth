@@ -24,6 +24,7 @@ class _NovelPageState extends State<NovelPage> {
   bool _isRegister = false;
   int _duration = 0;
   StreamSubscription? _adViewStream;
+  var a = 0;
 
   @override
   void initState() {

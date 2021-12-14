@@ -1,22 +1,23 @@
 //
-//  NovelEntranceView.h
+//  DrawVideoFullView.h
 //  flutter_pangrowth
 //
-//  Created by gstory on 2021/12/7.
+//  Created by 郭维佳 on 2021/12/14.
 //
 
 #import <Foundation/Foundation.h>
 #import <Flutter/Flutter.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NovelEntranceViewFactory : NSObject<FlutterPlatformViewFactory>
+@interface DrawVideoFullViewFactory : NSObject<FlutterPlatformViewFactory>
 
 - (instancetype)initWithMessenger:(NSObject<FlutterBinaryMessenger>*)messager;
 
 @end
 
-@interface NovelEntranceView : NSObject
+@interface DrawVideoFullView : NSObject
 
 - (instancetype)initWithWithFrame:(CGRect)frame
                    viewIdentifier:(int64_t)viewId

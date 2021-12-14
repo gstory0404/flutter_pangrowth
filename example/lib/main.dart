@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth_example/novel/novel_page.dart';
 
+import 'video/video_page.dart';
+
 
 void main() {
   runApp(MyApp());
@@ -54,7 +56,14 @@ class _HomePageState extends State<HomePage> {
               textColor: Colors.white,
               child:  const Text('视频'),
               onPressed: () async {
-
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return const VideoPage();
+                    },
+                  ),
+                );
               },
             ),
           ],

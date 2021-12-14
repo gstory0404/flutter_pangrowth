@@ -1,4 +1,4 @@
-package com.gstory.flutter_tencentad
+package com.example.flutter_pangrowth.utils
 
 import android.app.Activity
 import android.content.Context

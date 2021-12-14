@@ -18,5 +18,33 @@
             android:name="com.bytedance.sdk.dp.act.DPProvider"
             android:authorities="${applicationId}.BDDPProvider"
             android:exported="false" />
+
+        <activity
+            android:name=".video.pages.DrawVideoFullScreenActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
+
+        <activity
+            android:name=".video.pages.GridVideoActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
+
+        <activity
+            android:name=".video.pages.NewsTabsActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
+
+        <activity
+            android:name=".video.pages.NewsTabOneActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
     </application>
 </manifest>

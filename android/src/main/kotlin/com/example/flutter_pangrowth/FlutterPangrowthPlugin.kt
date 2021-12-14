@@ -1,6 +1,7 @@
 package com.example.flutter_pangrowth
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.util.Log
 import androidx.annotation.NonNull
@@ -99,6 +100,28 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         } else if (call.method == "searchNovelResults") {
             val queryContent = call.argument<String>("queryContent")
             NovelPlugin.searchNovelResults(mActivity, queryContent!!, result)
+            /**
+             * 视频相关
+             */
+            //视频初始化初始化
+        } else if (call.method == "registerVideo") {
+            VideoPlugin.registerVideo(applicationContext as Application?, call, result)
+            //打开沉浸式小视频 全屏样式
+        } else if (call.method == "openDrawVideoFull") {
+            VideoPlugin.openDrawVideoFull(mActivity,call)
+            result.success(true)
+            //打开宫格小视频 全屏样式
+        } else if (call.method == "openGridVideo") {
+            VideoPlugin.openGridVideo(mActivity,call)
+            result.success(true)
+            //打开新闻 多列表
+        } else if (call.method == "openNewsTabs") {
+            VideoPlugin.openNewsTabs(mActivity,call)
+            result.success(true)
+            //打开新闻 单列表
+        } else if (call.method == "openNewsTabOne") {
+            VideoPlugin.openNewsTabOne(mActivity,call)
+            result.success(true)
         } else {
             result.notImplemented()
         }

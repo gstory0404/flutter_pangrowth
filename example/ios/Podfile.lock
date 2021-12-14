@@ -22,6 +22,8 @@ PODS:
   - flutter_pangrowth (0.0.1):
     - Flutter
     - MJExtension (~> 3.4.0)
+    - Pangrowth/media (~> 1.7.0.0)
+    - Pangrowth/novel (~> 1.7.0.0)
   - flutter_unionad (0.0.1):
     - Ads-CN-Beta (~> 4.1.0.1)
     - Flutter
@@ -94,8 +96,6 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_pangrowth (from `.symlinks/plugins/flutter_pangrowth/ios`)
   - flutter_unionad (from `.symlinks/plugins/flutter_unionad/ios`)
-  - Pangrowth/media (= 1.7.0.0)
-  - Pangrowth/novel (= 1.7.0.0)
 
 SPEC REPOS:
   https://github.com/bytedance/cocoapods_sdk_source_repo.git:
@@ -127,7 +127,7 @@ SPEC CHECKSUMS:
   Ads-CN-Beta: ebf133f5812a8e618c68302580d6e39186d5287c
   BDNovelOpenSDK: 8de28cb97f3627af3b5440eb66e011e2ad9894c3
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  flutter_pangrowth: 07b51cd2f97e059cac4bdb058c833ae683cea2f5
+  flutter_pangrowth: dc52d29e910513fea575cd347580c676aa2bfe05
   flutter_unionad: 140720b3a24cbf9fd3aadbcc9e411ec24bd6fd7f
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
@@ -141,6 +141,6 @@ SPEC CHECKSUMS:
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: dc447a57d90ec2224ab9539ac4ae6a0bb6cd484d
+PODFILE CHECKSUM: 783839999ae08e6bfa9279ca191756e76367be0c
 
 COCOAPODS: 1.11.2
