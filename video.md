@@ -110,7 +110,7 @@ PangrowthVideo.videoNewsSingleCardView(
             ),
 ```
 
-#### 13、视频卡片-列表
+#### 15、视频卡片-列表
 ```dart
 PangrowthVideo.videoCardView(
               viewWidth: 400,//宽
