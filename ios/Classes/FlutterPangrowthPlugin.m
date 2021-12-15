@@ -3,7 +3,16 @@
 #import "BDNovelPublicConfig.h"
 #import "novel/novel_entrance/NovelEntranceView.h"
 #import "video/VideoPlugin.h"
-#import "video/base/DrawVideoFullView.h"
+#import "video/view/DrawVideoFullView.h"
+#import "video/view/NewsTabsView.h"
+#import "video/view/NewsTabOneView.h"
+#import "video/view/GridVideoView.h"
+#import "video/view/VideoBannerView.h"
+#import "video/view/VideoTextChainView.h"
+#import "video/view/VideoBubbleView.h"
+#import "video/view/VideoSingleCardView.h"
+#import "video/view/VideoNewsSingleCardView.h"
+#import "video/view/VideoCardView.h"
 
 @interface FlutterPangrowthPlugin()
 
@@ -18,8 +27,27 @@
     [registrar addMethodCallDelegate:instance channel:channel];
     //注册小说入口控件
     [registrar registerViewFactory:[[NovelEntranceViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/NovelEntranceView"];
+    //沉浸式小视频view
+    [registrar registerViewFactory:[[DrawVideoFullViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/DrawFullView"];
+    //宫格小视频view
+    [registrar registerViewFactory:[[GridVideoViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/GridVideoView"];
+    //新闻多列表view
+    [registrar registerViewFactory:[[NewsTabsViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/NewsTabsView"];
+    //新闻单列表view
+    [registrar registerViewFactory:[[NewsTabOneViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/NewsTabOneView"];
+    //视频组件-banner
+    [registrar registerViewFactory:[[VideoBannerViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoBannerView"];
+    //视频组件-文字链
+    [registrar registerViewFactory:[[VideoTextChainViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoTextChainView"];
+    //视频组件-气泡
+    [registrar registerViewFactory:[[VideoBubbleViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoBubbleView"];
+    //视频 单卡片视频
+    [registrar registerViewFactory:[[VideoSingleCardViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoSingleCardView"];
+    //视频 单卡片新闻
+    [registrar registerViewFactory:[[VideoNewsSingleCardViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoNewsSingleCardView"];
+    //视频 卡片
+    [registrar registerViewFactory:[[VideoCardViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoCardView"];
     
-    [registrar registerViewFactory:[[DrawVideoFullViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/DrawVideoFullView"];
 }
 
 
@@ -64,6 +92,15 @@
         //打开沉浸式小视频场景展示：全屏样式
     }else if([@"openDrawVideoFull" isEqualToString:call.method]){
         [VideoPlugin openDrawVideoFull];
+        //打开新闻 多列表 全屏样式
+    }else if([@"openNewsTabs" isEqualToString:call.method]){
+        [VideoPlugin openNewsTabs];
+        //打开新闻 单列表 全屏样式
+    }else if([@"openNewsTabOne" isEqualToString:call.method]){
+        [VideoPlugin openNewsTabOne];
+        //获取信息流数据
+    }else if([@"getFeedNativeData" isEqualToString:call.method]){
+        [VideoPlugin getFeedNativeData:call.arguments result:result];
     } else {
         result(FlutterMethodNotImplemented);
     }

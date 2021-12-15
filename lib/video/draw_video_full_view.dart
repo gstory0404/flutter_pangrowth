@@ -23,7 +23,7 @@ class DrawVideoFullView extends StatefulWidget {
 
 class _DrawVideoFullViewState extends State<DrawVideoFullView> {
 
-  String _viewType = "com.gstory.flutter_pangrowth/DrawFullView";
+  final String _viewType = "com.gstory.flutter_pangrowth/DrawFullView";
 
   MethodChannel? _channel;
 

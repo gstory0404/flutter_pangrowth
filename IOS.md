@@ -7,11 +7,6 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 source 'https://github.com/volcengine/volcengine-specs.git'
 ```
-```
-target 'Runner' do
-    pod 'Pangrowth', '1.7.0.0', :subspecs => [ 'novel' ]
-end
-```
 
 2、把下载的json文件改名pangrowthconfig.json导入项目ios目录下
 
@@ -21,6 +16,7 @@ OC修改ios/Runner/AppDelegate.m文件
 ```
 #import "AppDelegate.h"
 #import "GeneratedPluginRegistrant.h"
+#import <LCDSDK/LCDSDK.h>
 
 @interface AppDelegate()
   @property (nonatomic, strong) UINavigationController *navigationController;
@@ -43,6 +39,18 @@ OC修改ios/Runner/AppDelegate.m文件
 }
 @end
 
+// 为了视频的播放体验，必须在AppDelegate的applicationDidBecomeActive：和applicationWillResignActive：
+//中调用开始渲染和停止渲染方法(这两个方法不耗时)。不做这一步可能带来未知的黑屏或者crash。
+- (void)applicationWillResignActive:(UIApplication *)application {
+     // ⚠️⚠️⚠️⚠️⚠️ 重点关注
+    [LCDManager stopOpenGLESActivity];
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+   // ⚠️⚠️⚠️⚠️⚠️ 重点关注
+    [LCDManager startOpenGLESActivity];
+}
+
 ```
 
 swift修改ios/Runner/AppDelegate.swift文件
@@ -63,4 +71,5 @@ swift修改ios/Runner/AppDelegate.swift文件
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
 }
+
 ```

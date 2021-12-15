@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth/flutter_pangrowth.dart';
-import 'package:flutter_pangrowth_example/video/draw_video_full_page.dart';
+import 'package:flutter_pangrowth_example/video/video_assembly_page.dart';
+import 'package:flutter_pangrowth_example/video/video_card_page.dart';
+import 'package:flutter_pangrowth_example/video/video_in_page.dart';
 import 'package:flutter_unionad/flutter_unionad.dart';
 
 /// @Author: gstory
@@ -107,17 +111,49 @@ class _VideoPageState extends State<VideoPage> {
                 await PangrowthVideo.openNewsTabOne();
               },
             ),
-            //获取阅读历史，单本
+            //Flutter页面中插入视频新闻界面
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child: const Text('阅读历史'),
+              child: const Text('Flutter页面中插入视频新闻界面'),
+              onPressed: () async {
+                if(Platform.isIOS){
+                  Navigator.push(context, MaterialPageRoute(builder: (_) {
+                    return VideoInPage();
+                  }));
+                }
+              },
+            ),
+            //Flutter页面中插入视频新闻界面
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('视频组件'),
               onPressed: () async {
                 Navigator.push(context, MaterialPageRoute(builder: (_) {
-                  return DrawVideoFullPage();
+                  return VideoAssemblyPage();
                 }));
               },
             ),
+            //Flutter页面中插入视频新闻界面
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('视频卡片'),
+              onPressed: () async {
+                Navigator.push(context, MaterialPageRoute(builder: (_) {
+                  return VideoCardPage();
+                }));
+              },
+            ),
+            // MaterialButton(
+            //   color: Colors.blue,
+            //   textColor: Colors.white,
+            //   child: const Text('获取信息流数据'),
+            //   onPressed: () async {
+            //     PangrowthVideo.getFeedNativeData();
+            //   },
+            // ),
           ],
         ),
       ),

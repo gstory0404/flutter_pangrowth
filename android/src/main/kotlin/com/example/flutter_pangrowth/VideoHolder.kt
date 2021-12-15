@@ -49,4 +49,38 @@ class VideoHolder private constructor() {
         //创建单列表新闻组件
         return getFactory().createNewsOneTab(params)
     }
+
+    fun loadBanner(params: DPWidgetBannerParams?, callback: IDPWidgetFactory.Callback?) {
+        //视频组件-banner
+        getFactory().loadBanner(params, callback)
+    }
+
+    fun loadTextChain(params: DPWidgetTextChainParams?, callback: IDPWidgetFactory.Callback?) {
+        //视频组件-文字链
+        getFactory().loadTextChain(params, callback)
+    }
+
+    fun loadBubble(params: DPWidgetBubbleParams?, callback: IDPWidgetFactory.Callback?) {
+        //视频组件-气泡
+        getFactory().loadBubble(params, callback)
+    }
+
+    fun loadVideoSingleCard(params: DPWidgetVideoSingleCardParams?, callback: IDPWidgetFactory.Callback?) {
+        //视频卡片-单视频
+        getFactory().loadVideoSingleCard(params, callback)
+    }
+
+    fun loadVideoSingleCard4News(params: DPWidgetVideoSingleCardParams?, callback: IDPWidgetFactory.Callback?) {
+        //视频卡片-单新闻
+        getFactory().loadVideoSingleCard4News(params, callback)
+    }
+
+    fun loadVideoCard(params: DPWidgetVideoCardParams?, callback: IDPWidgetFactory.Callback?) {
+        getFactory().loadVideoCard(params, callback)
+    }
+
+    fun loadCustomVideoCard(params: DPWidgetVideoCardParams?, callback: IDPWidgetFactory.Callback?) {
+        //视频卡片
+        getFactory().loadCustomVideoCard(params, callback)
+    }
 }

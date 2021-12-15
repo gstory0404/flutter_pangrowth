@@ -4,14 +4,13 @@ import android.app.Activity
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.VideoView
 import androidx.annotation.Nullable
 import com.bytedance.sdk.dp.DPWidgetDrawParams
 import com.bytedance.sdk.dp.IDPAdListener
 import com.bytedance.sdk.dp.IDPDrawListener
 import com.bytedance.sdk.dp.IDPWidget
 import com.example.flutter_pangrowth.VideoHolder
-import com.example.flutter_pangrowth.video.view.VideoShowView
+import com.example.flutter_pangrowth.utils.UIUtils
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.plugin.platform.PlatformView
 
@@ -38,19 +37,16 @@ internal class DrawFullView(
     private var mIDPWidget: IDPWidget? = null
 
     init {
-//        LayoutInflater.from(activity).inflate(R.layout.activity_draw_video_full_screen);
         //初始化 grid 组件
         initDrawWidget()
-//        (activity as AppCompatActivity).supportFragmentManager.beginTransaction()
-//                .replace(R.id.draw_video_full_frame, mIDPWidget!!.fragment)
-//                .commitAllowingStateLoss()
+        mContainer = FrameLayout(activity)
+        mContainer?.layoutParams?.width = (UIUtils.dip2px(activity, viewWidth.toFloat())).toInt()
+        mContainer?.layoutParams?.height = (UIUtils.dip2px(activity, viewHeight.toFloat())).toInt()
     }
 
 
     override fun getView(): View {
-        var view = VideoShowView(activity,null)
-        view.showFragment(mIDPWidget!!.fragment)
-        return VideoView(activity,null)
+        return mContainer!!
     }
 
     private fun initDrawWidget() {

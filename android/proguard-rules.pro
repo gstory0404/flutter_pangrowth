@@ -1,1 +1,1 @@
--keep class com.example.flutter_pangrowth.entity.** {*;}
+-keep class com.bytedance.applog.AppLog{ public *; }

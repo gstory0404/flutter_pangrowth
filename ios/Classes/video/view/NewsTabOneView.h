@@ -1,23 +1,22 @@
 //
-//  DrawVideoFullView.h
+//  NewsTabOneView.h
 //  flutter_pangrowth
 //
-//  Created by 郭维佳 on 2021/12/14.
+//  Created by gstory on 2021/12/15.
 //
 
 #import <Foundation/Foundation.h>
 #import <Flutter/Flutter.h>
 
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DrawVideoFullViewFactory : NSObject<FlutterPlatformViewFactory>
+@interface NewsTabOneViewFactory : NSObject<FlutterPlatformViewFactory>
 
 - (instancetype)initWithMessenger:(NSObject<FlutterBinaryMessenger>*)messager;
 
 @end
 
-@interface DrawVideoFullView : NSObject
+@interface NewsTabOneView : NSObject
 
 - (instancetype)initWithWithFrame:(CGRect)frame
                    viewIdentifier:(int64_t)viewId

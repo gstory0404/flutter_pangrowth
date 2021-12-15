@@ -167,6 +167,21 @@ class DrawVideoFullScreenActivity : AppCompatActivity() {
                 }))
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (mIDPWidget!!.fragment != null) {
+            mIDPWidget!!.fragment.onResume()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        if (mIDPWidget!!.fragment != null) {
+            mIDPWidget!!.fragment.onPause()
+        }
+    }
+
+
     override fun onDestroy() {
         super.onDestroy()
         mIDPWidget?.destroy()

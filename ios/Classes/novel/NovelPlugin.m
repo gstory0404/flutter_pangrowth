@@ -2,7 +2,7 @@
 //  NovelPlugin.m
 //  flutter_pangrowth
 //
-//  Created by 郭维佳 on 2021/12/13.
+//  Created by gstory on 2021/12/13.
 //
 
 #import "NovelPlugin.h"
