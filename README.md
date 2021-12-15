@@ -1,11 +1,10 @@
 # 字节跳动内容合作 Flutter版本
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v0.0.2-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.0-success></a>
 </p>
 
 ## 简介
-flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作，为自己app无侵入引入小说、视频内容的插件。[体验demo](https://www.pgyer.com/sUQU)
-目前仅支持小说。
+flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作，为自己app无侵入快速引入小说、视频内容的插件。[体验demo](https://www.pgyer.com/sUQU)
 
 <img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/images/video.gif" width="30%">
 
@@ -35,7 +34,7 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^0.0.2
+flutter_pangrowth: ^1.0.0
 ```
 
 #### 2、引入
