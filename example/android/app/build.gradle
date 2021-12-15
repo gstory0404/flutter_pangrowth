@@ -51,12 +51,7 @@ android {
     }
 
     signingConfigs {
-        config {
-            storeFile file("..\\key\\diandou.jks")
-            storePassword "@Aa123456"
-            keyAlias "diandou"
-            keyPassword "@Aa123456"
-        }
+
     }
 
 
