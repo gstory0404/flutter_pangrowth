@@ -1,5 +1,6 @@
-### [官方文档](https://www.csjplatform.com/union/media/union/download/detail?id=81&osType=android)
+### 一、[官方文档](https://www.csjplatform.com/union/media/union/download/detail?id=81&osType=android)
 
+### 二、插件配置
 1、在android/build.gradle文件中
 ```
 allprojects {

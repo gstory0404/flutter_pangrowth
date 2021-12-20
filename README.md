@@ -1,6 +1,6 @@
 # 字节跳动内容合作 Flutter版本
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.0-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.1-success></a>
 </p>
 
 ## 简介
@@ -34,7 +34,7 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^1.0.0
+flutter_pangrowth: ^1.0.1
 ```
 
 #### 2、引入

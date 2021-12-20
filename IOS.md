@@ -1,5 +1,6 @@
-### [官方文档](https://www.csjplatform.com/union/media/union/download/detail?id=81&osType=ios)
+### 一、[官方文档](https://www.csjplatform.com/union/media/union/download/detail?id=81&osType=ios)
 
+### 二、插件配置
 1、配置pod
 在ios/Podfile文件中配置
 ```
