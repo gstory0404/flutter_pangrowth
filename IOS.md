@@ -57,6 +57,8 @@ OC修改ios/Runner/AppDelegate.m文件
 swift修改ios/Runner/AppDelegate.swift文件
 
 ```
+import LCDSDK
+
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(
     _ application: UIApplication,
@@ -71,6 +73,16 @@ swift修改ios/Runner/AppDelegate.swift文件
       window.makeKeyAndVisible()
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }
+  
+   // 为了视频的播放体验，必须在AppDelegate的applicationDidBecomeActive：和applicationWillResignActive：
+    //中调用开始渲染和停止渲染方法(这两个方法不耗时)。不做这一步可能带来未知的黑屏或者crash。
+    override func applicationWillResignActive(_ application: UIApplication) {
+        LCDManager.stopOpenGLESActivity()
+    }
+    
+    override func applicationDidBecomeActive(_ application: UIApplication) {
+        LCDManager.startOpenGLESActivity()
+    }
 }
 
 ```
