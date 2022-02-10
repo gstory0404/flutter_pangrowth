@@ -47,3 +47,25 @@ defaultConfig {
         ···
     }
 ```
+
+5、 在android/app/build.gradle添加命令依赖gradle脚本：
+```dart
+apply from: 'https://sf3-fe-tos.pglstatp-toutiao.com/obj/pangle-empower/android/pangrowth_media/plugin_config.gradle'
+```
+
+6、依赖管理
+内容合作sdk支持安卓版本：21~29
+依赖安卓内部库：support-v4，建议版本：24以上
+依赖安卓内部库：recyclerview-v7，建议版本：24以上
+依赖安卓内部库：constraint-layout，指定版本：1.1.2，具体方式如下(androidx和support根据具体使用环境使用其中一个即可)：
+```dart
+configurations.all {
+    resolutionStrategy {
+        // support的用这个
+        force 'com.android.support.constraint:constraint-layout:1.1.2'
+        // androidx包用这个
+        force 'androidx.constraintlayout:constraintlayout:1.1.2'
+    }
+}
+```
+

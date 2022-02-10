@@ -47,23 +47,28 @@ class PangrowthVideo{
   }
 
   ///# 打开沉浸式小视频 全屏样式
-  static Future<NovelEntity> openDrawVideoFull() async {
+  static Future<bool> openDrawVideoFull() async {
     return await FlutterPangrowth.pangrowthChannel.invokeMethod("openDrawVideoFull", null);
   }
 
   ///# 打开宫格小视频 全屏样式
-  static Future<NovelEntity> openGridVideo() async {
+  static Future<bool> openGridVideo() async {
     return await FlutterPangrowth.pangrowthChannel.invokeMethod("openGridVideo", null);
   }
 
   ///# 打开新闻 多列表 全屏样式
-  static Future<NovelEntity> openNewsTabs() async {
+  static Future<bool> openNewsTabs() async {
     return await FlutterPangrowth.pangrowthChannel.invokeMethod("openNewsTabs", null);
   }
 
   ///# 打开新闻 单列表 全屏样式
-  static Future<NovelEntity> openNewsTabOne() async {
+  static Future<bool> openNewsTabOne() async {
     return await FlutterPangrowth.pangrowthChannel.invokeMethod("openNewsTabOne", null);
+  }
+
+  ///# 打开个人主页
+  static Future<NovelEntity> openUserCenter() async {
+    return await FlutterPangrowth.pangrowthChannel.invokeMethod("openUserCenter", null);
   }
 
 

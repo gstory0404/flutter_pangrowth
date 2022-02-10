@@ -25,7 +25,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 29
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -48,7 +48,7 @@ android {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
-    implementation ('com.pangle.cn:pangrowth-sdk:1.7.0.0'){
+    implementation ('com.pangle.cn:pangrowth-sdk:2.0.0.0'){
         exclude group: 'com.pangle.cn', module: 'pangrowth-dpsdk-live'
         exclude group: 'com.pangle.cn', module: 'pangrowth-game-sdk'
         exclude group: 'com.pangle.cn', module: 'pangrowth-luckycat-sdk'

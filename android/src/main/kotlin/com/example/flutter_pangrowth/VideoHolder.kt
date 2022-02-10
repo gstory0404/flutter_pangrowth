@@ -1,7 +1,9 @@
 package com.example.flutter_pangrowth
 
 import android.app.Application
+import android.util.Log
 import com.bytedance.sdk.dp.*
+import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
 class VideoHolder private constructor() {
@@ -11,15 +13,18 @@ class VideoHolder private constructor() {
         }
     }
 
-    fun initSDK(context: Application,result: MethodChannel.Result) {
+    fun initSDK(context: Application, call: MethodCall, result: MethodChannel.Result) {
+        Log.d("=====》","开始初始化")
+        val debug = call.argument<Boolean>("debug") as Boolean
         val configBuilder = DPSdkConfig.Builder()
-                .debug(true)
+                .debug(debug)
                 .needInitAppLog(false)
                 .initListener { isSuccess -> //注意：1如果您的初始化没有放到application，请确保使用时初始化已经成功
+                    Log.d("=====》","初始化结果 $isSuccess")
                     result.success(isSuccess)
                 } //接入了红包功能需要传入的参数，没有接入的话可以忽略该配置
-                .luckConfig(DPSdkConfig.LuckConfig().application(context!!).enableLuck(false))
-        DPSdk.init(context!!, "pangrowthconfig.json", configBuilder.build())
+                .luckConfig(DPSdkConfig.LuckConfig().application(context).enableLuck(false))
+        DPSdk.init(context, "pangrowthconfig.json", configBuilder.build())
     }
 
 

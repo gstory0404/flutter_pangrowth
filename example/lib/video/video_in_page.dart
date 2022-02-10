@@ -30,10 +30,10 @@ class _VideoInPageState extends State<VideoInPage> {
   ];
 
   final List<BottomNavigationBarItem> _barItem = [
-    const BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('沉浸小视频')),
-    const BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('宫格小视频')),
-    const BottomNavigationBarItem(icon: Icon(Icons.list), title: Text('多列表新闻')),
-    const BottomNavigationBarItem(icon: Icon(Icons.list), title: Text('单列表新闻')),
+    const BottomNavigationBarItem(icon: Icon(Icons.home), label: '沉浸小视频'),
+    const BottomNavigationBarItem(icon: Icon(Icons.home), label: '宫格小视频'),
+    const BottomNavigationBarItem(icon: Icon(Icons.list), label: '多列表新闻'),
+    const BottomNavigationBarItem(icon: Icon(Icons.list), label: '单列表新闻'),
   ];
 
   @override

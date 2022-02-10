@@ -1,1 +1,5 @@
 -keep class com.bytedance.applog.AppLog{ public *; }
+-keepattributes Annotation
+-keepattributes JavascriptInterface
+-keepclassmembers class * { @android.webkit.JavascriptInterface <methods>; }
+-keep class com.bytedance.sdk.dp.core.web.bridge.DPBridge { public *; }

@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 # pragma mark - 打开新闻 单列表 全屏样式
 +(void)openNewsTabOne;
 
+# pragma mark - 打开个人主页
++(void)openUserCenter;
+
 # pragma mark - 信息流数据获取
 +(void)getFeedNativeData:(NSDictionary *)dic result:(FlutterResult)result;
     

@@ -122,6 +122,10 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
         } else if (call.method == "openNewsTabOne") {
             VideoPlugin.openNewsTabOne(mActivity,call)
             result.success(true)
+            //打开个人主页
+        } else if (call.method == "openUserCenter") {
+            VideoPlugin.openUserCenter(mActivity,call)
+            result.success(true)
         } else {
             result.notImplemented()
         }

@@ -46,5 +46,12 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:theme="@style/AppFull" />
+
+        <activity
+            android:name=".video.pages.UserCenterActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
     </application>
 </manifest>

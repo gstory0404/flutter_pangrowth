@@ -1,6 +1,6 @@
 # 字节跳动内容合作 Flutter版本
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.1-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.2-success></a>
 </p>
 
 ## 简介
@@ -14,7 +14,7 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 
 使用flutter_pangrowth插件，必须先接入穿山甲广告插件[flutter_unionad](https://github.com/gstory0404/flutter_unionad),不然无法显示广告
 
-## 接入文档 (插件升级注意查看文档变动)
+## 接入文档 (插件升级必须对照以下文档变动，以防不必要错误)
 
 * [Android](https://github.com/gstory0404/flutter_pangrowth/blob/master/Android.md)
 
@@ -34,7 +34,9 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^1.0.1
+flutter_pangrowth: ^1.0.2
+//该版本必须要配置一下广告插件版本，不然android会出现闪退问题
+flutter_unionad: 1.2.1
 ```
 
 #### 2、引入

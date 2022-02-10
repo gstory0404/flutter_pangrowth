@@ -6,6 +6,11 @@
 //
 
 #import "VideoPlugin.h"
+#import "controller/GridVideoViewController.h"
+#import "controller/DrawVideoViewController.h"
+#import "controller/FeedExploreViewController.h"
+#import "controller/SingleFeedViewController.h"
+#import "controller/AccessUserCenterViewController.h"
 
 @implementation VideoPlugin
 
@@ -30,45 +35,33 @@
 
 # pragma mark - 打开沉浸式小视频场景展示：全屏样式
 +(void)openDrawVideoFull{
-    LCDDrawVideoViewController *vc = [[LCDDrawVideoViewController alloc] initWithConfigBuilder:^(LCDDrawVideoVCConfig * _Nonnull config) {
-//        lcs_strongify(self)
-        config.showCloseButton = YES;
-//        config.out_bottomOffset = LCS_bottomHeight + 20;
-//        config.delegate = self;
-//        config.adDelegate = self;
-        }];
-//    LCDDrawVideoViewController *vc = [[LCDDrawVideoViewController alloc] init];
     UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
-    [viewController pushViewController:vc animated:YES];
+    [viewController pushViewController:[[DrawVideoViewController alloc] init] animated:YES];
 }
 
 # pragma mark -  打开宫格小视频 全屏样式
 +(void)openGridVideo{
-    LCDGridVideoViewController *vc = [[LCDGridVideoViewController alloc] initWithConfigBuilder:^(LCDGridVideoVCConfig * _Nonnull config) {
-//        config.showCloseButton = YES;
-    }];
     UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
-    [viewController pushViewController:vc animated:YES];
+    [viewController pushViewController:[[GridVideoViewController alloc] init] animated:YES];
 }
 
 # pragma mark - 打开新闻 多列表 全屏样式
 +(void)openNewsTabs{
-    LCDFeedExploreViewController *vc = [[LCDFeedExploreViewController  alloc] init];
     UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
-    [viewController pushViewController:vc animated:YES];
+    [viewController pushViewController:[[FeedExploreViewController alloc] init] animated:YES];
 }
 
 # pragma mark - 打开新闻 单列表 全屏样式
 +(void)openNewsTabOne{
-    LCDSingleFeedViewController *vc = [[LCDSingleFeedViewController alloc] initWithConfigBuilder:^(LCDSingleFeedVCConfig * _Nonnull config) {
-        config.category = @"__all__";
-//        config.delegate = self;
-//        config.adDelegate = self;
-        config.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
-    }];
-
     UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
-    [viewController pushViewController:vc animated:YES];
+    [viewController pushViewController:[[SingleFeedViewController alloc] init] animated:YES];
+}
+
+
+# pragma mark - 打开个人主页
++(void)openUserCenter{
+    UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
+    [viewController pushViewController:[[AccessUserCenterViewController alloc] init] animated:YES];
 }
 
 # pragma mark - 信息流数据获取

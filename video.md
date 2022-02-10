@@ -116,4 +116,8 @@ PangrowthVideo.videoCardView(
               viewWidth: 400,//宽
               viewHeight: 200,//高
             ),
+
+#### 16、打开个人主页
+```dart
+await PangrowthVideo.openUserCenter();
 ```

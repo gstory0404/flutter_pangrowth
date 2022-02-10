@@ -92,12 +92,18 @@
         //打开沉浸式小视频场景展示：全屏样式
     }else if([@"openDrawVideoFull" isEqualToString:call.method]){
         [VideoPlugin openDrawVideoFull];
+        //打开宫格小视频：全屏样式
+    }else if([@"openGridVideo" isEqualToString:call.method]){
+        [VideoPlugin openGridVideo];
         //打开新闻 多列表 全屏样式
     }else if([@"openNewsTabs" isEqualToString:call.method]){
         [VideoPlugin openNewsTabs];
         //打开新闻 单列表 全屏样式
     }else if([@"openNewsTabOne" isEqualToString:call.method]){
         [VideoPlugin openNewsTabOne];
+        //打开个人主页
+    }else if([@"openUserCenter" isEqualToString:call.method]){
+        [VideoPlugin openUserCenter];
         //获取信息流数据
     }else if([@"getFeedNativeData" isEqualToString:call.method]){
         [VideoPlugin getFeedNativeData:call.arguments result:result];

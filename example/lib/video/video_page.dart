@@ -53,6 +53,8 @@ class _VideoPageState extends State<VideoPage> {
           FlutterUnionadNetCode.NETWORK_STATE_4G,
           FlutterUnionadNetCode.NETWORK_STATE_WIFI
         ]); //允许直接下载的网络状态集合 选填
+    var version = await FlutterUnionad.getSDKVersion();
+    print("广告SDK版本号 $version");
     _isRegister = await PangrowthVideo.registerVideo(
       //接入小说SDK的App的英文名 必填
       appName: "appName",
@@ -109,6 +111,15 @@ class _VideoPageState extends State<VideoPage> {
               child: const Text('打开新闻 单列表'),
               onPressed: () async {
                 await PangrowthVideo.openNewsTabOne();
+              },
+            ),
+            //打开个人主页
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('打开个人主页'),
+              onPressed: () async {
+                await PangrowthVideo.openUserCenter();
               },
             ),
             //Flutter页面中插入视频新闻界面

@@ -111,16 +111,12 @@ class GridVideoActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        if (mIDPWidget!!.fragment != null) {
-            mIDPWidget!!.fragment.onResume()
-        }
+        mIDPWidget?.fragment?.onResume()
     }
 
     override fun onPause() {
         super.onPause()
-        if (mIDPWidget!!.fragment != null) {
-            mIDPWidget!!.fragment.onPause()
-        }
+        mIDPWidget?.fragment?.onPause()
     }
 
     override fun onDestroy() {
