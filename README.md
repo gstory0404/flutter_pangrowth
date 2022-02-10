@@ -22,13 +22,14 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 
 ## 本地环境
 ```
-[✓] Flutter (Channel stable, 2.8.0, on macOS 12.0.1 21A559 darwin-x64, locale zh-Hans-CN)
+[✓] Flutter (Channel stable, 2.10.0, on macOS 12.1 21C52 darwin-x64, locale zh-Hans-CN)
 [✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
-[✓] Xcode - develop for iOS and macOS (Xcode 13.1)
+[✓] Xcode - develop for iOS and macOS (Xcode 13.2.1)
 [✓] Chrome - develop for the web
 [✓] Android Studio (version 2020.3)
-[✓] VS Code (version 1.63.0)
+[✓] VS Code (version 1.63.2)
 [✓] Connected device (4 available)
+[✓] HTTP Host Availability
 ```
 
 ## 集成步骤
