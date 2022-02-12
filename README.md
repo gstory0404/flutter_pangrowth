@@ -36,7 +36,7 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 #### 1、pubspec.yaml
 ```Dart
 flutter_pangrowth: ^1.0.2
-//该版本必须要配置一下广告插件版本，不然android会出现闪退问题
+//该版本必须要配置广告1.2.1插件版本，不然android会出现闪退等问题
 flutter_unionad: 1.2.1
 ```
 
