@@ -1,4 +1,4 @@
-# 字节跳动内容合作 Flutter版本
+# 字节跳动内容输出 Flutter版本
 <p>
 <a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.2-success></a>
 </p>
