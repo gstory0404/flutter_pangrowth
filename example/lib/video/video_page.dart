@@ -30,7 +30,7 @@ class _VideoPageState extends State<VideoPage> {
 
   ///初始化
   Future<void> _register() async {
-    await FlutterUnionad.register(
+   bool _adRegister = await FlutterUnionad.register(
         androidAppId: "5240945",
         //穿山甲广告 Android appid 必填
         iosAppId: "5205916",
@@ -53,8 +53,7 @@ class _VideoPageState extends State<VideoPage> {
           FlutterUnionadNetCode.NETWORK_STATE_4G,
           FlutterUnionadNetCode.NETWORK_STATE_WIFI
         ]); //允许直接下载的网络状态集合 选填
-    var version = await FlutterUnionad.getSDKVersion();
-    print("广告SDK版本号 $version");
+   print("广告初始化结果--> $_adRegister");
     _isRegister = await PangrowthVideo.registerVideo(
       //接入小说SDK的App的英文名 必填
       appName: "appName",

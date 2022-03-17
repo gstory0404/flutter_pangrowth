@@ -1,6 +1,6 @@
 # 字节跳动内容合作 Flutter版本
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.2-success></a>
+<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/badge/flutter_pangrowth-v1.0.3-success></a>
 </p>
 
 ## 简介
@@ -22,22 +22,29 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 
 ## 本地环境
 ```
-[✓] Flutter (Channel stable, 2.10.0, on macOS 12.1 21C52 darwin-x64, locale zh-Hans-CN)
-[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.3)
+[✓] Flutter (Channel stable, 2.10.2, on macOS 12.2.1 21D62 darwin-x64, locale zh-Hans-CN)
+[✓] Android toolchain - develop for Android devices (Android SDK version 33.0.0-rc1)
 [✓] Xcode - develop for iOS and macOS (Xcode 13.2.1)
 [✓] Chrome - develop for the web
-[✓] Android Studio (version 2020.3)
-[✓] VS Code (version 1.63.2)
+[✓] Android Studio (version 2021.1)
+[✓] VS Code (version 1.64.2)
 [✓] Connected device (4 available)
 [✓] HTTP Host Availability
 ```
 
+## 原生SDK版本
+#### 1、android
+2.2.0.0
+
+#### 2、ios
+2.2.0.0(短视频静态库)
+
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^1.0.2
-//该版本必须要配置广告1.2.1插件版本，不然android会出现闪退等问题
-flutter_unionad: 1.2.1
+flutter_pangrowth: ^1.0.3
+//该版本必须指定广告插件版本，不然会出现兼容问题
+flutter_unionad: 1.2.4
 ```
 
 #### 2、引入

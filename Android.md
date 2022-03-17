@@ -69,3 +69,11 @@ configurations.all {
 }
 ```
 
+7、打包安装运行失败
+当debug运行正常，打包后运行失败，可以尝试将混淆关闭再进行打包
+```dart
+minifyEnabled false
+shrinkResources false
+zipAlignEnabled true
+```
+

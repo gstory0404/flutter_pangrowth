@@ -23,7 +23,7 @@ dependencies:
     path: ../
 
   cupertino_icons: ^1.0.2
-  flutter_unionad: 1.2.1
+  flutter_unionad: 1.2.4
 
 dev_dependencies:
   flutter_test:

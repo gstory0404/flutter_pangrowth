@@ -67,7 +67,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             NovelPlugin.registerNovel(applicationContext, call, result)
             //打开书城
         } else if (call.method == "openNovelPage") {
-            NovelSDK.openNovelPage(mActivity!!)
+            NovelPlugin.openNovelPage(mActivity,result)
             //获取小说阅读历史记录
         } else if (call.method == "getNovelHistory") {
             val size = call.argument<Int>("size")

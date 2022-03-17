@@ -69,6 +69,14 @@ object NovelPlugin {
     }
 
     /**
+     * 打开小说主页
+     */
+    fun openNovelPage(activity: Activity?,result: MethodChannel.Result) {
+        NovelSDK.openNovelPage(activity!!)
+        result.success(true)
+    }
+
+    /**
      * 获取小说阅读历史记录
      */
     fun getNovelHistory(activity: Activity?, size: Int, result: MethodChannel.Result) {

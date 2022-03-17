@@ -9,6 +9,8 @@ source 'https://github.com/bytedance/cocoapods_sdk_source_repo.git'
 source 'https://github.com/volcengine/volcengine-specs.git'
 ```
 
+> 插件升级尽量clean缓存，到ios目录下执行pod update避免不必要的类库找不到异常
+
 2、把下载的json文件改名pangrowthconfig.json导入项目ios目录下
 
 3、AppDelegate修改
