@@ -15,8 +15,9 @@ import io.flutter.plugin.platform.PlatformViewFactory
 
 internal class VideoCardViewFactory (private val messenger: BinaryMessenger, private val activity: Activity) : PlatformViewFactory(
         StandardMessageCodec.INSTANCE) {
-    override fun create(context: Context, id: Int, args: Any): PlatformView {
+
+    override fun create(context: Context?, viewId: Int, args: Any?): PlatformView {
         val params = args as Map<String?, Any?>
-        return VideoCardView(activity,messenger, id, params)
+        return VideoCardView(activity,messenger, viewId, params)
     }
 }

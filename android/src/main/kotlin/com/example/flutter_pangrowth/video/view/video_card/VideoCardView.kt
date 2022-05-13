@@ -21,7 +21,7 @@ import io.flutter.plugin.platform.PlatformView
 
 internal class VideoCardView(
         var activity: Activity,
-        messenger: BinaryMessenger?,
+        messenger: BinaryMessenger,
         id: Int,
         params: Map<String?, Any?>
 ) :

@@ -1,3 +1,15 @@
+## 1.0.5
+* 兼容Flutter3.0
+* android升级2.4.0.0
+* ios升级2.4.0.0
+
+## 1.0.4
+* android升级2.2.0.1
+* 该版本必须配合flutter_unionad 1.2.4版本使用
+```dart
+  flutter_unionad: 1.2.4
+```
+
 ## 1.0.3
 * android升级2.2.0.0
 * ios升级2.2.0.0

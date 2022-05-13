@@ -22,7 +22,7 @@ import io.flutter.plugin.platform.PlatformView
 
 internal class DrawFullView(
         var activity: Activity,
-        messenger: BinaryMessenger?,
+        messenger: BinaryMessenger,
         id: Int,
         params: Map<String?, Any?>
 ) :
