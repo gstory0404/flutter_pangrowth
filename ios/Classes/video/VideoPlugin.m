@@ -22,7 +22,7 @@
     config.logLevel = LCDSDKLogLevelDebug;
     // 请使用您的配置文件(例如SDK_Setting_5151488.json)初始化SDK，并确保配置文件已经作为Copy Bundle Resource引入工程
     NSString *configPath = [[NSBundle mainBundle] pathForResource:@"pangrowthconfig" ofType:@"json"];
-    [LCDManager startWithConfigPath:configPath config:config completion:^(LCDINITStatus initStatus) {
+    [LCDManager startWithConfigPath:configPath config:config completion:^(LCDINITStatus initStatus, NSDictionary * _Nonnull userInfo) {
         if (initStatus == LCDINITStatus_success) {
             NSLog(@"初始化注册成功！");
             result(@YES);

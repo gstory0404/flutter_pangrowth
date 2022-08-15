@@ -8,7 +8,7 @@
 #import "NovelPlugin.h"
 #import "BDNovelPublicConfig.h"
 #import "UIViewController+getCurrentVC.h"
-#import "LogUtil.h"
+#import "PLogUtil.h"
 #import "BDNovelPublicConfig+ReadConfig.h"
 #import "BDNovelPublicReadConfig.h"
 #import "MJExtension.h"

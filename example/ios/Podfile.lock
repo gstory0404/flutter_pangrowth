@@ -1,13 +1,11 @@
 PODS:
-  - Ads-CN-Beta (4.4.0.6):
-    - Ads-CN-Beta/BUAdSDK (= 4.4.0.6)
-  - Ads-CN-Beta/BUAdSDK (4.4.0.6):
-    - Ads-CN-Beta/BUFoundation
-    - Ads-CN-Beta/Domestic
-  - Ads-CN-Beta/BUFoundation (4.4.0.6):
-    - BURelyFoundation (= 0.0.1.53)
-  - Ads-CN-Beta/Domestic (4.4.0.6):
-    - Ads-CN-Beta/BUFoundation
+  - Ads-CN-Beta (4.7.0.5):
+    - Ads-CN-Beta/BUAdSDK (= 4.7.0.5)
+  - Ads-CN-Beta/BUAdSDK (4.7.0.5):
+    - Ads-CN-Beta/Dep_Accurate
+  - Ads-CN-Beta/Dep_Accurate (4.7.0.5):
+    - BUAdSDK (= 0.1.0.24)
+    - BURelyFoundation/CSJ (= 0.0.3.1)
   - BDNovelOpenSDK (3.6.2):
     - FMDB/standard
     - MMKV
@@ -20,43 +18,73 @@ PODS:
     - RangersAppLog/Host/CN (~> 6.3.2)
     - YYCache
     - YYText
-  - BURelyFoundation (0.0.1.53):
-    - BURelyFoundation/HM (= 0.0.1.53)
-    - BURelyFoundation/NETWork (= 0.0.1.53)
-  - BURelyFoundation/HM (0.0.1.53)
-  - BURelyFoundation/NETWork (0.0.1.53)
+  - BUAdSDK (0.1.0.24):
+    - BUAdSDK/BUAdSDK (= 0.1.0.24)
+  - BUAdSDK/BUAdSDK (0.1.0.24)
+  - BURelyFoundation/AFNetworking (0.0.3.1)
+  - BURelyFoundation/BURelyFoundation (0.0.3.1)
+  - BURelyFoundation/CSJ (0.0.3.1):
+    - BURelyFoundation/AFNetworking
+    - BURelyFoundation/BURelyFoundation
+    - BURelyFoundation/Foundation
+    - BURelyFoundation/Gecko
+    - BURelyFoundation/HM
+    - BURelyFoundation/NETWork
+    - BURelyFoundation/SDWebImage
+    - BURelyFoundation/YYModel
+    - BURelyFoundation/ZFPlayer
+    - BURelyFoundation/Zip
+  - BURelyFoundation/Foundation (0.0.3.1):
+    - BURelyFoundation/NETWork
+  - BURelyFoundation/Gecko (0.0.3.1):
+    - BURelyFoundation/Foundation
+  - BURelyFoundation/HM (0.0.3.1)
+  - BURelyFoundation/NETWork (0.0.3.1):
+    - BURelyFoundation/AFNetworking
+  - BURelyFoundation/SDWebImage (0.0.3.1):
+    - BURelyFoundation/Foundation
+  - BURelyFoundation/YYModel (0.0.3.1)
+  - BURelyFoundation/ZFPlayer (0.0.3.1):
+    - BURelyFoundation/Foundation
+    - BURelyFoundation/Zip
+  - BURelyFoundation/Zip (0.0.3.1):
+    - BURelyFoundation/Foundation
   - Flutter (1.0.0)
   - flutter_pangrowth (0.0.1):
     - Flutter
     - MJExtension (~> 3.4.0)
-    - Pangrowth/media (~> 2.4.0.0)
-    - Pangrowth/novel (~> 2.4.0.0)
+    - Pangrowth/media (~> 2.7.0.0)
+    - Pangrowth/novel (~> 2.7.0.0)
   - flutter_unionad (0.0.1):
-    - Ads-CN-Beta (~> 4.4.0.0)
+    - Ads-CN-Beta (~> 4.7.0.5)
     - Flutter
   - FMDB/standard (2.7.5)
   - MJExtension (3.4.1)
-  - MMKV (1.2.13):
-    - MMKVCore (~> 1.2.13)
-  - MMKVCore (1.2.13)
-  - OneKit/BaseKit (1.3.5)
-  - OneKit/ByteDanceKit (1.3.5):
-    - OneKit/ByteDanceKit/Foundation (= 1.3.5)
-    - OneKit/ByteDanceKit/UIKit (= 1.3.5)
-  - OneKit/ByteDanceKit/Foundation (1.3.5)
-  - OneKit/ByteDanceKit/UIKit (1.3.5):
+  - MMKV (1.2.14):
+    - MMKVCore (~> 1.2.14)
+  - MMKVCore (1.2.14)
+  - OneKit/BaseKit (1.3.13)
+  - OneKit/ByteDanceKit (1.3.13):
+    - OneKit/ByteDanceKit/Foundation (= 1.3.13)
+    - OneKit/ByteDanceKit/UIKit (= 1.3.13)
+    - OneKit/Service
+  - OneKit/ByteDanceKit/Foundation (1.3.13):
+    - OneKit/Service
+  - OneKit/ByteDanceKit/UIKit (1.3.13):
     - OneKit/ByteDanceKit/Foundation
-  - OneKit/Database (1.3.5):
     - OneKit/Service
-  - OneKit/Reachability (1.3.5):
+  - OneKit/Database (1.3.13):
     - OneKit/Service
-  - OneKit/Service (1.3.5)
-  - OneKit/StartUp (1.3.5):
-    - OneKit/BaseKit
+  - OneKit/Reachability (1.3.13):
+    - OneKit/Service
+  - OneKit/Section (1.3.13)
+  - OneKit/Service (1.3.13)
+  - OneKit/StartUp (1.3.13):
     - OneKit/Reachability
+    - OneKit/Section
     - OneKit/Service
-  - Pangrowth/media (2.4.0.1):
-    - PangrowthMedia (= 3.5.0.1)
+  - Pangrowth/media (2.7.0.1):
+    - PangrowthMedia (= 3.8.0.1)
     - RangersAPM/CN (= 2.4.1)
     - RangersAPM/Core (= 2.4.1)
     - RangersAPM/Crash (= 2.4.1)
@@ -65,7 +93,7 @@ PODS:
     - RangersAPM/Public (= 2.4.1)
     - RangersAppLog/Core (= 6.3.2)
     - RangersAppLog/Host/CN (= 6.3.2)
-  - Pangrowth/novel (2.4.0.1):
+  - Pangrowth/novel (2.7.0.1):
     - BDNovelOpenSDK (= 3.6.2)
     - RangersAPM/CN (= 2.4.1)
     - RangersAPM/Core (= 2.4.1)
@@ -75,7 +103,7 @@ PODS:
     - RangersAPM/Public (= 2.4.1)
     - RangersAppLog/Core (= 6.3.2)
     - RangersAppLog/Host/CN (= 6.3.2)
-  - PangrowthMedia (3.5.0.1):
+  - PangrowthMedia (3.8.0.1):
     - RangersAPM/CN (>= 2.4.1)
     - RangersAPM/Core (>= 2.4.1)
     - RangersAPM/Crash (>= 2.4.1)
@@ -121,6 +149,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Ads-CN-Beta
+    - BUAdSDK
     - BURelyFoundation
     - FMDB
     - MJExtension
@@ -145,19 +174,20 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_unionad/ios"
 
 SPEC CHECKSUMS:
-  Ads-CN-Beta: 8c80fc2aa05f603579d0f5b1e4fc2afa2fba4112
+  Ads-CN-Beta: 50a5e1687bdfd1e3bcfddf4442c0a9312d48554c
   BDNovelOpenSDK: 5c66aa2032d4a5483a72fe54ff2d7ac343dff78a
-  BURelyFoundation: 7734bcadb9dc458b2fa341b3126dfd9049a1542e
+  BUAdSDK: 5528f72f7b9b478a12743ea23af7bdb9746efc00
+  BURelyFoundation: 973dfa13f7c4c0ebc4c3c6c8289e91b139e31a24
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  flutter_pangrowth: 68032c02488ff9bdb8419fb83922ab4922f0f702
-  flutter_unionad: f0c288ddd53a672d1cea5ce4c543473f5eb38e46
+  flutter_pangrowth: 64599bad260db1c4a4958ee79f2e60f34f334506
+  flutter_unionad: 1fd54f3a7743baf2883063f570025970316d0cd0
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
-  MMKV: aac95d817a100479445633f2b3ed8961b4ac5043
-  MMKVCore: 3388952ded307e41b3ed8a05892736a236ed1b8e
-  OneKit: b3110170ece5fc3ecda63546ceee9fc576eb4d3c
-  Pangrowth: 155d2a50a0109f2605232bd5b142b0e3892b62af
-  PangrowthMedia: f350be5f54f292bb8581aee8527ab48211e1bd20
+  MMKV: 9c4663aa7ca255d478ff10f2f5cb7d17c1651ccd
+  MMKVCore: 89f5c8a66bba2dcd551779dea4d412eeec8ff5bb
+  OneKit: 4e095042b50cf450aaa84c19e9d36704955d2312
+  Pangrowth: 2a7ee6df5406b78845a00fa187626459522880ee
+  PangrowthMedia: b3c8b56094a72ca87ca7f7ad2734d5824940ca38
   RangersAPM: fbcba8c380e5513f46486ed9f94f57feb6840a37
   RangersAppLog: d2eca818b509a6b6d1bc28b95266baf6b0fe4cb2
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -165,4 +195,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 783839999ae08e6bfa9279ca191756e76367be0c
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

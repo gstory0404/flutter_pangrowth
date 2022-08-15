@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "LogUtil.h"
+#import "PLogUtil.h"
 
 @interface LogUtil()
 @property(nonatomic,assign) BOOL isDebug;
