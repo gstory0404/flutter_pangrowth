@@ -35,10 +35,10 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 
 ## 原生SDK版本
 #### 1、android
-2.7.0.5
+[2.7.0.5](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=61278ade8b4d7d004768125c&osType=)
 
 #### 2、ios
-2.7.0.0(短视频静态库)
+[2.7.0.0(短视频静态库)](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=614564ca6b639b0042135d6b&osType=)
 
 ## 集成步骤
 #### 1、pubspec.yaml
