@@ -62,14 +62,16 @@ import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 
 |插件|地址|
 |:----|:----|
-|字节穿山甲广告插件|[flutter_unionad](https://github.com/gstory0404/flutter_unionad)|
-|腾讯优量汇广告插件|[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)|
-|聚合广告插件|[flutter_universalad](https://github.com/gstory0404/flutter_universalad)|
-|百度百青藤广告插件|[flutter_baiduad](https://github.com/gstory0404/flutter_baiduad)|
+|字节-穿山甲广告插件|[flutter_unionad](https://github.com/gstory0404/flutter_unionad)|
+|腾讯-优量汇广告插件|[flutter_tencentad](https://github.com/gstory0404/flutter_tencentad)|
+|百度-百青藤广告插件|[baiduad](https://github.com/gstory0404/baiduad)|
+|字节-Gromore聚合广告|[gromore](https://github.com/gstory0404/gromore)|
+|Sigmob广告|[sigmobad](https://github.com/gstory0404/sigmobad)|
+|聚合广告插件(迁移至GTAds)|[flutter_universalad](https://github.com/gstory0404/flutter_universalad)|
+|GTAds聚合广告|[GTAds](https://github.com/gstory0404/GTAds)|
 |字节穿山甲内容合作插件|[flutter_pangrowth](https://github.com/gstory0404/flutter_pangrowth)|
 |文档预览插件|[file_preview](https://github.com/gstory0404/file_preview)|
 |滤镜|[gpu_image](https://github.com/gstory0404/gpu_image)|
-|Gromore聚合广告|[gromore](https://github.com/gstory0404/gromore)|
 
 ### 开源不易，觉得有用的话可以请作者喝杯奶茶🧋
 <img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/weixin.jpg" width = "200" height = "160" alt="打赏"/>
