@@ -14,16 +14,18 @@ class VideoHolder private constructor() {
     }
 
     fun initSDK(context: Application, call: MethodCall, result: MethodChannel.Result) {
-        Log.d("=====》", "开始初始化")
         val debug = call.argument<Boolean>("debug") as Boolean
         val configBuilder = DPSdkConfig.Builder()
             .debug(debug)
-            .needInitAppLog(false)
-            .initListener { isSuccess, message ->
-                result.success(isSuccess)
-            } //接入了红包功能需要传入的参数，没有接入的话可以忽略该配置
+            //接入了红包功能需要传入的参数，没有接入的话可以忽略该配置
             .luckConfig(DPSdkConfig.LuckConfig().application(context).enableLuck(false))
         DPSdk.init(context, "pangrowthconfig.json", configBuilder.build())
+        DPSdk.start { isSuccess, message ->
+            run {
+                Log.d("flutter_pangrowth初始化", message)
+                result.success(isSuccess)
+            }
+        }
     }
 
 

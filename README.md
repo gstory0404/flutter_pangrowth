@@ -22,30 +22,31 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 
 ## 本地环境
 ```
-[✓] Flutter (Channel stable, 3.0.4, on macOS 12.5 21G72 darwin-x64, locale zh-Hans-CN)
-[✓] Android toolchain - develop for Android devices (Android SDK version 33.0.0-rc1)
-[✓] Xcode - develop for iOS and macOS (Xcode 13.4.1)
+[✓] Flutter (Channel stable, 3.10.6, on macOS 13.5 22G74 darwin-x64, locale
+    zh-Hans-CN)
+[✓] Android toolchain - develop for Android devices (Android SDK version 33.0.1)
+[✓] Xcode - develop for iOS and macOS (Xcode 14.3.1)
 [✓] Chrome - develop for the web
-[✓] Android Studio (version 2021.2)
-[✓] IntelliJ IDEA Ultimate Edition (version 2022.1.1)
-[✓] VS Code (version 1.69.2)
-[✓] Connected device (3 available)
-[✓] HTTP Host Availability
+[✓] Android Studio (version 2022.1)
+[✓] IntelliJ IDEA Ultimate Edition (version 2023.2)
+[✓] VS Code (version 1.80.2)
+[✓] Connected device (4 available)
+[✓] Network resources
 ```
 
 ## 原生SDK版本
 #### 1、android
-[2.7.0.5](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=61278ade8b4d7d004768125c&osType=)
+[3.9.0.1](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=61278ade8b4d7d004768125c&osType=)
 
 #### 2、ios
-[2.7.0.0(短视频静态库)](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=614564ca6b639b0042135d6b&osType=)
+[3.9.0.1(短视频静态库)](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=614564ca6b639b0042135d6b&osType=)
 
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^1.0.6
+flutter_pangrowth: ^1.0.7
 //该版本必须指定广告插件版本，不然会出现兼容问题
-flutter_unionad: 1.3.8
+flutter_unionad: 1.3.23
 ```
 
 #### 2、引入
