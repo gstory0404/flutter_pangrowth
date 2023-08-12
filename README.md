@@ -65,7 +65,7 @@ import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 
 ## 使用
 
-### [小说使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/novel.md)
+### [小说使用文档(弃用)](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/novel.md)
 ### [短视频使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/video.md)
 
 ## 插件链接

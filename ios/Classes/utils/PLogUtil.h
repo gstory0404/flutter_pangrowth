@@ -1,5 +1,5 @@
 //
-//  LogUtil.h
+//  PLogUtil.h
 //  flutter_tencentad
 //
 //  Created by gstory on 2021/12/1.
@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LogUtil : NSObject
+@interface PLogUtil : NSObject
 + (instancetype)sharedInstance;
 - (void)debug:(BOOL)isDebug;
 - (void)print:(NSString *)message;

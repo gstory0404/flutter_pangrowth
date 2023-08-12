@@ -8,17 +8,17 @@
 #import <Foundation/Foundation.h>
 #import "PLogUtil.h"
 
-@interface LogUtil()
+@interface PLogUtil()
 @property(nonatomic,assign) BOOL isDebug;
 @end
 
 
-@implementation LogUtil
+@implementation PLogUtil
 
 + (instancetype)sharedInstance{
-    static LogUtil *myInstance = nil;
+    static PLogUtil *myInstance = nil;
     if(myInstance == nil){
-        myInstance = [[LogUtil alloc]init];
+        myInstance = [[PLogUtil alloc]init];
     }
     return myInstance;
 }
