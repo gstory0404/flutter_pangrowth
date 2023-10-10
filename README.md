@@ -43,10 +43,10 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出
 
 ## 原生SDK版本
 #### 1、android
-[3.9.0.1](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=61278ade8b4d7d004768125c&osType=)
+[3.9.0.2](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=61278ade8b4d7d004768125c&osType=)
 
 #### 2、ios
-[3.9.0.1(短视频静态库)](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=614564ca6b639b0042135d6b&osType=)
+[3.9.0.2(短视频静态库)](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=614564ca6b639b0042135d6b&osType=)
 
 ## 集成步骤
 #### 1、pubspec.yaml
