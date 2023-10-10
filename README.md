@@ -15,9 +15,7 @@
 ## 简介
 flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出，为自己app无侵入快速引入小说、视频内容的插件。[体验demo](https://www.pgyer.com/sUQU)
 
-<img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/images/video.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/images/playlet.gif" width="30%">
-
-
+<img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/video.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/playlet.gif" width="30%">
 
 ## 说明
 
