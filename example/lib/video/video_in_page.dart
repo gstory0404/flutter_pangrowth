@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 import 'package:flutter_pangrowth_example/video/draw_video_page.dart';
 import 'package:flutter_pangrowth_example/video/grid_video_page.dart';
-import 'package:flutter_pangrowth_example/video/news_tab_one_page.dart';
-import 'package:flutter_pangrowth_example/video/news_tabs_page.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2021/12/14 12:14 下午
@@ -25,15 +23,11 @@ class _VideoInPageState extends State<VideoInPage> {
   List<Widget> _pageList = [
     DrawVideoPage(),
     GridVideoPage(),
-    NewsTabsPage(),
-    NewsTabOnePage(),
   ];
 
   final List<BottomNavigationBarItem> _barItem = [
     const BottomNavigationBarItem(icon: Icon(Icons.home), label: '沉浸小视频'),
     const BottomNavigationBarItem(icon: Icon(Icons.home), label: '宫格小视频'),
-    const BottomNavigationBarItem(icon: Icon(Icons.list), label: '多列表新闻'),
-    const BottomNavigationBarItem(icon: Icon(Icons.list), label: '单列表新闻'),
   ];
 
   @override

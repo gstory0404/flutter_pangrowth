@@ -1,5 +1,6 @@
 #import "FlutterPangrowthPlugin.h"
 #import "video/VideoPlugin.h"
+#import "playlet/PlayletPlugin.h"
 #import "video/view/DrawVideoFullView.h"
 #import "video/view/NewsTabsView.h"
 #import "video/view/NewsTabOneView.h"
@@ -10,6 +11,7 @@
 #import "video/view/VideoSingleCardView.h"
 #import "video/view/VideoNewsSingleCardView.h"
 #import "video/view/VideoCardView.h"
+#import "playlet/view/PlayletCardView.h"
 
 @interface FlutterPangrowthPlugin()
 
@@ -42,6 +44,8 @@
     [registrar registerViewFactory:[[VideoNewsSingleCardViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoNewsSingleCardView"];
     //视频 卡片
     [registrar registerViewFactory:[[VideoCardViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/VideoCardView"];
+    //短剧 卡片
+    [registrar registerViewFactory:[[PlayletCardViewFactory alloc] initWithMessenger:registrar.messenger] withId:@"com.gstory.flutter_pangrowth/PlayletCardView"];
     
 }
 
@@ -68,6 +72,15 @@
         //获取信息流数据
     }else if([@"getFeedNativeData" isEqualToString:call.method]){
         [VideoPlugin getFeedNativeData:call.arguments result:result];
+        //短剧聚合页
+    }else if([@"openPlayletAggregatePage" isEqualToString:call.method]){
+        [PlayletPlugin openPlayletAggregatePage:call.arguments];
+        //打开短剧混排
+    }else if([@"openPlayletDrawVideoPage" isEqualToString:call.method]){
+        [PlayletPlugin openPlayletDrawVideoPage:call.arguments];
+        //打开短剧搜索
+    }else if([@"openPlayletSearchPage" isEqualToString:call.method]){
+        [PlayletPlugin openPlayletSearchPage:call.arguments];
     } else {
         result(FlutterMethodNotImplemented);
     }

@@ -1,4 +1,4 @@
-# 字节跳动内容合作 Flutter版本
+# 字节跳动内容输出 Flutter版本
 
 <p>
 <a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/pub/v/flutter_pangrowth?color=orange></a>
@@ -13,9 +13,9 @@
 </p>
 
 ## 简介
-flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作，为自己app无侵入快速引入小说、视频内容的插件。[体验demo](https://www.pgyer.com/sUQU)
+flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出，为自己app无侵入快速引入小说、视频内容的插件。[体验demo](https://www.pgyer.com/sUQU)
 
-<img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/images/video.gif" width="30%">
+<img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/images/video.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/images/playlet.gif" width="30%">
 
 
 
@@ -53,9 +53,9 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容合作
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^1.0.7
+flutter_pangrowth: ^1.0.8
 //该版本必须指定广告插件版本，不然会出现兼容问题
-flutter_unionad: 1.3.23
+flutter_unionad: 1.3.26
 ```
 
 #### 2、引入
@@ -63,10 +63,11 @@ flutter_unionad: 1.3.23
 import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 ```
 
-## 使用
+## 使用文档
 
-### [小说使用文档(弃用)](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/novel.md)
-### [短视频使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/video.md)
+### [小说使用文档(官方已下线)](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/doc/novel.md)
+### [短视频使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/doc/video.md)
+### [短剧使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/branch_video/doc/playlet.md)
 
 ## 插件链接
 
@@ -79,7 +80,7 @@ import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 |Sigmob广告|[sigmobad](https://github.com/gstory0404/sigmobad)|
 |聚合广告插件(迁移至GTAds)|[flutter_universalad](https://github.com/gstory0404/flutter_universalad)|
 |GTAds聚合广告|[GTAds](https://github.com/gstory0404/GTAds)|
-|字节穿山甲内容合作插件|[flutter_pangrowth](https://github.com/gstory0404/flutter_pangrowth)|
+|字节穿山甲内容输出插件|[flutter_pangrowth](https://github.com/gstory0404/flutter_pangrowth)|
 |文档预览插件|[file_preview](https://github.com/gstory0404/file_preview)|
 |滤镜|[gpu_image](https://github.com/gstory0404/gpu_image)|
 

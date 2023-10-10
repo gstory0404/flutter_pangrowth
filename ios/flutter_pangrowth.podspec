@@ -19,7 +19,7 @@ A new flutter plugin project.
   s.dependency 'Flutter'
   s.platform = :ios, '9.0'
   s.dependency 'MJExtension','~> 3.4.0'
-  s.dependency 'Pangrowth/media','~> 3.9.0.1'
+  s.dependency 'Pangrowth/media','~> 3.9.0.2'
  # s.dependency 'Pangrowth/novel','~> 3.9.0.1'
   
   # Flutter.framework does not contain a i386 slice.

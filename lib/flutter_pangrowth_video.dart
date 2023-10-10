@@ -3,7 +3,7 @@ part of 'flutter_pangrowth.dart';
 /// @Author: gstory
 /// @CreateDate: 2021/12/13 3:36 下午
 /// @Email gstory0404@gmail.com
-/// @Description: 内容合作视频
+/// @Description: 内容输出视频
 
 class PangrowthVideo{
   ///
@@ -56,11 +56,13 @@ class PangrowthVideo{
     return await FlutterPangrowth.pangrowthChannel.invokeMethod("openGridVideo", null);
   }
 
+  @deprecated
   ///# 打开新闻 多列表 全屏样式
   static Future<bool> openNewsTabs() async {
     return await FlutterPangrowth.pangrowthChannel.invokeMethod("openNewsTabs", null);
   }
 
+  @deprecated
   ///# 打开新闻 单列表 全屏样式
   static Future<bool> openNewsTabOne() async {
     return await FlutterPangrowth.pangrowthChannel.invokeMethod("openNewsTabOne", null);

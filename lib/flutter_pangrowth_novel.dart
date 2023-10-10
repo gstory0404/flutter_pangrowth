@@ -3,7 +3,7 @@ part of 'flutter_pangrowth.dart';
 /// @Author: gstory
 /// @CreateDate: 2021/12/13 3:23 下午
 /// @Email gstory0404@gmail.com
-/// @Description: 内容合作小说
+/// @Description: 内容输出小说
 
 class PangrowthNovel{
   ///

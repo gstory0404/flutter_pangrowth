@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth_example/novel/novel_page.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_page.dart';
 
 import 'video/video_page.dart';
 
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('穿山甲内容合作插件'),
+        title: const Text('穿山甲内容输出插件'),
       ),
       body: Center(
         child: Column(
@@ -61,6 +62,22 @@ class _HomePageState extends State<HomePage> {
                   MaterialPageRoute(
                     builder: (_) {
                       return const VideoPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            //短剧
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child:  const Text('短剧'),
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return const PlayletPage();
                     },
                   ),
                 );

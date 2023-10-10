@@ -70,7 +70,7 @@ class _VideoPageState extends State<VideoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('穿山甲内容合作插件---视频'),
+        title: const Text('穿山甲内容输出插件---视频'),
       ),
       body: Center(
         child: Column(
@@ -92,24 +92,6 @@ class _VideoPageState extends State<VideoPage> {
               child: const Text('打开宫格小视频'),
               onPressed: () async {
                 await PangrowthVideo.openGridVideo();
-              },
-            ),
-            //打开新闻 多列表
-            MaterialButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: const Text('打开新闻 多列表'),
-              onPressed: () async {
-                await PangrowthVideo.openNewsTabs();
-              },
-            ),
-            //打开新闻 单列表
-            MaterialButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: const Text('打开新闻 单列表'),
-              onPressed: () async {
-                await PangrowthVideo.openNewsTabOne();
               },
             ),
             //打开个人主页

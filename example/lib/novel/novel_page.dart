@@ -93,7 +93,7 @@ class _NovelPageState extends State<NovelPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('穿山甲内容合作插件---小说'),
+        title: const Text('穿山甲内容输出插件---小说'),
       ),
       body: Center(
         child: Column(
