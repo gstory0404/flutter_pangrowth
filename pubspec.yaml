@@ -1,6 +1,6 @@
 name: flutter_pangrowth
 description: flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出的插件。
-version: 1.0.8
+version: 1.0.9
 homepage: https://github.com/gstory0404/flutter_pangrowth
 
 environment:

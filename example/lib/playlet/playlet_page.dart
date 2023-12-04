@@ -101,7 +101,7 @@ class _PlayletPageState extends State<PlayletPage> {
                   // 观看一次激励视频解锁的集数 默认1
                   unlockCountUsingAD: 2,
                   //是否展示导航栏标题名称 默认true
-                  isShowTitle: true,
+                  isShowTitle: false,
                   //是否展示导航栏左上角返回按钮 默认true
                   isShowBackButton: true,
                   //是否短视频、短剧混排 默认true

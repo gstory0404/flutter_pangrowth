@@ -51,9 +51,9 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出
 ## 集成步骤
 #### 1、pubspec.yaml
 ```Dart
-flutter_pangrowth: ^1.0.8
+flutter_pangrowth: ^1.0.9
 //该版本必须指定广告插件版本，不然会出现兼容问题
-flutter_unionad: 1.3.26
+flutter_unionad: 1.3.27
 ```
 
 #### 2、引入
