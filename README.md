@@ -23,9 +23,9 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出
 
 ## 接入文档 (插件升级必须对照以下文档变动，以防不必要错误)
 
-* [Android](https://github.com/gstory0404/flutter_pangrowth/blob/master/Android.md)
+* [Android](https://github.com/gstory0404/flutter_pangrowth/blob/master/doc/Android.md)
 
-* [ios](https://github.com/gstory0404/flutter_pangrowth/blob/master/IOS.md)
+* [ios](https://github.com/gstory0404/flutter_pangrowth/blob/master/doc/IOS.md)
 
 ## 本地环境
 ```
