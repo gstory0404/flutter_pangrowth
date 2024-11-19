@@ -1,22 +1,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.example.flutter_pangrowth">
+    package="com.gstory.flutter_pangrowth">
+
     <application>
-        <provider
-            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"
-            android:authorities="${applicationId}.TTFileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-        <provider
-            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"
-            android:authorities="${applicationId}.TTMultiProvider"
-            android:exported="false" />
+        <!--        <provider-->
+        <!--            android:name="com.bytedance.sdk.openadsdk.TTFileProvider"-->
+        <!--            android:authorities="${applicationId}.TTFileProvider"-->
+        <!--            android:exported="false"-->
+        <!--            android:grantUriPermissions="true">-->
+        <!--            <meta-data-->
+        <!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
+        <!--                android:resource="@xml/file_paths" />-->
+        <!--        </provider>-->
+        <!--        <provider-->
+        <!--            android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider"-->
+        <!--            android:authorities="${applicationId}.TTMultiProvider"-->
+        <!--            android:exported="false" />-->
         <provider
             android:name="com.bytedance.sdk.dp.act.DPProvider"
             android:authorities="${applicationId}.BDDPProvider"
+            android:exported="false" />
+        <provider
+            android:name="com.bytedance.sdk.djx.act.DJXProvider"
+            android:authorities="${applicationId}.BDDJXProvider"
             android:exported="false" />
 
         <activity
@@ -49,6 +54,31 @@
 
         <activity
             android:name=".video.pages.UserCenterActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
+
+        <activity
+            android:name=".novel.pages.NovelAggregatePageActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
+        <activity
+            android:name=".playlet.pages.PlayletAggregatePageActivity"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
+        <activity
+            android:name=".playlet.pages.PlayletPlayerPage"
+            android:configChanges="keyboard|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppFull" />
+        <activity
+            android:name="com.bytedance.sdk.nov.core.reader.NovReaderActivity"
             android:configChanges="keyboard|orientation|screenSize"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"

@@ -58,6 +58,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }
@@ -84,6 +85,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }
@@ -107,6 +109,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }
@@ -130,6 +133,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }
@@ -162,6 +166,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }
@@ -169,10 +174,10 @@ class PangrowthPlaylet {
     return playletList;
   }
 
-  ///根据短剧id获取列表
+  ///获取分类列表
   static Future<List<String>?> requestPlayletCategoryList() async {
     var list = await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("requestPlayletCategoryList");
+        .invokeMethod("requestPlayletCategoryList", {});
     var categoryList = <String>[];
     for (String tag in list) {
       categoryList.add(tag);
@@ -202,6 +207,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }
@@ -242,6 +248,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }
@@ -252,7 +259,7 @@ class PangrowthPlaylet {
   ///短剧历史记录清理
   static Future<bool> requestPlayletHistoryClean() async {
     return await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("requestPlayletHistoryClean");
+        .invokeMethod("requestPlayletHistoryClean", {});
   }
 
   ///点赞某一集短剧
@@ -324,6 +331,7 @@ class PangrowthPlaylet {
     for (var playletStr in listStr) {
       var playlet = json.decode(playletStr);
       if (Platform.isAndroid) {
+        playletList.add(PlayletEntity.fromAndroidJson(playlet));
       } else if (Platform.isIOS) {
         playletList.add(PlayletEntity.fromIosJson(playlet));
       }

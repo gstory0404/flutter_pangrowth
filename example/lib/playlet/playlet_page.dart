@@ -122,21 +122,21 @@ class _PlayletPageState extends State<PlayletPage> {
               },
             ),
             //所有短剧
-            MaterialButton(
-              color: Colors.blue,
-              textColor: Colors.white,
-              child: const Text('全部短剧'),
-              onPressed: () async {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) {
-                      return PlayletAllPage();
-                    },
-                  ),
-                );
-              },
-            ),
+            // MaterialButton(
+            //   color: Colors.blue,
+            //   textColor: Colors.white,
+            //   child: const Text('全部短剧'),
+            //   onPressed: () async {
+            //     Navigator.push(
+            //       context,
+            //       MaterialPageRoute(
+            //         builder: (_) {
+            //           return PlayletAllPage();
+            //         },
+            //       ),
+            //     );
+            //   },
+            // ),
             //根据id获取短剧
             MaterialButton(
               color: Colors.blue,

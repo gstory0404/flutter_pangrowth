@@ -145,4 +145,44 @@ class NovelEntity {
       data: jsonRes,
     );
   }
+
+  //
+  //     val id: Int, 短故事id
+  //     var title: String,名称
+  //     var desc: String,简介
+  //     var content: String?,第一章小说前300字
+  //     var author: String,作者
+  //     var coverImage: String,封面图地址
+  //     var imageType: Int,封面图类型：0封面图、1默认封面图、2无图
+  //     var categoryId: Int = 0,类目id
+  //     var categoryName: String,类目名称
+  //     var total: Int,总共章数
+  //     var createTime: Long,创建时间
+  //     var index: Int,当前阅读章节
+  //     var progress: Float,本章阅读进度
+  //     var statsCount: Int,用户阅读次数，以用户点击为准
+  //     var isFavorite: Boolean,收藏状态, true: 已收藏, false: 未收藏
+  //     var favoriteTime: String,收藏时间
+  factory NovelEntity.fromAndroidJson(Map<String, dynamic> jsonRes) {
+    print("jsonRes=> ${jsonRes["favoriteTime"]}");
+    return NovelEntity(
+      bookId: jsonRes["id"],
+      title: jsonRes["title"],
+      desc: jsonRes["desc"],
+      author: jsonRes["author"],
+      coverImage: jsonRes["coverImage"],
+      categoryId: jsonRes["categoryId"],
+      categoryName: jsonRes["categoryName"],
+      total: jsonRes["total"],
+      createTime: jsonRes["createTime"],
+      index: jsonRes["index"],
+      progress: jsonRes["progress"] * 1.0,
+      statsCount: jsonRes["statsCount"],
+      favoriteState: (jsonRes["isFavorite"] ?? false) ? 1 : 0,
+      favoriteTime: int.parse(jsonRes["favoriteTime"]),
+      coverType: jsonRes["imageType"],
+      contentTruncation: jsonRes["content"],
+      data: jsonRes,
+    );
+  }
 }

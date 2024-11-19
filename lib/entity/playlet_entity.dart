@@ -216,6 +216,70 @@ class PlayletEntity {
       likeCount: jsonRes["like_count"],
       levelLabel: jsonRes["level_label"],
       isPotential: jsonRes["is_potential"],
+      data: jsonRes,
+    );
+  }
+
+
+
+  //     public static final int STATUS_DRAMA_FINISHED = 0; // 已完结
+  //     public static final int STATUS_DRAMA_UNFINISHED = 1; // 未完结
+  //
+  //     public long id; //短剧Id，必传
+  //     public String title; //短剧名，必传
+  //     public String group_id; //物料id
+  //     public String coverImage;//短剧封面，建议优先使用图片
+  //     public List<DJXImage> coverImages2; //高清封面图，可选使用
+  //     public int status = STATUS_DRAMA_FINISHED; //短剧完结状态，必传
+  //     public int total; //短剧总集数，必传
+  //     @Deprecated
+  //     public int unlockIndex; //短剧最大解锁集数
+  //     public List<DJXEpisodeStatus> episodeStatusList; //剧集状态列表，list.index == drama.index + 1
+  //     public int index = 0; //短剧当前播放集数，默认为0，必传.用于上报播放记录、历史记录展示
+  //     public String type; //短剧类型
+  //     public int typeId; //类目id
+  //     public String desc; //短剧描述
+  //     public String scriptName; //改编小说名称
+  //     public String scriptAuthor; //改编小说作者
+  //     public long createTime; //短剧创建时间
+  //     public long actionTime = 0; //历史记录保存时间
+  //     public int freeSet; // 短剧前<b>最大</b> N 集免费观看
+  //     public int lockSet; //短剧<b>最大</b>一次能解锁 M 集
+  //     public String icpNumber; //短剧备案号 赋能1103新增
+  //     public boolean isFavor = false; // 收藏状态，true 为收藏，false 为未收藏，赋能1140新增
+  //     public long favoriteTime = 0; //收藏时间 赋能1140新增
+  //     public int favoriteCount = 0; //收藏次数 赋能1140新增
+  //     public int levelLabel;; //等级标签："1:S级、2:A级、3:B级
+  //     public boolean isPotential; //是否潜力剧
+  factory PlayletEntity.fromAndroidJson(Map<String, dynamic> jsonRes) {
+    return PlayletEntity(
+      playletId: jsonRes["id"],
+      title: jsonRes["title"],
+      coverImage: jsonRes["coverImage"],
+      status: jsonRes["status"],
+      total: jsonRes["total"],
+      desc: jsonRes["desc"],
+      categoryId: jsonRes["typeId"],
+      categoryName: jsonRes["type"],
+      sourceNovelName: jsonRes["scriptName"],
+      sourceNovelAuthor: jsonRes["scriptAuthor"],
+      // videoDuration: 0,
+      currentEpisode: jsonRes["index"],
+      groupId: jsonRes["group_id"],
+      // channelId: 0,
+      // nextSkitId: 0,
+      createTime: jsonRes["createTime"],
+      actionTime: jsonRes["actionTime"],
+      unlockIndex: jsonRes["unlockIndex"],
+      favoriteState: jsonRes["isFavor"] ? 1 : 0,
+      favoriteTime: jsonRes["favoriteTime"],
+      favoriteCount: jsonRes["favoriteCount"],
+      // likeState: jsonRes["like_state"],
+      // likeTime: jsonRes["like_time"],
+      // likeCount: jsonRes["like_count"],
+      levelLabel: jsonRes["levelLabel"],
+      isPotential: jsonRes["isPotential"],
+      data: jsonRes,
     );
   }
 }

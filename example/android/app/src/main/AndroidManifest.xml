@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_pangrowth_example"
+    package="com.gstory.flutter_pangrowth_example"
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -9,13 +9,14 @@
     <application
         android:label="flutter_pangrowth_example"
         android:icon="@mipmap/ic_launcher"
-       tools:replace="android:label">
+        tools:replace="android:label">
         <activity
-            android:name=".MainActivity"
+            android:name="com.gstory.flutter_pangrowth_example.MainActivity"
             android:launchMode="singleTop"
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
+            android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <!-- Specifies an Android theme to apply to this Activity as soon as
                  the Android process has started. This theme is visible to the user

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth/flutter_pangrowth.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_category_list_page.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2024/11/18 12:26
@@ -46,10 +47,17 @@ class _PlayletItemState extends State<PlayletItem> {
                       style: TextStyle(fontSize: 16),
                       maxLines: 1,
                     ),
-                    Text(
-                      "${widget.entity.categoryName} - ${widget.entity.sourceNovelAuthor}",
-                      style: TextStyle(fontSize: 14),
-                      maxLines: 1,
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (_) {
+                          return PlayletCategoryListPage(category:"${widget.entity.categoryName}");
+                        }));
+                      },
+                      child: Text(
+                        "${widget.entity.categoryName}",
+                        style: TextStyle(fontSize: 14),
+                        maxLines: 1,
+                      ),
                     ),
                     Text(
                       "${widget.entity.desc}",

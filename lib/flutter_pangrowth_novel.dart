@@ -37,7 +37,7 @@ class PangrowthNovel {
   ///# 查询短故事类目列表
   static Future<NovelEntity> requestNovelCategoryList() async {
     dynamic data = await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("requestNovelCategoryList");
+        .invokeMethod("requestNovelCategoryList", {});
     print(data);
     return NovelEntity.fromJson(Map<String, dynamic>.from(data));
   }
@@ -64,9 +64,11 @@ class PangrowthNovel {
       return null;
     }
     var novelList = <NovelEntity>[];
+    print("playletStr=>$listStr");
     for (var playletStr in listStr) {
       var novel = json.decode(playletStr);
       if (Platform.isAndroid) {
+        novelList.add(NovelEntity.fromAndroidJson(novel));
       } else if (Platform.isIOS) {
         novelList.add(NovelEntity.fromIosJson(novel));
       }
@@ -90,6 +92,7 @@ class PangrowthNovel {
     for (var playletStr in listStr) {
       var novel = json.decode(playletStr);
       if (Platform.isAndroid) {
+        novelList.add(NovelEntity.fromAndroidJson(novel));
       } else if (Platform.isIOS) {
         novelList.add(NovelEntity.fromIosJson(novel));
       }
@@ -119,6 +122,7 @@ class PangrowthNovel {
     for (var playletStr in listStr) {
       var novel = json.decode(playletStr);
       if (Platform.isAndroid) {
+        novelList.add(NovelEntity.fromAndroidJson(novel));
       } else if (Platform.isIOS) {
         novelList.add(NovelEntity.fromIosJson(novel));
       }
@@ -142,6 +146,7 @@ class PangrowthNovel {
     for (var playletStr in listStr) {
       var novel = json.decode(playletStr);
       if (Platform.isAndroid) {
+        novelList.add(NovelEntity.fromAndroidJson(novel));
       } else if (Platform.isIOS) {
         novelList.add(NovelEntity.fromIosJson(novel));
       }
@@ -174,6 +179,7 @@ class PangrowthNovel {
     for (var playletStr in listStr) {
       var novel = json.decode(playletStr);
       if (Platform.isAndroid) {
+        novelList.add(NovelEntity.fromAndroidJson(novel));
       } else if (Platform.isIOS) {
         novelList.add(NovelEntity.fromIosJson(novel));
       }
@@ -200,6 +206,7 @@ class PangrowthNovel {
     for (var playletStr in listStr) {
       var novel = json.decode(playletStr);
       if (Platform.isAndroid) {
+        novelList.add(NovelEntity.fromAndroidJson(novel));
       } else if (Platform.isIOS) {
         novelList.add(NovelEntity.fromIosJson(novel));
       }
@@ -248,6 +255,7 @@ class PangrowthNovel {
     for (var playletStr in listStr) {
       var novel = json.decode(playletStr);
       if (Platform.isAndroid) {
+        novelList.add(NovelEntity.fromAndroidJson(novel));
       } else if (Platform.isIOS) {
         novelList.add(NovelEntity.fromIosJson(novel));
       }

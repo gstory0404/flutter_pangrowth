@@ -21,7 +21,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.example.flutter_pangrowth
+        package: com.gstory.flutter_pangrowth
         pluginClass: FlutterPangrowthPlugin
       ios:
         pluginClass: FlutterPangrowthPlugin

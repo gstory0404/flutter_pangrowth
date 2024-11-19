@@ -1,13 +1,11 @@
 buildscript {
-    ext.kotlin_version = '1.6.10'
     repositories {
         google()
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath 'com.android.tools.build:gradle:7.4.2'
     }
 }
 
@@ -15,16 +13,20 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        //火山引擎maven仓库地址
-        maven{url 'https://artifact.bytedance.com/repository/Volcengine/'}
-        //穿山甲maven仓库地址
-        maven{url 'https://artifact.bytedance.com/repository/pangle'}
+        maven {
+            url "https://artifact.bytedance.com/repository/Volcengine/"
+        }
+        maven {
+            url "https://artifact.bytedance.com/repository/pangle/"
+        }
     }
 }
 
 rootProject.buildDir = '../build'
 subprojects {
     project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
     project.evaluationDependsOn(':app')
 }
 
