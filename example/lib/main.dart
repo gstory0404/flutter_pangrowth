@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 import 'package:flutter_pangrowth_example/novel/novel_page.dart';
 import 'package:flutter_pangrowth_example/playlet/playlet_page.dart';
 
 import 'video/video_page.dart';
-
 
 void main() {
   runApp(MyApp());
@@ -24,6 +24,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool? isRegisterAd;
+
+  @override
+  void initState() {
+    super.initState();
+    _registerAd();
+  }
+
+  _registerAd() async {
+    isRegisterAd = await FlutterPangrowth.registerAd(
+      androidAppId: "645479",
+      iosAppId: "645479",
+    );
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,13 +48,22 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Column(
-         mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             //小说
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child:  Text('小说'),
+              child: Text('初始化广告 $isRegisterAd'),
+              onPressed: () async {
+                _registerAd();
+              },
+            ),
+            //小说
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: Text('短小说'),
               onPressed: () async {
                 Navigator.push(
                   context,
@@ -55,7 +79,7 @@ class _HomePageState extends State<HomePage> {
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child:  const Text('视频'),
+              child: const Text('短视频'),
               onPressed: () async {
                 Navigator.push(
                   context,
@@ -71,7 +95,7 @@ class _HomePageState extends State<HomePage> {
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child:  const Text('短剧'),
+              child: const Text('短剧'),
               onPressed: () async {
                 Navigator.push(
                   context,
@@ -88,6 +112,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-
 }

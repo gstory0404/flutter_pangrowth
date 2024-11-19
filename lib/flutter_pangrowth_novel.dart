@@ -5,226 +5,253 @@ part of 'flutter_pangrowth.dart';
 /// @Email gstory0404@gmail.com
 /// @Description: 内容输出小说
 
-class PangrowthNovel{
-  ///
-  /// # NovelSDK注册初始化
-  ///
-  /// [appName] 接入小说SDK的App的英文名 必填
-  ///
-  /// [appVersionName] 入小说SDKApp的版本名称 必填
-  ///
-  /// [appVersionCode] 接入小说SDK App的版本号 必填
-  ///
-  /// [channel] 埋点上传时的渠道号维度。开发者自定义字符串即可(建议不要包含test)。选填
-  ///
-  /// [innerOpenAdSdk] 是否自动初始化广告sdk
-  ///
-  /// [andoridSiteId] andorid广告appId innerOpenAdSdk = true时必填
-  ///
-  /// [iosAppId] ios广告appId innerOpenAdSdk = true时必填
-  ///
-  /// [debug] 是否实现日志
-  ///
-  /// [personalRecommendAd] 是否个性化推送广告
-  ///
-  ///  [personalRecommendContent] 是否个性化推送小说内容
-  ///
-  ///  [normalFontType] 全局字号大小
-  ///
-  ///   [readFontType] 阅读字号大小
-  ///
-  static Future<bool> registerNovel({
-    required String appName,
-    required String appVersionName,
-    required int appVersionCode,
-    String? channel,
-    required String andoridAppId,
-    required String iosAppId,
-    bool? debug,
-    bool? personalRecommendAd,
-    bool? personalRecommendContent,
-    String? normalFontType,
-    String? readFontType,
-  }) async {
-    return await FlutterPangrowth.pangrowthChannel.invokeMethod("registerNovel", {
-      "appName": appName,
-      "appVersionName": appVersionName,
-      "appVersionCode": appVersionCode,
-      "channel": channel ?? "",
-      "andoridAppId": andoridAppId,
-      "iosAppId": iosAppId,
-      "debug": debug ?? false,
-      "personalRecommendAd": personalRecommendAd ?? true,
-      "personalRecommendContent": personalRecommendContent ?? true,
-      "normalFontType": normalFontType ?? NormalFontSize.normal,
-      "readFontType": readFontType ?? ReadFontSize.two,
-    });
+class PangrowthNovel {
+  ///短小说初始化
+  static Future<bool> registerNovel() async {
+    return await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("registerNovel", {});
   }
 
-  ///# 打开小说页面
-  static Future<bool> openNovelPage() async {
-    return await FlutterPangrowth.pangrowthChannel.invokeMethod("openNovelPage", null);
-  }
-
-  ///# 获取阅读历史，单本
-  ///
-  /// [size] 单次获取数量
-  ///
-  static Future<NovelEntity> getNovelHistory() async {
-    dynamic data = await FlutterPangrowth.pangrowthChannel.invokeMethod("getNovelHistory", {
-      "size": 1,
-    });
-    return NovelEntity.fromJson(Map<String,dynamic>.from(data));
-  }
-
-  ///# 获取启动后推荐书列表，信息较少
-  ///
-  /// [size] 单次获取数量
-  ///
-  static Future<NovelEntity> getNovelRecommendV1({
-    required int size,
-  }) async {
-    dynamic data = await FlutterPangrowth.pangrowthChannel.invokeMethod("getNovelRecommendV1", {
-      "size": size,
-    });
-    return NovelEntity.fromJson(Map<String, dynamic>.from(data));
-  }
-
-  ///# 获取Feed推荐书列表，信息较多
-  ///
-  /// [size] 单次获取数量
-  ///
-  static Future<NovelEntity> getNovelRecommendFeed({
-    required int size,
-  }) async {
-    dynamic data = await FlutterPangrowth.pangrowthChannel.invokeMethod("getNovelRecommendFeed", {
-      "size": size,
-    });
-    print("结果 =》$data");
-    return NovelEntity.fromJson(Map<String, dynamic>.from(data));
+  ///# 打开小说聚合页
+  static Future<bool> openNovelAggregatePage() async {
+    return await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("openNovelAggregatePage", null);
   }
 
   ///# 打开书籍
   ///
-  /// [size] 类型 0历史记录 1启动后推荐书 2Feed推荐书
+  /// [novelId] 小说id
+  /// [index] 章节id
   ///
-  /// [book] 书籍json
-  ///
-  static Future<bool> openNovelPageWithConfig({
-    required int type,
-    required String book,
+  static Future<bool> openMiniStory({
+    required int novelId,
+    required int index,
   }) async {
-    return await FlutterPangrowth.pangrowthChannel.invokeMethod("openNovelPageWithConfig", {
-      "type": type,
-      "book": book,
+    return await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("openMiniStory", {
+      "novelId": novelId,
+      "index": index,
     });
   }
 
-  ///# 为了更精准推荐书籍，当显示历史、feed推荐书时，调用此接口,上报埋点增强推荐能力
-  ///
-  /// [type] 类型 0历史记录 1启动后推荐书 2Feed推荐书
-  ///
-  /// [book] 书籍json
-  ///
-  static Future<bool> reportRecentNovelShow({
-    required int type,
-    required String book,
-  }) async {
-    return await FlutterPangrowth.pangrowthChannel.invokeMethod("reportRecentNovelShow", {
-      "type": type,
-      "book": book,
-    });
-  }
-
-  ///#当点击历史、feed推荐书时，调用此接口
-  ///
-  /// [type] 类型 0历史记录 1启动后推荐书 2Feed推荐书
-  ///
-  /// [book] 书籍json
-  ///
-  static Future<bool> reportRecentNovelClick({
-    required int type,
-    required String book,
-  }) async {
-    return await FlutterPangrowth.pangrowthChannel.invokeMethod("reportRecentNovelClick", {
-      "type": type,
-      "book": book,
-    });
-  }
-
-  ///# 获取小说阅读时长
-  ///
-  ///小说当天的阅读时长，单位为ms
-  static Future<int> getReadDuration() async {
-    return await FlutterPangrowth.pangrowthChannel.invokeMethod("getReadDuration");
-  }
-
-  ///# 小说搜索推荐
-  ///
-  /// [queryContent] 搜索词
-  ///
-  static Future<NovelEntity> searchNovelSuggestions({
-    required String queryContent,
-  }) async {
-    dynamic data = await FlutterPangrowth.pangrowthChannel.invokeMethod("searchNovelSuggestions", {
-      "queryContent": queryContent,
-    });
-    return NovelEntity.fromJson(
-        Map<String, dynamic>.from(data));
-  }
-
-  ///# 小说搜索结果
-  ///
-  /// [queryContent] 搜索词
-  ///
-  static Future<NovelEntity> searchNovelResults({
-    required String queryContent,
-    required int offset,
-    required int limit,
-  }) async {
-    print("开始搜索$queryContent");
-    dynamic data = await FlutterPangrowth.pangrowthChannel.invokeMethod("searchNovelResults", {
-      "queryContent": queryContent,
-      "offset": offset,
-      "limit": limit,
-    });
-    print("搜索结果$data");
+  ///# 查询短故事类目列表
+  static Future<NovelEntity> requestNovelCategoryList() async {
+    dynamic data = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestNovelCategoryList");
+    print(data);
     return NovelEntity.fromJson(Map<String, dynamic>.from(data));
   }
 
-  ///# 打开书籍
-  ///
-  /// [url] 小说跳转地址
-  ///
-  static Future<bool> openNovelPageWithUrl({
-    required String url,
+  ///根据搜索关键词获取短剧列表
+  /// [keyword] 关键词
+  /// [isFuzzy] 是否模糊匹配
+  /// [page] 页码
+  /// [size] 每页数量
+  static Future<List<NovelEntity>?> requestStoryListWithSearchWord({
+    required String keyword,
+    required bool isFuzzy,
+    required int page,
+    required int size,
   }) async {
-    return await FlutterPangrowth.pangrowthChannel.invokeMethod("openNovelPageWithUrl", {
-      "url": url,
+    var listStr = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestStoryListWithSearchWord", {
+      "keyword": keyword,
+      "isFuzzy": isFuzzy,
+      "page": page,
+      "size": size,
+    });
+    if (listStr == null) {
+      return null;
+    }
+    var novelList = <NovelEntity>[];
+    for (var playletStr in listStr) {
+      var novel = json.decode(playletStr);
+      if (Platform.isAndroid) {
+      } else if (Platform.isIOS) {
+        novelList.add(NovelEntity.fromIosJson(novel));
+      }
+    }
+    return novelList;
+  }
+
+  ///短故事按照book_id查询
+  /// [ids] 小说id集合
+  static Future<List<NovelEntity>?> requestStoryListWithBookId({
+    required List<String> ids,
+  }) async {
+    var listStr = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestStoryListWithBookId", {
+      "ids": ids,
+    });
+    if (listStr == null) {
+      return null;
+    }
+    var novelList = <NovelEntity>[];
+    for (var playletStr in listStr) {
+      var novel = json.decode(playletStr);
+      if (Platform.isAndroid) {
+      } else if (Platform.isIOS) {
+        novelList.add(NovelEntity.fromIosJson(novel));
+      }
+    }
+    return novelList;
+  }
+
+  ///短故事分页加载
+  /// [page] 页码
+  /// [size] 每页数量
+  /// [order] 排序 0：正序，1：倒序
+  static Future<List<NovelEntity>?> requestAllStoryListPage({
+    required int page,
+    required int size,
+    required int order,
+  }) async {
+    var listStr = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestAllStoryListPage", {
+      "page": page,
+      "size": size,
+      "order": order,
+    });
+    if (listStr == null) {
+      return null;
+    }
+    var novelList = <NovelEntity>[];
+    for (var playletStr in listStr) {
+      var novel = json.decode(playletStr);
+      if (Platform.isAndroid) {
+      } else if (Platform.isIOS) {
+        novelList.add(NovelEntity.fromIosJson(novel));
+      }
+    }
+    return novelList;
+  }
+
+  ///根据排序方式，查询短故事列表
+  /// [order] 排序 0：正序，1：倒序
+  static Future<List<NovelEntity>?> requestAllStoryListWithOrder({
+    required int order,
+  }) async {
+    var listStr = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestAllStoryListWithOrder", {
+      "order": order,
+    });
+    if (listStr == null) {
+      return null;
+    }
+    var novelList = <NovelEntity>[];
+    for (var playletStr in listStr) {
+      var novel = json.decode(playletStr);
+      if (Platform.isAndroid) {
+      } else if (Platform.isIOS) {
+        novelList.add(NovelEntity.fromIosJson(novel));
+      }
+    }
+    return novelList;
+  }
+
+  ///根据类目id查询短故事列表
+  /// [categoryId] 分类id
+  /// [page] 页码
+  /// [size] 每页数量
+  /// [order] 排序 0：正序，1：倒序
+  static Future<List<NovelEntity>?> requestCategoryStoryListWithCategoryId({
+    required int categoryId,
+    required int page,
+    required int size,
+    required int order,
+  }) async {
+    var listStr = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestCategoryStoryListWithCategoryId", {
+      "categoryId": categoryId,
+      "page": page,
+      "size": size,
+      "order": order,
+    });
+    if (listStr == null) {
+      return null;
+    }
+    var novelList = <NovelEntity>[];
+    for (var playletStr in listStr) {
+      var novel = json.decode(playletStr);
+      if (Platform.isAndroid) {
+      } else if (Platform.isIOS) {
+        novelList.add(NovelEntity.fromIosJson(novel));
+      }
+    }
+    return novelList;
+  }
+
+  ///短小说阅读记录
+  /// [page] 页码
+  /// [size] 每页数量
+  static Future<List<NovelEntity>?> requestHistoryStoryList({
+    required int page,
+    required int size,
+  }) async {
+    var listStr = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestHistoryStoryList", {
+      "page": page,
+      "size": size,
+    });
+    if (listStr == null) {
+      return null;
+    }
+    var novelList = <NovelEntity>[];
+    for (var playletStr in listStr) {
+      var novel = json.decode(playletStr);
+      if (Platform.isAndroid) {
+      } else if (Platform.isIOS) {
+        novelList.add(NovelEntity.fromIosJson(novel));
+      }
+    }
+    return novelList;
+  }
+
+  /// 收藏短故事
+  /// [novelId] 小说id
+  static Future<bool> requestCollectStory({
+    required int novelId,
+  }) async {
+    return await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestCollectStory", {
+      "novelId": novelId,
     });
   }
 
-  ///小说入口view
-  ///
-  /// [viewWidth] 宽
-  ///
-  /// [viewHeight] 高
-  ///
-  /// [type] 类型
-  ///
-  /// [style] 样式
-  ///
-  static Widget novelEntranceView(
-      {required double viewWidth,
-        required double viewHeight,
-        required String type,
-        required String style}) {
-    return NovelEntranceView(
-      viewWidth: viewWidth,
-      viewHeight: viewHeight,
-      type: type,
-      style: style,
-    );
+  /// 取消收藏短故事
+  /// [novelId] 小说id
+  static Future<bool> requestCancelCollectStory({
+    required int novelId,
+  }) async {
+    return await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestCancelCollectStory", {
+      "novelId": novelId,
+    });
+  }
+
+  ///短故事收藏列表
+  /// [page] 页码
+  /// [size] 每页数量
+  static Future<List<NovelEntity>?> requestStoryCollectionList({
+    required int page,
+    required int size,
+  }) async {
+    var listStr = await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("requestStoryCollectionList", {
+      "page": page,
+      "size": size,
+    });
+    if (listStr == null) {
+      return null;
+    }
+    var novelList = <NovelEntity>[];
+    for (var playletStr in listStr) {
+      var novel = json.decode(playletStr);
+      if (Platform.isAndroid) {
+      } else if (Platform.isIOS) {
+        novelList.add(NovelEntity.fromIosJson(novel));
+      }
+    }
+    return novelList;
   }
 }
-

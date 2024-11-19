@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth/flutter_pangrowth.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_all_page.dart';
 import 'package:flutter_pangrowth_example/playlet/playlet_card_page.dart';
-import 'package:flutter_unionad/flutter_unionad.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_category_page.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_collect_page.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_history_page.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_ids_page.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_limit_page.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_recommend_page.dart';
+import 'package:flutter_pangrowth_example/playlet/playlet_search_page.dart';
+// import 'package:flutter_unionad/flutter_unionad.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2023/10/10 12:09
@@ -26,39 +34,31 @@ class _PlayletPageState extends State<PlayletPage> {
 
   ///初始化
   Future<void> _register() async {
-    bool _adRegister = await FlutterUnionad.register(
-        androidAppId: "5240945",
-        //穿山甲广告 Android appid 必填
-        iosAppId: "5205916",
-        //穿山甲广告 ios appid 必填
-        useTextureView: true,
-        //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView 选填
-        appName: "appName",
-        //appname 必填
-        allowShowNotify: true,
-        //是否允许sdk展示通知栏提示 选填
-        allowShowPageWhenScreenLock: true,
-        //是否在锁屏场景支持展示广告落地页 选填
-        debug: true,
-        //是否显示debug日志
-        supportMultiProcess: true,
-        //是否支持多进程，true支持 选填
-        directDownloadNetworkType: [
-          FlutterUnionadNetCode.NETWORK_STATE_2G,
-          FlutterUnionadNetCode.NETWORK_STATE_3G,
-          FlutterUnionadNetCode.NETWORK_STATE_4G,
-          FlutterUnionadNetCode.NETWORK_STATE_WIFI
-        ]); //允许直接下载的网络状态集合 选填
-    print("广告初始化结果--> $_adRegister");
-    _isRegister = await PangrowthVideo.registerVideo(
-      //接入小说SDK的App的英文名 必填
-      appName: "appName",
-      ////appid 必填
-      andoridAppId: "302043",
-      iosAppId: "299886",
-      //是否显示日志
-      debug: true,
-    );
+    // bool _adRegister = await FlutterUnionad.register(
+    //     androidAppId: "5240945",
+    //     //穿山甲广告 Android appid 必填
+    //     iosAppId: "5205916",
+    //     //穿山甲广告 ios appid 必填
+    //     useTextureView: true,
+    //     //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView 选填
+    //     appName: "appName",
+    //     //appname 必填
+    //     allowShowNotify: true,
+    //     //是否允许sdk展示通知栏提示 选填
+    //     allowShowPageWhenScreenLock: true,
+    //     //是否在锁屏场景支持展示广告落地页 选填
+    //     debug: true,
+    //     //是否显示debug日志
+    //     supportMultiProcess: true,
+    //     //是否支持多进程，true支持 选填
+    //     directDownloadNetworkType: [
+    //       FlutterUnionadNetCode.NETWORK_STATE_2G,
+    //       FlutterUnionadNetCode.NETWORK_STATE_3G,
+    //       FlutterUnionadNetCode.NETWORK_STATE_4G,
+    //       FlutterUnionadNetCode.NETWORK_STATE_WIFI
+    //     ]); //允许直接下载的网络状态集合 选填
+    // print("广告初始化结果--> $_adRegister");
+    _isRegister = await PangrowthPlaylet.registerPlaylet();
     setState(() {});
   }
 
@@ -70,7 +70,7 @@ class _PlayletPageState extends State<PlayletPage> {
       body: Center(
         child: Column(
           children: [
-            Text('视频--初始化: $_isRegister\n'),
+            Text('短剧--初始化: $_isRegister\n'),
             //打开短剧聚合页
             MaterialButton(
               color: Colors.blue,
@@ -89,37 +89,132 @@ class _PlayletPageState extends State<PlayletPage> {
                 );
               },
             ),
-            //打开短剧聚合页
+            //短剧分页加载
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child: const Text('短剧短视频混排页'),
+              child: const Text('短剧分页加载'),
               onPressed: () async {
-                await PangrowthPlaylet.openPlayletDrawVideoPage(
-                  // 免费观看的集数 默认3
-                  freeCount: 5,
-                  // 观看一次激励视频解锁的集数 默认1
-                  unlockCountUsingAD: 2,
-                  //是否展示导航栏标题名称 默认true
-                  isShowTitle: false,
-                  //是否展示导航栏左上角返回按钮 默认true
-                  isShowBackButton: true,
-                  //是否短视频、短剧混排 默认true
-                  isVideoPlaylet: false,
-                  // 短剧混排流中的免费短剧集数，默认3
-                  playletFreeCount: 5,
-                  // 短剧混排流中要第一部展现的短剧id 默认0
-                  topSkitId: 0,
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletLimitPage();
+                    },
+                  ),
                 );
               },
             ),
-            //打开短剧聚合页
+            //推荐短剧
             MaterialButton(
               color: Colors.blue,
               textColor: Colors.white,
-              child: const Text('短剧搜索页面'),
+              child: const Text('推荐短剧'),
               onPressed: () async {
-                await PangrowthPlaylet.openPlayletSearchPage();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletRecommendPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            //所有短剧
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('全部短剧'),
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletAllPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            //根据id获取短剧
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('根据id获取短剧'),
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletIdsPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            //搜索
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('短剧搜索'),
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletSearchPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            //短剧分类
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('短剧分类'),
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletCategoryPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            //短剧播放记录
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('短剧播放记录'),
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletHistoryPage();
+                    },
+                  ),
+                );
+              },
+            ),
+            //短剧收藏列表
+            MaterialButton(
+              color: Colors.blue,
+              textColor: Colors.white,
+              child: const Text('短剧收藏列表'),
+              onPressed: () async {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) {
+                      return PlayletCollectPage();
+                    },
+                  ),
+                );
               },
             ),
             //打开短剧卡片

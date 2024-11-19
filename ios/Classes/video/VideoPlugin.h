@@ -22,12 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 # pragma mark - 打开宫格小视频 全屏样式
 +(void)openGridVideo;
 
-# pragma mark - 打开新闻 多列表 全屏样式
-+(void)openNewsTabs;
-
-# pragma mark - 打开新闻 单列表 全屏样式
-+(void)openNewsTabOne;
-
 # pragma mark - 打开个人主页
 +(void)openUserCenter;
 

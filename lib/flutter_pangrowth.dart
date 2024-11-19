@@ -1,6 +1,6 @@
-export 'entity/novel_entity.dart';
-
 import 'dart:async';
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,15 +17,25 @@ import 'package:flutter_pangrowth/video/video_textchain_view.dart';
 import 'package:flutter_pangrowth/video/video_bubble_view.dart';
 import 'package:flutter_pangrowth/playlet/PlayletCardView.dart';
 
-import 'entity/novel_entity.dart';
-
 part 'flutter_pangrowth_code.dart';
 
 part 'flutter_pangrowth_novel.dart';
 part 'flutter_pangrowth_video.dart';
 part 'flutter_pangrowth_playlet.dart';
 
+part  'entity/playlet_entity.dart';
+part  'entity/novel_entity.dart';
+
 class FlutterPangrowth {
   static const MethodChannel pangrowthChannel = MethodChannel('flutter_pangrowth');
 
+  static Future<bool> registerAd({
+    required String androidAppId,
+    required String iosAppId,
+  }) async {
+    return await FlutterPangrowth.pangrowthChannel.invokeMethod("registerAd", {
+      "androidAppId": androidAppId,
+      "iosAppId": iosAppId,
+    });
+  }
 }

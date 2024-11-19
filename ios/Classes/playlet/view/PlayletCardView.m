@@ -6,7 +6,7 @@
 //
 
 #import "PlayletCardView.h"
-#import <LCDSDK/LCDSDK.h>
+#import <PangrowthDJX/DJXSDK.h>
 #import "UIViewController+getCurrentVC.h"
 
 @implementation PlayletCardViewFactory{
@@ -32,12 +32,13 @@
 
 @end
 
-@interface PlayletCardView()<LCDPlayletCardDelegate>
+@interface PlayletCardView()<DJXPlayletCardDelegate>
 @property(nonatomic,strong) UIView *container;
-@property(nonatomic,strong) LCDPlayletCard *playletCard;
+@property(nonatomic,strong) DJXPlayletCard *playletCard;
 @property(nonatomic,strong) FlutterMethodChannel *channel;
 @property(nonatomic,assign) double width;
 @property(nonatomic,assign) double height;
+@property(nonatomic,assign) int playletId;
 @property(nonatomic,assign) bool autoPlay;
 @property(nonatomic,assign) bool loop;
 @property(nonatomic,assign) bool mute;
@@ -50,9 +51,10 @@
     if ([super init]) {
         NSLog(@"%@",args);
         NSDictionary *nsd = args;
-        _autoPlay =[nsd[@"autoPlay"] boolValue];
-        _loop =[nsd[@"loop"] boolValue];
-        _mute =[nsd[@"mute"] boolValue];
+        self.playletId =[nsd[@"playletId"] intValue];
+        self.autoPlay =[nsd[@"autoPlay"] boolValue];
+        self.loop =[nsd[@"loop"] boolValue];
+        self.mute =[nsd[@"mute"] boolValue];
         NSNumber *viewWidth = nsd[@"width"];
         NSNumber *viewHeight = nsd[@"height"];
         _width =[viewWidth doubleValue];
@@ -71,15 +73,15 @@
 
 -(void)loadCardView{
     NSLog(@"短剧卡片准备加载");
-    _playletCard = [[LCDPlayletCard alloc] initWithConfig:^(LCDPlayletCardConfig * _Nonnull cardConfig) {
-        cardConfig.skit_id = 16;
-        cardConfig.frame = CGRectMake(0, 0, 160, 100);
+    _playletCard = [[DJXPlayletCard alloc] initWithConfig:^(DJXPlayletCardConfig * _Nonnull cardConfig) {
+        cardConfig.skit_id = self.playletId;
+        cardConfig.frame = CGRectMake(0, 0, self.width, self.height);
         //是否自动播放，默认YES
-        cardConfig.autoPlay = _autoPlay;
+        cardConfig.autoPlay = self.autoPlay;
         //是否是否循环播放播放，默认YES
-        cardConfig.loop = _loop;
+        cardConfig.loop = self.loop;
         //是否静音，默认YES
-        cardConfig.mute = _mute;
+        cardConfig.mute = self.mute;
         cardConfig.hidePlayButton = NO;
         cardConfig.hideMuteButton = NO;
     }];
@@ -91,13 +93,13 @@
 }
 
 - (void)onTapPlayletCard:(UITapGestureRecognizer *)sender {
-    LCDPlayletConfig *config = [[LCDPlayletConfig alloc] init];
-    config.entranceType = LCDPlayletEntranceTypeCard;
+    DJXPlayletConfig *config = [[DJXPlayletConfig alloc] init];
+    config.entranceType = DJXPlayletEntranceTypeCard;
     config.groupId = _playletCard.playletInfo.group_id;
-    config.skitId = _playletCard.playletInfo.skit_id;
+    config.skitId = _playletCard.playletInfo.shortplay_id;
     config.episode = _playletCard.playletInfo.current_episode;
-    config.playletMode = LCDPlayletModeOptions_Interface;
-    LCDDrawVideoViewController *vc = [[LCDPlayletManager shareInstance] playletViewControllerWithParams:config];
+    config.playletUnlockADMode = DJXPlayletUnlockADMode_Specific;
+    DJXDrawVideoViewController *vc = [[DJXPlayletManager shareInstance] playletViewControllerWithParams:config];
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [[UIViewController jsd_getCurrentViewController] presentViewController:vc animated:YES completion:^{}];
 }
@@ -108,7 +110,7 @@
 ///   - playletCard: 短剧卡片
 ///   - playletData: 短剧卡片数据
 ///   - error: 失败原因
-- (void)playletCard:(LCDPlayletCard *)playletCard didLoadData:(LCDPlayletInfoModel *)playletData error:(nullable NSError *)error{
+- (void)playletCard:(DJXPlayletCard *)playletCard didLoadData:(DJXPlayletInfoModel *)playletData error:(nullable NSError *)error{
     NSLog(@"短剧卡片加载结束%@",error);
     if(error == nil){
         NSDictionary *dictionary = @{@"width": @(playletCard.frame.size.width),@"height":@(playletCard.frame.size.height)};
@@ -121,23 +123,23 @@
 
 /// 播放器回调
 /// 第一帧回调
-- (void)playletCardReadyToDisplay:(LCDPlayletCard *)playletCard{
+- (void)playletCardReadyToDisplay:(DJXPlayletCard *)playletCard{
     NSLog(@"短剧卡片播放第一帧");
 }
 /// 即将开始播放
-- (void)playletCardReadyToPlay:(LCDPlayletCard *)playletCard{
+- (void)playletCardReadyToPlay:(DJXPlayletCard *)playletCard{
     NSLog(@"短剧卡片即将开始播放");
 }
 /// 播放状态切换
-- (void)playletCard:(LCDPlayletCard *)playletCard playbackStateDidChanged:(LCDPlayletCardPlaybackState)playbackState{
+- (void)playletCard:(DJXPlayletCard *)playletCard playbackStateDidChanged:(DJXPlayletCardPlaybackState)playbackState{
     NSLog(@"短剧卡片播放状态切换");
 }
 /// 手动stop
-- (void)playletCardUserStopped:(LCDPlayletCard *)playletCard{
+- (void)playletCardUserStopped:(DJXPlayletCard *)playletCard{
     NSLog(@"短剧卡片播放手动停止");
 }
 /// finish，正常结束，异常结束error或者statusCode会有值
-- (void)playletCardDidFinish:(LCDPlayletCard *)playletCard error:(nullable NSError *)error videoStatusException:(NSInteger)statusCode{
+- (void)playletCardDidFinish:(DJXPlayletCard *)playletCard error:(nullable NSError *)error videoStatusException:(NSInteger)statusCode{
     NSLog(@"短剧卡片播放结束%@%@",error,statusCode);
 }
 

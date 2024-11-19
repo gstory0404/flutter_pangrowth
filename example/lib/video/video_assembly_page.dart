@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 import 'package:flutter_pangrowth_example/video/video_in_page.dart';
-import 'package:flutter_unionad/flutter_unionad.dart';
+// import 'package:flutter_unionad/flutter_unionad.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2021/12/13 3:56 下午

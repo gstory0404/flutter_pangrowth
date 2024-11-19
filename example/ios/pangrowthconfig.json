@@ -1,10 +1,10 @@
 {
     "init": {
-        "site_id": "5425850",
-        "app_id": "545300",
-        "partner": "pangle_545300",
-        "secure_key": "e87b8c2e171822cf5e88214fa8a7fbe8",
-        "secure_key_d": "ZJSnPvTUn-TUyggOr4YZ1Q=="
+        "site_id": "5602176",
+        "app_id": "645479",
+        "partner": "pangle_645479",
+        "secure_key": "e347074b4d43a3e24fb53eb6308b54b5",
+        "secure_key_d": "2c3f50003937821fcc3f11ad2cfa17ca"
     },
     "feed": {
         "news_list_ad_code_id": "",
@@ -13,37 +13,37 @@
         "video_first_ad_code_id": "",
         "video_second_ad_code_id": "",
         "related_ad_code_id": "",
-        "news_draw_ad_code_id": "953856271",
-        "news_draw_native_ad_code_id": "953856279",
+        "news_draw_ad_code_id": "961348555",
+        "news_draw_native_ad_code_id": "961348548",
         "news_outer_list_ad_code_id": "",
         "news_outer_first_ad_code_id": "",
         "news_outer_second_ad_code_id": "",
         "outer_video_second_ad_code_id": "",
         "outer_related_ad_code_id": "",
-        "news_outer_draw_ad_code_id": "953856274",
-        "news_outer_draw_native_ad_code_id": "953856277",
+        "news_outer_draw_ad_code_id": "961348562",
+        "news_outer_draw_native_ad_code_id": "961348557",
         "news_interstitial_code_id": ""
     },
     "small_video": {
-        "draw_ad_code_id": "953856275",
-        "draw_native_ad_code_id": "953856260",
-        "grid_ad_code_id": "953856263",
-        "grid_draw_ad_code_id": "953856270",
-        "grid_draw_native_ad_code_id": "953856278",
-        "video_card_ad_code_id": "953856266",
-        "video_card_draw_ad_code_id": "953856273",
-        "video_card_draw_native_ad_code_id": "953856272",
+        "draw_ad_code_id": "961348546",
+        "draw_native_ad_code_id": "961348563",
+        "grid_ad_code_id": "961348565",
+        "grid_draw_ad_code_id": "961348561",
+        "grid_draw_native_ad_code_id": "961348556",
+        "video_card_ad_code_id": "961348554",
+        "video_card_draw_ad_code_id": "961348553",
+        "video_card_draw_native_ad_code_id": "961348560",
         "interstitial_ad_code_id": "",
-        "interstitial_note_ad_code_id": "953856265",
-        "staggered_grid_ad_code_id": "953856267",
-        "staggered_grid_draw_ad_code_id": "953856275",
-        "staggered_grid_draw_native_ad_code_id": "953856260",
-        "draw_interstitial_ad_code_id": "953856268",
-        "draw_fullscreen_interstitial_ad_code_id": "953856261",
-        "draw_banner_code_id": "953856262",
-        "drama_rewarded_ad_code_id": "953856269",
-        "drama_rewarded_ad_code_id_02": "953856264",
-        "drama_draw_ad_code_id": "953856276"
+        "interstitial_note_ad_code_id": "961348564",
+        "staggered_grid_ad_code_id": "961348549",
+        "staggered_grid_draw_ad_code_id": "961348546",
+        "staggered_grid_draw_native_ad_code_id": "961348563",
+        "draw_interstitial_ad_code_id": "961348552",
+        "draw_fullscreen_interstitial_ad_code_id": "961348547",
+        "draw_banner_code_id": "961348559",
+        "drama_rewarded_ad_code_id": "961348558",
+        "drama_rewarded_ad_code_id_02": "961348550",
+        "drama_draw_ad_code_id": "961348551"
     },
     "novel": {
         "status": 0,
@@ -54,5 +54,19 @@
         "banner_ad_code_id": "",
         "end_ad_code_id": ""
     },
-    "live": null
+    "live": null,
+    "license_config": [
+        {
+            "PackageName": "",
+            "BundleId": "",
+            "StartTime": "20241023T065207Z",
+            "ExpireTime": "20261023T065207Z",
+            "CreatedTime": "20241023T065206Z",
+            "Signature": "YgCwpMs6uxDmr5/DebUtQ7/Zlm/8H1g6ealLDY3+ybqN5JzP4Fo4ll+iYuz9B9goWNmnvTT/LA5yIfgJMBa+BCrn2DvItceJpJkUXe+kqNR5V4xynfohAZBy2qe5pJSHIxU0UhpIj8pTCEbvUDtC0sPZfNrvLTqGCUUtQkG2GBuxQq7V8kILjCGuAtObEQB83OUT77j18lnpdC1hVwueaTtYIeL2lWMg4QO4xYtr3+hrvef+uUPxQaCrv2tvyiYKXzU2rCVRufnB8aRxogSZi6HQyBWCyX87qD3k91H1Jzk0XmXkxc0qkfejanLncYCqKeMBPX8254HBaWT5adPSHA==",
+            "Content": "eyJJZCI6IjQyODcwNTUzOCIsIlZlcnNpb24iOjIsIkNoYW5uZWwiOiJhZF9jc2oiLCJUeXBlIjoyLCJNb2R1bGVzIjpbeyJOYW1lIjoidm9kX3BsYXkiLCJFZGl0aW9uIjoicHJlbWl1bV9lZGl0aW9uIiwiU3RhcnRUaW1lIjoxNzI5NjY2MzI2NjYyLCJFeHBpcmVUaW1lIjoxNzkyNzM4MzI2NjYyLCJFeHBpcmVCdWZmZXIiOjE1NTUyMDAwMDAwfV0sIkZpbGVWZXJzaW9uIjoiMTcyOTY2NjMyNjY3NTM1NzUyOSJ9",
+            "MainURL": "https://vod-license-m.volccdn.com/vod-license/l-428705538-ch-ad_csj-a-645479.lic?lk3s=0d9f7a7d\u0026x-expires=4883266326\u0026x-signature=pifEkrPsZ6nlrfobZWjbg71Tmpc%3D",
+            "BackupURL": "https://vod-license-b.volccdn.com/vod-license/l-428705538-ch-ad_csj-a-645479.lic?lk3s=0d9f7a7d\u0026x-expires=4883266326\u0026x-signature=QqD1swHH7nebpdovEgLKND5soF4%3D",
+            "Id": "428705538"
+        }
+    ]
 }

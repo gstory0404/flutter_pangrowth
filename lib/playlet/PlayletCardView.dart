@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 /// @Description: 短剧卡片
 
 class PlayletCardView extends StatefulWidget {
+  final int playletId;
   final double width;
   final double height;
   bool? autoPlay;
@@ -22,6 +23,7 @@ class PlayletCardView extends StatefulWidget {
   ///- [mute] 是否静音，默认true
   PlayletCardView(
       {Key? key,
+      required this.playletId,
       required this.width,
       required this.height,
       this.autoPlay,
@@ -73,6 +75,7 @@ class _PlayletCardViewState extends State<PlayletCardView> {
         child: UiKitView(
           viewType: _viewType,
           creationParams: {
+            "playletId": widget.playletId,
             "width": _width,
             "height": _height,
             "autoPlay": widget.autoPlay,

@@ -5,7 +5,7 @@ import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 import 'package:flutter_pangrowth_example/video/video_assembly_page.dart';
 import 'package:flutter_pangrowth_example/video/video_card_page.dart';
 import 'package:flutter_pangrowth_example/video/video_in_page.dart';
-import 'package:flutter_unionad/flutter_unionad.dart';
+// import 'package:flutter_unionad/flutter_unionad.dart';
 
 /// @Author: gstory
 /// @CreateDate: 2021/12/13 3:56 下午
@@ -30,30 +30,30 @@ class _VideoPageState extends State<VideoPage> {
 
   ///初始化
   Future<void> _register() async {
-   bool _adRegister = await FlutterUnionad.register(
-        androidAppId: "5240945",
-        //穿山甲广告 Android appid 必填
-        iosAppId: "5205916",
-        //穿山甲广告 ios appid 必填
-        useTextureView: true,
-        //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView 选填
-        appName: "appName",
-        //appname 必填
-        allowShowNotify: true,
-        //是否允许sdk展示通知栏提示 选填
-        allowShowPageWhenScreenLock: true,
-        //是否在锁屏场景支持展示广告落地页 选填
-        debug: true,
-        //是否显示debug日志
-        supportMultiProcess: true,
-        //是否支持多进程，true支持 选填
-        directDownloadNetworkType: [
-          FlutterUnionadNetCode.NETWORK_STATE_2G,
-          FlutterUnionadNetCode.NETWORK_STATE_3G,
-          FlutterUnionadNetCode.NETWORK_STATE_4G,
-          FlutterUnionadNetCode.NETWORK_STATE_WIFI
-        ]); //允许直接下载的网络状态集合 选填
-   print("广告初始化结果--> $_adRegister");
+   // bool _adRegister = await FlutterUnionad.register(
+   //      androidAppId: "5240945",
+   //      //穿山甲广告 Android appid 必填
+   //      iosAppId: "5205916",
+   //      //穿山甲广告 ios appid 必填
+   //      useTextureView: true,
+   //      //使用TextureView控件播放视频,默认为SurfaceView,当有SurfaceView冲突的场景，可以使用TextureView 选填
+   //      appName: "appName",
+   //      //appname 必填
+   //      allowShowNotify: true,
+   //      //是否允许sdk展示通知栏提示 选填
+   //      allowShowPageWhenScreenLock: true,
+   //      //是否在锁屏场景支持展示广告落地页 选填
+   //      debug: true,
+   //      //是否显示debug日志
+   //      supportMultiProcess: true,
+   //      //是否支持多进程，true支持 选填
+   //      directDownloadNetworkType: [
+   //        FlutterUnionadNetCode.NETWORK_STATE_2G,
+   //        FlutterUnionadNetCode.NETWORK_STATE_3G,
+   //        FlutterUnionadNetCode.NETWORK_STATE_4G,
+   //        FlutterUnionadNetCode.NETWORK_STATE_WIFI
+   //      ]); //允许直接下载的网络状态集合 选填
+   // print("广告初始化结果--> $_adRegister");
     _isRegister = await PangrowthVideo.registerVideo(
       //接入小说SDK的App的英文名 必填
       appName: "appName",
