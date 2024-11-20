@@ -3,6 +3,7 @@ package com.gstory.flutter_pangrowth
 import android.app.Activity
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.annotation.NonNull
 import com.bytedance.sdk.openadsdk.TTAdConfig
 import com.bytedance.sdk.openadsdk.TTAdSdk
@@ -60,10 +61,12 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             TTAdSdk.init(mActivity, TTAdConfig.Builder().appId(androidAppId).build())
             TTAdSdk.start(object : TTAdSdk.Callback {
                 override fun success() {
+                    Log.d("TTAdSdk","广告初始化成功")
                     result.success(true)
                 }
 
                 override fun fail(code: Int, msg: String?) {
+                    Log.d("TTAdSdk","广告初始化失败")
                     result.success(false)
                 }
             })

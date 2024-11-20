@@ -7,9 +7,11 @@ part of 'flutter_pangrowth.dart';
 
 class PangrowthNovel {
   ///短小说初始化
-  static Future<bool> registerNovel() async {
+  static Future<bool> registerNovel({bool? debug}) async {
     return await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("registerNovel", {});
+        .invokeMethod("registerNovel", {
+          "debug":debug ?? false
+    });
   }
 
   ///# 打开小说聚合页

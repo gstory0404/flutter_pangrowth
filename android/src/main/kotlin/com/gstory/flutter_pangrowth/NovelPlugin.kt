@@ -6,6 +6,7 @@ import android.content.Intent
 import android.util.Log
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONObject
+import com.bytedance.sdk.djx.interfaces.listener.IDJXAdListener
 import com.bytedance.sdk.djx.model.DJXError
 import com.bytedance.sdk.djx.model.DJXOthers
 import com.bytedance.sdk.nov.api.INovCallback
@@ -31,7 +32,8 @@ object NovelPlugin {
      * 小说注册
      */
     fun registerNovel(context: Context?, call: MethodCall, result: MethodChannel.Result) {
-        val config = NovSdkConfig.Builder().build()
+        val debug = call.argument<Boolean>("debug") as Boolean
+        val config = NovSdkConfig.Builder().debug(debug).build()
         NovSdk.init(context!!, "pangrowthconfig.json", config)
         NovSdk.start(object : NovSdk.StartListener {
             override fun onStartComplete(isSuccess: Boolean, message: String?, error: DJXError?) {
@@ -68,9 +70,11 @@ object NovelPlugin {
                     val config = NovReaderConfig().apply {
                         //广告模式 可以选自SDK直出广告 or 自定义广告
                         rewardAdMode = NovReaderConfig.NovRewardAdMode.MODE_SDK
+                        //文末推荐卡片样式
+                        endPageCardStyle = NovReaderConfig.NovEndPageCardStyle.STYLE_MIX
                     }
                     //打开短故事阅读器
-                    NovSdk.factory()?.openReader(NovWidgetReaderParams(data[0], config))
+                    NovSdk.factory()?.openReader(NovWidgetReaderParams(data.first(), config))
                     result.success(true)
                 }
             })

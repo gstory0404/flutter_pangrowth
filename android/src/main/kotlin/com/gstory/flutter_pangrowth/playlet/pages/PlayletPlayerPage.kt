@@ -13,6 +13,8 @@ import com.bytedance.sdk.djx.model.DJXDramaUnlockAdMode
 import com.bytedance.sdk.djx.params.DJXWidgetDramaHomeParams
 import com.bytedance.sdk.djx.params.DJXWidgetDrawParams
 import com.gstory.flutter_pangrowth.R
+import com.bytedance.sdk.djx.model.DJXDramaUnlockInfo
+import com.bytedance.sdk.djx.model.DJXDramaUnlockMethod
 
 /**
  * @Author: gstory
@@ -53,15 +55,16 @@ class PlayletPlayerPage  : AppCompatActivity() {
                 callback: IDJXDramaUnlockListener.UnlockCallback,
                 map: Map<String, Any>?
             ) {
-
+                val info = DJXDramaUnlockInfo(drama.id, 1, DJXDramaUnlockMethod.METHOD_AD, false)
+                callback.onConfirm(info)
             }
         })
         dpWidget = DJXSdk.factory().createDraw(
             DJXWidgetDrawParams.obtain()
                 .adOffset(0) //单位 dp，为 0 时可以不设置
                 .drawContentType(DJXWidgetDrawParams.DRAW_CONTENT_TYPE_ONLY_DRAMA)
-                .drawChannelType(DJXWidgetDrawParams.DRAW_CHANNEL_TYPE_RECOMMEND)
-                .hideClose(true, null)
+                .drawChannelType(DJXWidgetDrawParams.DRAW_CONTENT_TYPE_ONLY_DRAMA)
+                .hideClose(false, null)
                 .hideChannelName(true)
                 .detailConfig(detailConfig)
         )
@@ -80,6 +83,6 @@ class PlayletPlayerPage  : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-//        dpWidget?.destroy()
+        dpWidget?.destroy()
     }
 }

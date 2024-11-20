@@ -7,9 +7,9 @@ part of 'flutter_pangrowth.dart';
 
 class PangrowthPlaylet {
   ///短剧初始化
-  static Future<bool> registerPlaylet() async {
+  static Future<bool> registerPlaylet({bool? debug}) async {
     return await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("registerPlaylet", {});
+        .invokeMethod("registerPlaylet", {"debug": debug ?? false});
   }
 
   ///# 打开短剧聚合页（封装方式）

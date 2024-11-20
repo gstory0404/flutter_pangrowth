@@ -33,7 +33,7 @@ class _NovelPageState extends State<NovelPage> {
 
   ///初始化
   Future<void> _register() async {
-    _isRegister = await PangrowthNovel.registerNovel();
+    _isRegister = await PangrowthNovel.registerNovel(debug: true);
     setState(() {});
   }
 

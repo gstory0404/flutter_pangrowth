@@ -58,7 +58,7 @@ class _PlayletPageState extends State<PlayletPage> {
     //       FlutterUnionadNetCode.NETWORK_STATE_WIFI
     //     ]); //允许直接下载的网络状态集合 选填
     // print("广告初始化结果--> $_adRegister");
-    _isRegister = await PangrowthPlaylet.registerPlaylet();
+    _isRegister = await PangrowthPlaylet.registerPlaylet(debug: true);
     setState(() {});
   }
 
