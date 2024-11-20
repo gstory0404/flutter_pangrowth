@@ -33,7 +33,7 @@ object PlayletPlugin {
      * 短剧注册
      */
     fun registerPlaylet(activity: Activity?, call: MethodCall, result: MethodChannel.Result) {
-        val config = DJXSdkConfig.Builder().build()
+        val config = DJXSdkConfig.Builder().debug(true).build()
         DJXSdk.init(activity!!, "pangrowthconfig.json", config)
         DJXSdk.start(object : DJXSdk.StartListener {
             override fun onStartComplete(isSuccess: Boolean, message: String?, error: DJXError?) {

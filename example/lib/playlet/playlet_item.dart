@@ -29,11 +29,14 @@ class _PlayletItemState extends State<PlayletItem> {
         margin: EdgeInsets.only(bottom: 10),
         child: Row(
           children: [
-            Image.network(
-              "${widget.entity.coverImage}",
-              width: 80,
-              height: 120,
-              fit: BoxFit.cover,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.network(
+                "${widget.entity.coverImage}",
+                width: 100,
+                height: 140,
+                fit: BoxFit.cover,
+              ),
             ),
             Expanded(
               child: Container(
@@ -48,15 +51,25 @@ class _PlayletItemState extends State<PlayletItem> {
                       maxLines: 1,
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (_) {
-                          return PlayletCategoryListPage(category:"${widget.entity.categoryName}");
+                          return PlayletCategoryListPage(
+                              category: "${widget.entity.categoryName}");
                         }));
                       },
-                      child: Text(
-                        "${widget.entity.categoryName}",
-                        style: TextStyle(fontSize: 14),
-                        maxLines: 1,
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                        margin: EdgeInsets.only(bottom: 10, right: 10, top: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.3),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Text(
+                          "${widget.entity.categoryName}",
+                          style: TextStyle(fontSize: 14),
+                          maxLines: 1,
+                        ),
                       ),
                     ),
                     Text(

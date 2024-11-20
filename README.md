@@ -29,10 +29,10 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出
 
 ## 本地环境
 ```
-[✓] Flutter (Channel stable, 3.10.6, on macOS 13.5 22G74 darwin-x64, locale
+[✓] Flutter (Channel stable, 3.24.5, on macOS 14.6.1 23G93 darwin-x64, locale
     zh-Hans-CN)
 [✓] Android toolchain - develop for Android devices (Android SDK version 33.0.1)
-[✓] Xcode - develop for iOS and macOS (Xcode 14.3.1)
+[✓] Xcode - develop for iOS and macOS (Xcode 16.1)
 [✓] Chrome - develop for the web
 [✓] Android Studio (version 2022.1)
 [✓] IntelliJ IDEA Ultimate Edition (version 2023.2)
@@ -43,17 +43,18 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出
 
 ## 原生SDK版本
 #### 1、android
-[3.9.0.2](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=61278ade8b4d7d004768125c&osType=)
+小视频SDK 5.2.1.0
+内容SDK 2.3.0.0
 
 #### 2、ios
-[3.9.0.2(短视频静态库)](https://www.csjplatform.com/union/media/union/download/detail?id=81&docId=614564ca6b639b0042135d6b&osType=)
+小视频SDK 5.2.1.0
+内容SDK 2.3.0.0
 
 ## 集成步骤
 #### 1、pubspec.yaml
+
 ```Dart
 flutter_pangrowth: ^1.0.9
-//该版本必须指定广告插件版本，不然会出现兼容问题
-flutter_unionad: 1.3.27
 ```
 
 #### 2、引入
@@ -63,7 +64,7 @@ import 'package:flutter_pangrowth/flutter_pangrowth.dart';
 
 ## 使用文档
 
-### [~~小说使用文档(官方已下线)~~](https://github.com/gstory0404/flutter_pangrowth/blob/master/doc/novel.md)
+### [短小说使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/master/doc/novel.md)
 ### [短视频使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/master/doc/video.md)
 ### [短剧使用文档](https://github.com/gstory0404/flutter_pangrowth/blob/master/doc/playlet.md)
 

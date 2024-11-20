@@ -10,13 +10,13 @@ import 'package:flutter_pangrowth_example/novel/novel_category_list.dart';
 class NovelItem extends StatefulWidget {
   NovelEntity entity;
 
-  NovelItem({Key? key,required this.entity}) : super(key: key);
+  NovelItem({Key? key, required this.entity}) : super(key: key);
+
   @override
   State<NovelItem> createState() => _NovelItemState();
 }
 
 class _NovelItemState extends State<NovelItem> {
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -29,11 +29,14 @@ class _NovelItemState extends State<NovelItem> {
         margin: EdgeInsets.only(bottom: 10),
         child: Row(
           children: [
-            Image.network(
-              "${widget.entity.coverImage}",
-              width: 80,
-              height: 120,
-              fit: BoxFit.cover,
+            ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image.network(
+                "${widget.entity.coverImage}",
+                width: 100,
+                height: 140,
+                fit: BoxFit.cover,
+              ),
             ),
             Expanded(
               child: Container(
@@ -48,15 +51,26 @@ class _NovelItemState extends State<NovelItem> {
                       maxLines: 1,
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (_) {
-                          return NovelCategoryList(name:"${widget.entity.categoryName}",id: widget.entity.categoryId ?? 0);
+                          return NovelCategoryList(
+                              name: "${widget.entity.categoryName}",
+                              id: widget.entity.categoryId ?? 0);
                         }));
                       },
-                      child: Text(
-                        "${widget.entity.categoryName} - ${widget.entity.author}",
-                        style: TextStyle(fontSize: 14),
-                        maxLines: 1,
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 2, horizontal: 10),
+                        margin: EdgeInsets.only(bottom: 10, right: 10, top: 10),
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.3),
+                          borderRadius: BorderRadius.all(Radius.circular(30)),
+                        ),
+                        child: Text(
+                          "${widget.entity.categoryName}",
+                          style: TextStyle(fontSize: 14),
+                          maxLines: 1,
+                        ),
                       ),
                     ),
                     Text(
@@ -71,11 +85,11 @@ class _NovelItemState extends State<NovelItem> {
                             padding: EdgeInsets.symmetric(
                                 vertical: 2, horizontal: 10),
                             margin:
-                            EdgeInsets.only(bottom: 10, right: 10, top: 10),
+                                EdgeInsets.only(bottom: 10, right: 10, top: 10),
                             decoration: BoxDecoration(
                               color: Colors.grey.withOpacity(0.3),
                               borderRadius:
-                              BorderRadius.all(Radius.circular(30)),
+                                  BorderRadius.all(Radius.circular(30)),
                             ),
                             child: Text((widget.entity.favoriteState ?? 0) == 1
                                 ? "已收藏"
@@ -84,9 +98,9 @@ class _NovelItemState extends State<NovelItem> {
                           onTap: () {
                             if ((widget.entity.favoriteState ?? 0) == 1) {
                               PangrowthNovel.requestCancelCollectStory(
-                                  novelId: widget.entity.bookId ?? 0)
+                                      novelId: widget.entity.bookId ?? 0)
                                   .then(
-                                    (value) {
+                                (value) {
                                   if (value) {
                                     setState(() {
                                       widget.entity.favoriteState = 0;
@@ -96,9 +110,9 @@ class _NovelItemState extends State<NovelItem> {
                               );
                             } else {
                               PangrowthNovel.requestCollectStory(
-                                  novelId: widget.entity.bookId ?? 0)
+                                      novelId: widget.entity.bookId ?? 0)
                                   .then(
-                                    (value) {
+                                (value) {
                                   if (value) {
                                     setState(() {
                                       widget.entity.favoriteState = 1;

@@ -1,4 +1,4 @@
-### 一、[官方文档](https://www.csjplatform.com/union/media/union/download/detail?id=81&osType=android)
+### 一、[官方文档](https://www.csjplatform.com/supportcenter/28147)
 
 ### 二、插件配置
 1、在android/build.gradle文件中
@@ -22,38 +22,24 @@ allprojects {
 <manifest ···
   xmlns:tools="http://schemas.android.com/tools"
  ···>
- 
-<!--必要权限-->
-<uses-permission android:name="android.permission.INTERNET" />
 
-<!--可选权限 缓存小说书籍到本地-->
+ <!-- 这四个权限最好都申请，有助于视频推荐和ecpm -->
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
-<application
- ···
-  tools:replace="android:label"
- ···>
+//SDK内部已处理，开发者不需要额外手动引入
+<provider
+android:name="com.bytedance.sdk.DJX.act.DJXProvider"
+android:authorities="${applicationId}.BDDJXProvider"
+android:exported="false" />
 ```
 
 3、在android/app/src/main下新建assets文件，把下载的json文件改名pangrowthconfig.json导入
 
-4、在android/app/build.gradle 修改
-
-```
-defaultConfig {
-       ···
-        minSdkVersion 21
-        ···
-    }
-```
-
-5、 在android/app/build.gradle添加命令依赖gradle脚本：
-```dart
-apply from: 'https://sf3-fe-tos.pglstatp-toutiao.com/obj/pangle-empower/android/pangrowth_media/plugin_config.gradle'
-```
-
-6、依赖管理
+4、依赖管理
 内容输出sdk支持安卓版本：21~29
 依赖安卓内部库：support-v4，建议版本：24以上
 依赖安卓内部库：recyclerview-v7，建议版本：24以上
@@ -69,7 +55,7 @@ configurations.all {
 }
 ```
 
-7、打包安装运行失败
+5、打包安装运行失败
 当debug运行正常，打包后运行失败，可以尝试将混淆关闭再进行打包
 ```dart
 minifyEnabled false
