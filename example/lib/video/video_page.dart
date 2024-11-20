@@ -55,11 +55,6 @@ class _VideoPageState extends State<VideoPage> {
    //      ]); //允许直接下载的网络状态集合 选填
    // print("广告初始化结果--> $_adRegister");
     _isRegister = await PangrowthVideo.registerVideo(
-      //接入小说SDK的App的英文名 必填
-      appName: "appName",
-      ////appid 必填
-      andoridAppId: "302043",
-      iosAppId: "299886",
       //是否显示日志
       debug: true,
     );
