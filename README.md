@@ -17,10 +17,6 @@ flutter_pangrowth是一个可以帮助开发者直接引入穿山甲内容输出
 
 <img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/1639014433814834.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/video.gif" width="30%"><img src="https://github.com/gstory0404/flutter_pangrowth/blob/master/images/playlet.gif" width="30%">
 
-## 说明
-
-使用flutter_pangrowth插件，必须先接入穿山甲广告插件[flutter_unionad](https://github.com/gstory0404/flutter_unionad),不然无法显示广告
-
 ## 接入文档 (插件升级必须对照以下文档变动，以防不必要错误)
 
 * [Android](https://github.com/gstory0404/flutter_pangrowth/blob/master/doc/Android.md)
