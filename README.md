@@ -1,9 +1,9 @@
 # 字节跳动内容输出 Flutter版本
 
 <p>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/pub/v/flutter_pangrowth?color=orange></a>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/pub/likes/flutter_pangrowth></a>
-<a href="https://pub.flutter-io.cn/packages/flutter_pangrowth"><img src=https://img.shields.io/pub/points/flutter_pangrowth></a>
+<a href="https://pub.dev/packages/flutter_pangrowth"><img src=https://img.shields.io/pub/v/flutter_pangrowth?color=orange></a>
+<a href="https://pub.dev/packages/flutter_pangrowth"><img src=https://img.shields.io/pub/likes/flutter_pangrowth></a>
+<a href="https://pub.dev/packages/flutter_pangrowth"><img src=https://img.shields.io/pub/points/flutter_pangrowth></a>
 <a href="https://github.com/gstory0404/flutter_pangrowth/commits"><img src=https://img.shields.io/github/last-commit/gstory0404/flutter_pangrowth></a>
 <a href="https://github.com/gstory0404/flutter_pangrowth"><img src=https://img.shields.io/github/stars/gstory0404/flutter_pangrowth></a>
 </p>
