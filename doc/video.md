@@ -1,14 +1,7 @@
 #### 1、SDK初始化
 
-⚠️注意 ：初始化sdk前，必须先调用用[flutter_unionad](https://github.com/gstory0404/flutter_unionad)的初始化方法，不然无法加载广告
-
 ```dart
 await PangrowthVideo.registerVideo(
-      //接入小说SDK的App的英文名 必填
-      appName: "appName",
-      ////appid 必填
-      andoridAppId: "302043",
-      iosAppId: "299886",
       //是否显示日志
       debug: true,
     );
