@@ -22,8 +22,11 @@ class _PlayletItemState extends State<PlayletItem> {
     return GestureDetector(
       onTap: () {
         PangrowthPlaylet.enterPlayletPlayer(
-            playletId: widget.entity.playletId ?? 0,
-            index: widget.entity.currentEpisode ?? 0);
+          playletId: widget.entity.playletId ?? 0,
+          index: widget.entity.currentEpisode ?? 0,
+          freeCount: 3,
+          unlockCount: 1,
+        );
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10),

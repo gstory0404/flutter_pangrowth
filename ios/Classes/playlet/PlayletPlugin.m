@@ -37,7 +37,7 @@
     NSDictionary *dic = arguments;
     NSLog(@"短剧聚合页%@",dic);
     NSInteger freeCount = [dic[@"freeCount"] intValue];
-    NSInteger unlockCountUsingAD = [dic[@"unlockCountUsingAD"] intValue];
+    NSInteger unlockCount = [dic[@"unlockCount"] intValue];
     BOOL isShowTitle = [dic[@"isShowTitle"] boolValue];
     BOOL isShowBackButton = [dic[@"isShowBackButton"] boolValue];
     DJXPlayletAggregatePageViewController *vc = [[DJXPlayletAggregatePageViewController alloc] initWithConfigBuilder:^(DJXPlayletAggregatePageVCConfig * _Nonnull config) {
@@ -45,7 +45,7 @@
         //免费观看的集数n
         playletConfig.freeEpisodesCount = freeCount;
         //观看一次激励视频解锁的集数m
-        playletConfig.unlockEpisodesCountUsingAD = unlockCountUsingAD;
+        playletConfig.unlockEpisodesCountUsingAD = unlockCount;
         //接入模式 封装模式
         playletConfig.playletUnlockADMode = DJXPlayletUnlockADMode_Common;
         config.playletConfig = playletConfig;

@@ -45,14 +45,23 @@ object PlayletPlugin {
     }
 
     /**
-     * 打开小说聚合页
+     * 打开短剧聚合页
      */
     fun openPlayletAggregatePage(
         activity: Activity?,
-        call: MethodCall,
-        result: MethodChannel.Result
+        result: MethodChannel.Result,
+        params: Map<String?, Any?>
     ) {
-        activity?.startActivity(Intent(activity, PlayletAggregatePageActivity::class.java))
+        val freeCount = params["freeCount"] as Int
+        val unlockCount = params["unlockCount"] as Int
+        val isShowTitle = params["isShowTitle"] as Boolean
+        val isShowBackButton = params["isShowBackButton"] as Boolean
+        val intent = Intent(activity, PlayletAggregatePageActivity::class.java)
+        intent.putExtra("freeCount",freeCount)
+        intent.putExtra("unlockCount",unlockCount)
+        intent.putExtra("isShowTitle",isShowTitle)
+        intent.putExtra("isShowBackButton",isShowBackButton)
+        activity?.startActivity(intent)
     }
 
     //进入播放器
@@ -61,7 +70,16 @@ object PlayletPlugin {
         result: MethodChannel.Result,
         params: Map<String?, Any?>
     ) {
-        activity?.startActivity(Intent(activity, PlayletPlayerPage::class.java))
+        val playletId = (params["playletId"] as Int) * 1L
+        val index = params["index"] as Int
+        val freeCount = params["freeCount"] as Int
+        val unlockCount = params["unlockCount"] as Int
+        val intent = Intent(activity, PlayletPlayerPage::class.java)
+        intent.putExtra("playletId",playletId)
+        intent.putExtra("index",index)
+        intent.putExtra("freeCount",freeCount)
+        intent.putExtra("unlockCount",index)
+        activity?.startActivity(intent)
     }
 
     //分页加载所有短剧

@@ -1,6 +1,7 @@
 package com.gstory.flutter_pangrowth.playlet.pages
 
 import android.os.Bundle
+import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.bytedance.sdk.djx.DJXSdk
@@ -12,7 +13,12 @@ import com.bytedance.sdk.djx.interfaces.listener.IDJXDramaUnlockListener
 import com.bytedance.sdk.djx.model.DJXDrama
 import com.bytedance.sdk.djx.model.DJXDramaDetailConfig
 import com.bytedance.sdk.djx.model.DJXDramaUnlockAdMode
+import com.bytedance.sdk.djx.model.DJXDramaUnlockInfo
+import com.bytedance.sdk.djx.model.DJXDramaUnlockMethod
 import com.bytedance.sdk.djx.params.DJXWidgetDramaHomeParams
+import com.drake.statusbar.immersive
+import com.drake.statusbar.setActionBarTransparent
+import com.drake.statusbar.statusPadding
 import com.gstory.flutter_pangrowth.R
 
 /**
@@ -27,10 +33,20 @@ class PlayletAggregatePageActivity : AppCompatActivity() {
 
     private var dpWidget: IDJXWidget? = null
     private var mDrawFragment: Fragment? = null
+    var freeCount: Int = 0
+    var unlockCount: Int = 0
+    var isShowTitle: Boolean = true
+    var isShowBackButton: Boolean = true
 
-    override fun onPostCreate(savedInstanceState: Bundle?) {
-        super.onPostCreate(savedInstanceState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_draw_video_full_screen)
+        setActionBarTransparent()
+        immersive(findViewById<FrameLayout>(R.id.draw_video_full_frame))
+        freeCount = intent.getIntExtra("freeCount", 0)
+        unlockCount = intent.getIntExtra("unlockCount", 0)
+        isShowTitle = intent.getBooleanExtra("isShowTitle", true)
+        isShowBackButton = intent.getBooleanExtra("isShowBackButton", true)
         initDrawWidget()
         mDrawFragment = dpWidget!!.fragment
         supportFragmentManager.beginTransaction()
@@ -39,7 +55,7 @@ class PlayletAggregatePageActivity : AppCompatActivity() {
     }
 
     private fun initDrawWidget() {
-        var detailConfig = DJXDramaDetailConfig.obtain(DJXDramaUnlockAdMode.MODE_COMMON, 5, object :
+        var detailConfig = DJXDramaDetailConfig.obtain(DJXDramaUnlockAdMode.MODE_COMMON, freeCount, object :
             IDJXDramaUnlockListener {
             override fun unlockFlowEnd(
                 drama: DJXDrama,
@@ -54,16 +70,17 @@ class PlayletAggregatePageActivity : AppCompatActivity() {
                 callback: IDJXDramaUnlockListener.UnlockCallback,
                 map: Map<String, Any>?
             ) {
-
+                val info = DJXDramaUnlockInfo(drama.id, unlockCount, DJXDramaUnlockMethod.METHOD_AD, false)
+                callback.onConfirm(info)
             }
         })
         detailConfig.hideTopInfo(false)
             .hideBottomInfo(false)
         val params = DJXWidgetDramaHomeParams.obtain(detailConfig)
             // 换一换功能是否打开
-            .showBackBtn(true)
+            .showBackBtn(isShowBackButton)
             // 是否展示标题栏
-            .showPageTitle(true)
+            .showPageTitle(isShowTitle)
             // 是否展示返回按钮
             .showBackBtn(true)
             .listener(object  : IDJXDramaHomeListener() {

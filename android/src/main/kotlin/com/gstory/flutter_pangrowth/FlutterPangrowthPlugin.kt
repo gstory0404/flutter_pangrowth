@@ -143,7 +143,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             PlayletPlugin.registerPlaylet(mActivity, call, result)
             //打开短剧聚合页
         } else if (call.method == "openPlayletAggregatePage") {
-            PlayletPlugin.openPlayletAggregatePage(mActivity, call, result)
+            PlayletPlugin.openPlayletAggregatePage(mActivity, result, call.arguments as Map<String?, Any?>)
             //进入播放器
         } else if (call.method == "enterPlayletPlayer") {
             PlayletPlugin.enterPlayletPlayer(mActivity, result, call.arguments as Map<String?, Any?>)

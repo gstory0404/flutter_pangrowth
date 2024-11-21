@@ -79,9 +79,9 @@ class _PlayletPageState extends State<PlayletPage> {
               onPressed: () async {
                 await PangrowthPlaylet.openPlayletAggregatePage(
                   // 免费观看的集数 默认3
-                  freeCount: 10,
+                  freeCount: 3,
                   // 观看一次激励视频解锁的集数 默认1
-                  unlockCountUsingAD: 2,
+                  unlockCount: 1,
                   //是否展示导航栏标题名称 默认true
                   isShowTitle: true,
                   //是否展示导航栏左上角返回按钮 默认true

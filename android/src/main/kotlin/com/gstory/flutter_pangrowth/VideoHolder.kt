@@ -22,7 +22,7 @@ class VideoHolder private constructor() {
         DPSdk.init(context, "pangrowthconfig.json", configBuilder.build())
         DPSdk.start { isSuccess, message ->
             run {
-                Log.d("短视频初始化", message)
+                Log.d("短视频初始化", "结果=>$isSuccess   $message")
                 result.success(isSuccess)
             }
         }

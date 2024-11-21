@@ -24,6 +24,7 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -72,4 +73,5 @@ dependencies {
     implementation 'com.alibaba:fastjson:1.2.32'
     implementation "com.squareup.okhttp3:okhttp:3.10.0"
     implementation 'androidx.appcompat:appcompat:1.6.0'
+    implementation 'com.github.liangjingkanji:StatusBar:2.0.5'
 }

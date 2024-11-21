@@ -16,25 +16,46 @@ class PangrowthPlaylet {
   ///
   ///  - [freeCount] 免费观看的集数 默认3
   ///
-  ///  - [unlockCountUsingAD] 观看一次激励视频解锁的集数 默认1
+  ///  - [unlockCount] 观看一次激励视频解锁的集数 默认1
   ///
   ///  - [isShowTitle] 是否展示导航栏标题名称 默认true
   ///
   ///  - [isShowBackButton] 是否展示导航栏左上角返回按钮 默认true
   static Future<bool> openPlayletAggregatePage({
-    int? freeCount,
-    int? unlockCountUsingAD,
+    required int? freeCount,
+    required int? unlockCount,
     bool? isShowTitle,
     bool? isShowBackButton,
   }) async {
     return await FlutterPangrowth.pangrowthChannel
         .invokeMethod("openPlayletAggregatePage", {
       "freeCount": freeCount ?? 3,
-      "unlockCountUsingAD": unlockCountUsingAD ?? 1,
+      "unlockCount": unlockCount ?? 1,
       "isShowTitle": isShowTitle ?? true,
       "isShowBackButton": isShowBackButton ?? true,
     });
   }
+
+  /// 进入短剧播放器
+  /// [playletId] 短剧id
+  /// [index] 剧集下标
+  /// [freeCount] 免费剧集数
+  /// [unlockCount] 单次广告解锁数
+  static Future<bool> enterPlayletPlayer({
+    required int playletId,
+    required int index,
+    required int freeCount,
+    required int unlockCount,
+  }) async {
+    return await FlutterPangrowth.pangrowthChannel
+        .invokeMethod("enterPlayletPlayer", {
+      "playletId": playletId,
+      "index": index,
+      "freeCount": freeCount,
+      "unlockCount": unlockCount,
+    });
+  }
+
 
   /// 分页拉取所有短剧
   /// [page] 页码
@@ -213,20 +234,6 @@ class PangrowthPlaylet {
       }
     }
     return playletList;
-  }
-
-  /// 进入短剧播放器
-  /// [playletId] 短剧id
-  /// [index] 剧集下标
-  static Future<bool> enterPlayletPlayer({
-    required int playletId,
-    required int index,
-  }) async {
-    return await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("enterPlayletPlayer", {
-      "playletId": playletId,
-      "index": index,
-    });
   }
 
   ///短剧历史记录列表
