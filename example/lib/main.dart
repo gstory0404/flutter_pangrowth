@@ -34,8 +34,8 @@ class _HomePageState extends State<HomePage> {
 
   _registerAd() async {
     isRegisterAd = await FlutterPangrowth.registerAd(
-      androidAppId: "645479",
-      iosAppId: "645479",
+      androidAppId: "5620624",
+      iosAppId: "5620624",
     );
     setState(() {});
   }

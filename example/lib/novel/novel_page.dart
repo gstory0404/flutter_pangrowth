@@ -58,7 +58,9 @@ class _NovelPageState extends State<NovelPage> {
               textColor: Colors.white,
               child: const Text('短小说聚合页'),
               onPressed: () async {
-                await PangrowthNovel.openNovelAggregatePage();
+                await PangrowthNovel.openNovelAggregatePage(
+                  adCode: "961597868",
+                );
               },
             ),
             //搜索小说

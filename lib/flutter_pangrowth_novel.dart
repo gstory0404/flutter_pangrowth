@@ -9,30 +9,36 @@ class PangrowthNovel {
   ///短小说初始化
   static Future<bool> registerNovel({bool? debug}) async {
     return await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("registerNovel", {
-          "debug":debug ?? false
-    });
+        .invokeMethod("registerNovel", {"debug": debug ?? false});
   }
 
   ///# 打开小说聚合页
-  static Future<bool> openNovelAggregatePage() async {
+  /// [adCode] 解锁激励广告id
+  static Future<bool> openNovelAggregatePage({
+    required String adCode,
+  }) async {
     return await FlutterPangrowth.pangrowthChannel
-        .invokeMethod("openNovelAggregatePage", null);
+        .invokeMethod("openNovelAggregatePage", {
+      "adCode": adCode,
+    });
   }
 
   ///# 打开书籍
   ///
   /// [novelId] 小说id
   /// [index] 章节id
+  /// [adCode] 解锁激励广告id
   ///
   static Future<bool> openMiniStory({
     required int novelId,
     required int index,
+    required String adCode,
   }) async {
     return await FlutterPangrowth.pangrowthChannel
         .invokeMethod("openMiniStory", {
       "novelId": novelId,
       "index": index,
+      "adCode": adCode,
     });
   }
 

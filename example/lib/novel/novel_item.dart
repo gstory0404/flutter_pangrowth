@@ -22,8 +22,10 @@ class _NovelItemState extends State<NovelItem> {
     return GestureDetector(
       onTap: () {
         PangrowthNovel.openMiniStory(
-            novelId: widget.entity.bookId ?? 0,
-            index: widget.entity.index ?? 0);
+          novelId: widget.entity.bookId ?? 0,
+          index: widget.entity.index ?? 0,
+          adCode: "961597868",
+        );
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 10),

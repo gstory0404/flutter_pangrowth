@@ -78,7 +78,7 @@ class FlutterPangrowthPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
             NovelPlugin.registerNovel(applicationContext, call, result)
             //打开小说聚合页
         } else if (call.method == "openNovelAggregatePage") {
-            NovelPlugin.openNovelAggregatePage(mActivity, call, result)
+            NovelPlugin.openNovelAggregatePage(mActivity, result, call.arguments as Map<String?, Any?>)
             //打开小说
         } else if (call.method == "openMiniStory") {
             NovelPlugin.openMiniStory(mActivity, result, call.arguments as Map<String?, Any?>)

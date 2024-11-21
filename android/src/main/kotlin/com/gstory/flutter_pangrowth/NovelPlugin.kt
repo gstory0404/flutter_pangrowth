@@ -3,6 +3,7 @@ package com.gstory.flutter_pangrowth
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import com.alibaba.fastjson.JSON
 import com.alibaba.fastjson.JSONObject
@@ -10,13 +11,22 @@ import com.bytedance.sdk.djx.interfaces.listener.IDJXAdListener
 import com.bytedance.sdk.djx.model.DJXError
 import com.bytedance.sdk.djx.model.DJXOthers
 import com.bytedance.sdk.nov.api.INovCallback
+import com.bytedance.sdk.nov.api.NovRewardAdResult
 import com.bytedance.sdk.nov.api.NovSdkConfig
 import com.bytedance.sdk.nov.api.NovSdk
+import com.bytedance.sdk.nov.api.iface.INovUnlockListener
 import com.bytedance.sdk.nov.api.model.NovCategory
+import com.bytedance.sdk.nov.api.model.NovPage
 import com.bytedance.sdk.nov.api.model.NovStory
 import com.bytedance.sdk.nov.api.params.NovReaderConfig
 import com.bytedance.sdk.nov.api.params.NovWidgetReaderParams
+import com.bytedance.sdk.openadsdk.AdSlot
+import com.bytedance.sdk.openadsdk.TTAdLoadType
+import com.bytedance.sdk.openadsdk.TTAdNative
+import com.bytedance.sdk.openadsdk.TTAdSdk
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd
 import com.gstory.flutter_pangrowth.novel.pages.NovelAggregatePageActivity
+import com.gstory.flutter_pangrowth.utils.NovelRewardUtils
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 
@@ -45,8 +55,15 @@ object NovelPlugin {
     /**
      * 打开小说聚合页
      */
-    fun openNovelAggregatePage(activity: Activity?, call: MethodCall, result: MethodChannel.Result) {
-        activity?.startActivity(Intent(activity, NovelAggregatePageActivity::class.java))
+    fun openNovelAggregatePage(
+        activity: Activity?,
+        result: MethodChannel.Result,
+        params: Map<String?, Any?>
+    ) {
+        val adCode = params["adCode"] as String
+        val intent = Intent(activity, NovelAggregatePageActivity::class.java)
+        intent.putExtra("adCode", adCode)
+        activity?.startActivity(intent)
     }
 
     /**
@@ -59,9 +76,11 @@ object NovelPlugin {
     ) {
         val novelId = params["novelId"] as Int
         val index = params["index"] as Int
+        val adCode = params["adCode"] as String
         NovSdk.service()
             ?.requestStoryByIds(listOf(novelId), index, 20, object : INovCallback<List<NovStory>> {
                 override fun onError(error: DJXError) {
+                    Log.d("NovelPlugin", "查找短小说失败 $error")
                     result.success(false)
                 }
 
@@ -69,9 +88,34 @@ object NovelPlugin {
                     //阅读器配置 NovReaderConfig
                     val config = NovReaderConfig().apply {
                         //广告模式 可以选自SDK直出广告 or 自定义广告
-                        rewardAdMode = NovReaderConfig.NovRewardAdMode.MODE_SDK
+                        rewardAdMode = NovReaderConfig.NovRewardAdMode.MODE_CUSTOM
                         //文末推荐卡片样式
                         endPageCardStyle = NovReaderConfig.NovEndPageCardStyle.STYLE_MIX
+                        //阅读器默认字体大小
+                        defaultTextSize = 16
+                        //阅读器默认翻页模式
+                        defaultPageTurnMode =
+                            NovReaderConfig.NovPageTurnMode.TURN_LEFT_RIGHT_SIMULATE
+                        //文末推荐页推荐个数，默认：3 个
+                        endPageRecSize = 3
+                        unlockListener = object : INovUnlockListener {
+                            override fun onUnlockEnd(
+                                isSuccess: Boolean,
+                                status: INovUnlockListener.UnlockErrorStatus?,
+                                storyInfo: NovStory?,
+                                pageInfo: NovPage?
+                            ) {
+
+                            }
+
+                            override fun onUnlockStart(storyInfo: NovStory, pageInfo: NovPage) {
+                                Log.d("NovelPlugin", "开始广告解锁")
+                            }
+
+                            override fun onShowCustomAd(callback: INovUnlockListener.CustomAdCallback) {
+                                NovelRewardUtils.loadReward(activity!!, adCode, callback)
+                            }
+                        }
                     }
                     //打开短故事阅读器
                     NovSdk.factory()?.openReader(NovWidgetReaderParams(data.first(), config))
@@ -193,19 +237,24 @@ object NovelPlugin {
         val size = params["size"] as Int
         val order = params["order"] as Int
         NovSdk.service()
-            ?.requestStoryByCategory(categoryId,order, page, size, object : INovCallback<List<NovStory>> {
-                override fun onError(error: DJXError) {
-                    result.success(null)
-                }
-
-                override fun onSuccess(data: List<NovStory>, others: DJXOthers?) {
-                    val list2 = ArrayList<String>()
-                    for (novel: NovStory in data) {
-                        list2.add(JSON.toJSON(novel).toString())
+            ?.requestStoryByCategory(
+                categoryId,
+                order,
+                page,
+                size,
+                object : INovCallback<List<NovStory>> {
+                    override fun onError(error: DJXError) {
+                        result.success(null)
                     }
-                    result.success(list2)
-                }
-            })
+
+                    override fun onSuccess(data: List<NovStory>, others: DJXOthers?) {
+                        val list2 = ArrayList<String>()
+                        for (novel: NovStory in data) {
+                            list2.add(JSON.toJSON(novel).toString())
+                        }
+                        result.success(list2)
+                    }
+                })
     }
 
     /**

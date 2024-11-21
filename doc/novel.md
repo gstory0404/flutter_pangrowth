@@ -16,7 +16,9 @@ await PangrowthNovel.registerNovel();
 #### 2、打开小说聚合页
 
 ```dart
-await PangrowthNovel.openNovelAggregatePage();
+await PangrowthNovel.openNovelAggregatePage(
+  adCode: "961597868",
+);
 ```
 
 #### 3、NovelEntity说明
@@ -97,5 +99,5 @@ PangrowthNovel.requestCancelCollectStory(novelId: 11);
 
 #### 13、进入小说阅读器
 ```dart
-PangrowthPlaylet.openMiniStory(novelId: 100,index: 1);
+PangrowthPlaylet.openMiniStory(novelId: 100,index: 1,adCode: "961597868");
 ```

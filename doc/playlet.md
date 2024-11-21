@@ -24,6 +24,8 @@ unlockCountUsingAD: 2,
 isShowTitle: true,
 //是否展示导航栏左上角返回按钮 默认true
 isShowBackButton: true,
+freeCount: 3,
+unlockCount: 1,
 );
 ```
 
@@ -127,5 +129,5 @@ PangrowthPlaylet.cancelLikeShortplay(playletId: 100);
 
 #### 15、进入短剧播放器`
 ```dart
-PangrowthPlaylet.enterPlayletPlayer(playletId: 100,index: 1);
+PangrowthPlaylet.enterPlayletPlayer(playletId: 100,index: 1,freeCount: 3,unlockCount: 1,);
 ```
