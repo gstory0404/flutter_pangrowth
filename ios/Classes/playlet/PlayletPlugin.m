@@ -10,7 +10,11 @@
 #import "MJExtension/MJExtension.h"
 #import "UIViewController+getCurrentVC.h"
 #import <PangrowthMiniStory/MNStoryManager.h>
+#import "PlayletRewardUnlock.h"
 
+@interface PlayletPlugin () <DJXPlayletAdvertProtocol>
+
+@end
 @implementation PlayletPlugin
 
 # pragma mark - 初始化视频
@@ -48,15 +52,43 @@
         playletConfig.unlockEpisodesCountUsingAD = unlockCount;
         //接入模式 封装模式
         playletConfig.playletUnlockADMode = DJXPlayletUnlockADMode_Common;
+        PlayletRewardUnlock *playletRewardUnlock = [[PlayletRewardUnlock alloc] init];
+        playletRewardUnlock.unlockCount = unlockCount;
+        playletConfig.interfaceDelegate = playletRewardUnlock;
         config.playletConfig = playletConfig;
         // 是否展示导航栏标题名称
         config.isShowNavigationItemTitle = isShowTitle;
         // 是否展示导航栏左上角返回按钮
         config.isShowNavigationItemBackButton = isShowBackButton;
+
     }];
 //    UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
 //    [viewController pushViewController:vc animated:YES];
     [[UIViewController jsd_getRootViewController] presentViewController:vc animated:YES completion:^{}];
+}
+
+# pragma mark - 进入播放页
++(void)enterPlayletPlayer:(NSDictionary *)dic result:(FlutterResult)result{
+    NSInteger playletId = [dic[@"playletId"] intValue];
+    NSInteger index = [dic[@"index"] intValue];
+    NSInteger freeCount = [dic[@"freeCount"] intValue];
+    NSInteger unlockCount = [dic[@"unlockCount"] intValue];
+    DJXPlayletConfig *config = [DJXPlayletConfig new];
+    config.skitId = playletId;
+    config.episode = index;
+    //免费观看的集数n
+    config.freeEpisodesCount = freeCount;
+    //观看一次激励视频解锁的集数m
+    config.unlockEpisodesCountUsingAD = unlockCount;
+    config.playletUnlockADMode = DJXPlayletUnlockADMode_Common;
+    PlayletRewardUnlock *playletRewardUnlock = [PlayletRewardUnlock new];
+    playletRewardUnlock.unlockCount = unlockCount;
+    config.interfaceDelegate = playletRewardUnlock;
+    DJXDrawVideoViewController *vc = [[DJXPlayletManager shareInstance] playletViewControllerWithParams:config];
+//    UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
+//    [viewController pushViewController:vc animated:YES];
+    [[UIViewController jsd_getRootViewController] presentViewController:vc animated:YES completion:^{}];
+    result(@YES);
 }
 
 # pragma mark - 分页拉取所有短剧
@@ -165,21 +197,6 @@
     } failure:^(NSError * _Nonnull error) {
         result(nil);
     }];
-}
-
-# pragma mark - 进入播放页
-+(void)enterPlayletPlayer:(NSDictionary *)dic result:(FlutterResult)result{
-    NSInteger playletId = [dic[@"playletId"] intValue];
-    NSInteger index = [dic[@"index"] intValue];
-    DJXPlayletConfig *config = [DJXPlayletConfig new];
-    config.skitId = playletId;
-    config.episode = index;
-    config.playletUnlockADMode = DJXPlayletUnlockADMode_Common;
-    DJXDrawVideoViewController *vc = [[DJXPlayletManager shareInstance] playletViewControllerWithParams:config];
-//    UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
-//    [viewController pushViewController:vc animated:YES];
-    [[UIViewController jsd_getRootViewController] presentViewController:vc animated:YES completion:^{}];
-    result(@YES);
 }
 
 # pragma mark - 短剧历史记录列表

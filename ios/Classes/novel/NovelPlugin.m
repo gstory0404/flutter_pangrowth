@@ -14,6 +14,7 @@
 #import <PangrowthMiniStory/MNSMainViewController.h>
 //#import <PangrowthMiniStory/MNStoryCategoryListItemModel.h>
 #import <PangrowthMiniStory/MNStoryInfoModel.h>
+#import "NovelRewardUnlock.h"
 
 @implementation NovelPlugin
 
@@ -42,28 +43,37 @@
     MNStoryReaderOpenParams *params = [[MNStoryReaderOpenParams alloc] init];
     params.customRewardAD = NO;//是否自定义激励解锁，默认为SDK直出，开发者也可以参照阅读器模块说明，进行自定义广告
     params.addCustomRewardPoint = NO;//是否增加自定义解锁点
-    params.showCustomBottomBannerAD = YES;//是否加入banner广告
-    params.showCustomMiddleAD = YES;//是否加入章间广告
+    params.showCustomBottomBannerAD = NO;//是否加入banner广告
+    params.showCustomMiddleAD = NO;//是否加入章间广告
     params.pageIntervalForMiddleAD = 4;//插入章间广告的间隔数，章头章末不插入
     params.customRewardEntryView = NO;//是否自定义激励入口
+    params.endPageCellStyle = MNStoryEndPageCellStyleImageText; //文末推荐的样式
+    NovelRewardUnlock *novelRewardUnlock = [NovelRewardUnlock new];//监听
+    params.delegate = novelRewardUnlock;
     MNSMainViewController *vc = [[MNSMainViewController alloc] initWithReadConfig:params];
-    [[UIViewController jsd_getRootViewController] presentViewController:vc animated:YES completion:^{}];
+    //    [[UIViewController jsd_getRootViewController] presentViewController:vc animated:YES completion:^{}];
+    UINavigationController *viewController =[UIApplication sharedApplication].keyWindow.rootViewController;
+    [viewController pushViewController:vc animated:YES];
 }
 
 # pragma mark - 打开短故事阅读器
 +(void)openMiniStory:(NSDictionary *)dic result:(FlutterResult)result{
+    NSLog(@"打开短小说阅读器");
     NSInteger novelId = [dic[@"novelId"] intValue];
     NSInteger index = [dic[@"index"] intValue];
-    NSInteger pageIntervalForMiddleAD = [dic[@"pageIntervalForMiddleAD"] intValue];
+    //    NSInteger pageIntervalForMiddleAD = [dic[@"pageIntervalForMiddleAD"] intValue];
     MNStoryReaderOpenParams *params = [[MNStoryReaderOpenParams alloc] init];
     params.storyId = novelId;
     params.chapterIndex = index;
-    params.customRewardAD = NO;
-    params.addCustomRewardPoint = NO;
-    params.showCustomBottomBannerAD = YES;
-    params.showCustomMiddleAD = YES;
-    params.pageIntervalForMiddleAD = pageIntervalForMiddleAD;
-    params.customRewardEntryView = NO;
+    params.customRewardAD = NO;//是否自定义激励解锁，默认为SDK直出，开发者也可以参照阅读器模块说明，进行自定义广告
+    params.addCustomRewardPoint = NO;//是否增加自定义解锁点
+    params.showCustomBottomBannerAD = NO;//是否加入banner广告
+    params.showCustomMiddleAD = NO;//是否加入章间广告
+    params.pageIntervalForMiddleAD = 4;//插入章间广告的间隔数，章头章末不插入
+    params.customRewardEntryView = NO;//是否自定义激励入口
+    params.endPageCellStyle = MNStoryEndPageCellStyleImageText; //文末推荐的样式
+    NovelRewardUnlock *novelRewardUnlock = [NovelRewardUnlock new];//监听
+    params.delegate = novelRewardUnlock;
     [[MNStoryManager shareInstance] openMiniStory:params];
 }
 
@@ -72,9 +82,9 @@
     [[MNStoryManager shareInstance] requestCategoryList:^(BOOL success, NSArray<MNStoryCategoryListItemModel *> * _Nonnull categoryList) {
         if(success){
             NSMutableArray *stringArray = [NSMutableArray array];
-//            for (MNStoryCategoryListItemModel *model in categoryList) {
-//                [stringArray addObject:[model mj_JSONString]];
-//            }
+            //            for (MNStoryCategoryListItemModel *model in categoryList) {
+            //                [stringArray addObject:[model mj_JSONString]];
+            //            }
             result(stringArray);
         }else{
             result(nil);

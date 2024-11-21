@@ -78,7 +78,7 @@ object PlayletPlugin {
         intent.putExtra("playletId",playletId)
         intent.putExtra("index",index)
         intent.putExtra("freeCount",freeCount)
-        intent.putExtra("unlockCount",index)
+        intent.putExtra("unlockCount",unlockCount)
         activity?.startActivity(intent)
     }
 

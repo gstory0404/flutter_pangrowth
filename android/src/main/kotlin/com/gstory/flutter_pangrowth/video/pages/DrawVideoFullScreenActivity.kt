@@ -37,8 +37,6 @@ class DrawVideoFullScreenActivity : AppCompatActivity() {
 
     private fun initDrawWidget() {
         mIDPWidget = VideoHolder.INSTANCE.buildDrawWidget(DPWidgetDrawParams.obtain()
-//                .liveAdCodeId("946413486").liveNativeAdCodeId("946413492")
-                .adOffset(0) //单位 dp，为 0 时可以不设置
                 .hideClose(false, null)
                 .listener(object : IDPDrawListener() {
                     override fun onDPRefreshFinish() {
