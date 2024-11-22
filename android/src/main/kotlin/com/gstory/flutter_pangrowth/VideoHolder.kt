@@ -2,6 +2,8 @@ package com.gstory.flutter_pangrowth
 
 import android.app.Application
 import android.util.Log
+import com.bytedance.applog.AppLog
+import com.bytedance.applog.InitConfig
 import com.bytedance.sdk.dp.*
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
@@ -17,9 +19,20 @@ class VideoHolder private constructor() {
         val debug = call.argument<Boolean>("debug") as Boolean
         val configBuilder = DPSdkConfig.Builder()
             .debug(debug)
+            .disableABTest(false)
+            .newUser(false)
+            .aliveSeconds(0)
             //接入了红包功能需要传入的参数，没有接入的话可以忽略该配置
-//            .luckConfig(DPSdkConfig.LuckConfig().application(context).enableLuck(false))
-        DPSdk.init(context, "pangrowthconfig.json", configBuilder.build())
+            .luckConfig(DPSdkConfig.LuckConfig().application(context).enableLuck(false))
+        val config = configBuilder.build().apply {
+            // 配置青少年模式，可选
+            privacyController = object : IDPPrivacyController() {
+                override fun isTeenagerMode(): Boolean {
+                    return false
+                }
+            }
+        }
+        DPSdk.init(context, "pangrowthconfig.json", config)
         DPSdk.start { isSuccess, message ->
             run {
                 Log.d("短视频初始化", "结果=>$isSuccess   $message")

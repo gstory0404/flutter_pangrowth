@@ -24,7 +24,7 @@ class _NovelItemState extends State<NovelItem> {
         PangrowthNovel.openMiniStory(
           novelId: widget.entity.bookId ?? 0,
           index: widget.entity.index ?? 0,
-          adCode: "961597868",
+          adCode: "961597868",//激励广告id
         );
       },
       child: Container(

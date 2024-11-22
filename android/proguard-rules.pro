@@ -11,3 +11,8 @@
     public <init>(android.content.Context, android.util.AttributeSet);
     public <init>(android.content.Context, android.util.AttributeSet, int);
 }
+
+-keepattributes Annotation
+-keepattributes JavascriptInterface
+-keepclassmembers class * { @android.webkit.JavascriptInterface <methods>; }
+-keep class com.bytedance.sdk.dp.core.web.bridge.DPBridge { public *; }
